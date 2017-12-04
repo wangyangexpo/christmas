@@ -1,16 +1,6 @@
-$(function() {
-
-    preLoadImages(needCache, function() {
-        $('#stage').show();
-        santaClausAnimate0();
-    });
-
-})
-
-var cache = [];
-var needCache = [
+// 需要预加载的图片资源列表
+var cacheImage = [
     './images/dark.png',
-    './images/light.png',
     './images/moon.png',
     './images/santa_claus_shadow.gif',
     './images/santa_claus_2.gif',
@@ -24,9 +14,6 @@ var needCache = [
     './images/snow/01.png',
     './images/snow/02.png',
     './images/snow/03.png',
-    './images/boom/boom_01.png',
-    './images/boom/boom_02.png',
-    './images/boom/boom_03.png',
     './images/boom/boom_04.png',
     './images/block_1.png',
     './images/block_2.png',
@@ -34,6 +21,31 @@ var needCache = [
     './images/block_4.png',
 
 ];
+// 需要预加载的音频资源列表 id是音频的id 调用soundjs的时候使用的对应id
+var cacheAudio = [
+	{
+		src: './sound/gift.mp3',
+		id: 'gift'
+	},
+	{
+		src: './sound/boom.wav',
+		id: 'boom'
+	},
+	{
+		src: './sound/wipe.ogg',
+		id: 'wipe'
+	},
+	{
+		src: './sound/bgm.mp3',
+		id: 'bgm'
+	}
+];
+
+var c_image_length = cacheImage.length;
+var c_audio_length = cacheAudio.length;
+var res_total_length = c_image_length + c_audio_length;
+
+var audioDone = 0;
 
 // shim requestAnimationFrame
 window.requestAnimationFrame = (function() {
@@ -45,24 +57,61 @@ window.requestAnimationFrame = (function() {
         };
 })();
 
+$(function() {
+
+	FastClick.attach(document.body);
+
+	// 先加载图片列表
+    preloadImages(cacheImage, function() {
+    	// 加载完毕加载音频列表
+        preloadAudio(cacheAudio);
+    }, res_total_length);
+
+})
+
 // 图片预加载
-function preLoadImages(list, callback) {
-    var len = list.length;
-    var num = 0;
+function preloadImages(list, callback, total) {
+	var len = list.length;
+	var num = 0;
     for (var i = 0; i < len; i++) {
         var cacheImage = document.createElement('img');
         cacheImage.src = list[i];
         cacheImage.onload = function() {
             this.onload = null;
-            num += 1;
-            if (num == len) {
-                $('#loading').hide();
+            num++;
+            $('#load_percent').text((num / total * 100).toFixed(2));
+            if (num >= len) {
                 callback();
             }
-            $('#load_percent').text((num / len * 100).toFixed(2));
-
         };
-        cache.push(cacheImage);
+        
+    }
+}
+
+// 音频预加载
+function loadHandler(event) {
+	
+	audioDone++;
+
+	$('#load_percent').text(((c_image_length + audioDone) / res_total_length * 100).toFixed(2));
+    if (audioDone  >= c_audio_length) {
+        $('#loading').hide();
+        $('#stage').show();
+        $(document).on('touchstart', function() {
+        	$(document).off('touchstart');
+        	var instance = createjs.Sound.play('bgm');
+        	instance.volume = 0.4;
+        	santaClausAnimate0();
+        })
+    }
+    
+}
+
+function preloadAudio(list) {
+	createjs.Sound.on("fileload", loadHandler);
+    
+	for (var i = 0; i < list.length; i++) {
+        createjs.Sound.registerSound(list[i].src, list[i].id);
     }
 }
 
@@ -125,6 +174,7 @@ function giftAnimate() {
     $('#santa_claus_5').show();
     var _gift = $('#gift');
     _gift.show();
+    createjs.Sound.play("gift");
 
     // 基准缩放参数
     var g_w_step = 0.8;
@@ -232,6 +282,7 @@ function giftDroping() {
 function snowBoomAnimate() {
     var step = 100;
     var _block = $('.block');
+    createjs.Sound.play("boom");
 
     setTimeout(function() {
         $('.boom_4').show();
@@ -242,15 +293,16 @@ function snowBoomAnimate() {
         $('.boom').remove();
         // boom消失，绑定擦除积雪效果
         $('.snow').on('touchend', '.cover_snow', function() {
-	        $(this).remove();
-	    })
+        	createjs.Sound.play("wipe");
+            $(this).off('touchend').remove();
+        })
     }, 5500);
 }
 
 // 场景缩小 镜头拉远
 function furtherStageAnimate() {
     // 背景缩放
-    var bg_step = -0.7;
+    var bg_step = -0.5;
     var stage_bg_from = 160;
     var stage_bg_end = 100;
     // 月亮缩放
