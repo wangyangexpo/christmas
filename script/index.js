@@ -31,13 +31,21 @@ var cacheAudio = [
 		src: './sound/boom.wav',
 		id: 'boom'
 	},
-	{
-		src: './sound/wipe.ogg',
-		id: 'wipe'
-	},
+	// {
+	// 	src: './sound/wipe.ogg',
+	// 	id: 'wipe'
+	// },
 	{
 		src: './sound/bgm.mp3',
 		id: 'bgm'
+	},
+	// {
+	// 	src: './sound/laugh.ogg',
+	// 	id: 'laugh'
+	// },
+	{
+		src: './sound/bell_02.wav',
+		id: 'bell'
 	}
 ];
 
@@ -46,6 +54,8 @@ var c_audio_length = cacheAudio.length;
 var res_total_length = c_image_length + c_audio_length;
 
 var audioDone = 0;
+
+var belling = null;
 
 // shim requestAnimationFrame
 window.requestAnimationFrame = (function() {
@@ -94,13 +104,13 @@ function loadHandler(event) {
 	audioDone++;
 
 	$('#load_percent').text(((c_image_length + audioDone) / res_total_length * 100).toFixed(2));
+    
     if (audioDone  >= c_audio_length) {
         $('#loading').hide();
         $('#stage').show();
         $(document).on('touchstart', function() {
         	$(document).off('touchstart');
         	var instance = createjs.Sound.play('bgm');
-        	instance.volume = 0.4;
         	santaClausAnimate0();
         })
     }
@@ -108,6 +118,7 @@ function loadHandler(event) {
 }
 
 function preloadAudio(list) {
+
 	createjs.Sound.on("fileload", loadHandler);
     
 	for (var i = 0; i < list.length; i++) {
@@ -115,24 +126,10 @@ function preloadAudio(list) {
     }
 }
 
-// 动画执行函数 step是以最大的变化属性的step
-function animate(ele, attr, start, end, step, callback) {
-    end > start ? (step = step) : (step = -step);
-    var ani = function() {
-        start += step;
-        $(ele).css(attr, start + 'vw');
-        if (Math.abs(start - end) < Math.abs(step)) {
-            $(ele).css(attr, end + 'vw');
-            callback ? callback() : null;
-        } else {
-            requestAnimationFrame(ani);
-        }
-    }
-    requestAnimationFrame(ani);
-}
-
 // 圣诞老人剪影动画0
 function santaClausAnimate0() {
+	belling = createjs.Sound.play('bell');
+	
     animate('#santa_claus_0', 'right', -15, 100, 0.5, function() {
         console.log('santa_claus animation end');
         $('#santa_claus_0').remove();
@@ -142,7 +139,8 @@ function santaClausAnimate0() {
 
 // 圣诞老人剪影动画
 function santaClausAnimate1() {
-    animate('#santa_claus', 'left', -20, 100, 0.8, function() {
+	
+    animate('#santa_claus', 'left', -20, 110, 0.8, function() {
         console.log('santa_claus animation end');
         $('#santa_claus').remove();
         furtherStageAnimate();
@@ -151,9 +149,13 @@ function santaClausAnimate1() {
 
 // 圣诞老人二次入场动画
 function santaClausAnimate2() {
-    animate('#santa_claus_2', 'left', 100, -60, 1, function() {
+	var bellSound = createjs.Sound.play('bell');
+	
+    animate('#santa_claus_2', 'left', 100, -75, 1, function() {
         console.log('santa_claus_2 animation end');
         $('#santa_claus_2').remove();
+
+        bellSound.stop();
         santaClausAnimate3();
     });
 }
@@ -162,6 +164,7 @@ function santaClausAnimate2() {
 function santaClausAnimate3() {
     animate('#santa_claus_3', 'left', -120, 20, 2, function() {
         console.log('santa_claus_3 animation end');
+        //createjs.Sound.play("laugh");
         setTimeout(function() {
             $('#santa_claus_3').remove();
             giftAnimate();
@@ -174,7 +177,8 @@ function giftAnimate() {
     $('#santa_claus_5').show();
     var _gift = $('#gift');
     _gift.show();
-    createjs.Sound.play("gift");
+
+    var voice = createjs.Sound.play("gift");
 
     // 基准缩放参数
     var g_w_step = 0.8;
@@ -222,7 +226,6 @@ function giftAnimate() {
 function giftDroping() {
     var _stage = $('#stage');
     var _gift = $('#gift');
-    //var _block = $('.block');
 
     var s_t_step = -2;
     var stage_top_from = 0;
@@ -269,7 +272,7 @@ function giftDroping() {
             })
             console.log('droping end');
             _gift.hide();
-            //_block.show();
+
             snowBoomAnimate();
         } else {
             requestAnimationFrame(droping);
@@ -293,7 +296,7 @@ function snowBoomAnimate() {
         $('.boom').remove();
         // boom消失，绑定擦除积雪效果
         $('.snow').on('touchend', '.cover_snow', function() {
-        	createjs.Sound.play("wipe");
+        	//createjs.Sound.play("wipe");
             $(this).off('touchend').remove();
         })
     }, 5500);
@@ -379,29 +382,29 @@ function furtherStageAnimate() {
         snow_left_from += snow_l_step;
 
         _stage.css({
-            'backgroundSize': stage_bg_from + 'vw'
+            'backgroundSize': stage_bg_from.toFixed(2) + 'vw'
         });
         _moon.css({
-            'width': moon_width_from + 'vw',
-            'top': moon_top_from + 'vw',
-            'right': moon_right_from + 'vw'
+            'width': moon_width_from.toFixed(2) + 'vw',
+            'top': moon_top_from.toFixed(2) + 'vw',
+            'right': moon_right_from.toFixed(2) + 'vw'
         });
         _sky.css({
-            'width': sky_width_from + 'vw',
-            'height': sky_height_from + 'vw'
+            'width': sky_width_from.toFixed(2) + 'vw',
+            'height': sky_height_from.toFixed(2) + 'vw'
         });
-        _sky.css('left', sky_left_from + 'vw');
+        _sky.css('left', sky_left_from.toFixed(2) + 'vw');
 
         _bush.css({
-            'width': bush_width_from + 'vw',
-            'height': bush_height_from + 'vw',
-            'top': bush_top_from + 'vw',
-            'right': bush_right_from + 'vw'
+            'width': bush_width_from.toFixed(2) + 'vw',
+            'height': bush_height_from.toFixed(2) + 'vw',
+            'top': bush_top_from.toFixed(2) + 'vw',
+            'right': bush_right_from.toFixed(2) + 'vw'
         })
 
         _snow.css({
-            'top': snow_top_from + 'vw',
-            'left': snow_left_from + 'vw'
+            'top': snow_top_from.toFixed(2) + 'vw',
+            'left': snow_left_from.toFixed(2) + 'vw'
         })
 
         if (Math.abs(stage_bg_end - stage_bg_from) < Math.abs(bg_step)) {
@@ -433,6 +436,22 @@ function furtherStageAnimate() {
             })
 
             setTimeout(santaClausAnimate2, 500);
+        } else {
+            requestAnimationFrame(ani);
+        }
+    }
+    requestAnimationFrame(ani);
+}
+
+// 动画执行函数 step是以最大的变化属性的step
+function animate(ele, attr, start, end, step, callback) {
+    end > start ? (step = step) : (step = -step);
+    var ani = function() {
+        start += step;
+        $(ele).css(attr, start.toFixed(2) + 'vw');
+        if (Math.abs(start - end) < Math.abs(step)) {
+            $(ele).css(attr, end + 'vw');
+            callback ? callback() : null;
         } else {
             requestAnimationFrame(ani);
         }
