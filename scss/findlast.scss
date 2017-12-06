@@ -1,0 +1,8 @@
+.container {
+	width: 100vw;
+	&>.model {
+        width: 100vw;
+        height: 100vw;
+        background: #eee;
+    }
+}

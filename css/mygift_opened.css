@@ -1,0 +1,146 @@
+.container > .receive {
+  width: 100vw;
+  height: 73vw;
+  background: #027F6E;
+  position: relative; }
+  .container > .receive > .gift {
+    width: 100vw; }
+  .container > .receive > .phone {
+    width: 76.8vw;
+    height: 12.8vw;
+    border: 1px solid #fff;
+    border-radius: 2vw;
+    line-height: 12.8vw;
+    font-size: 4vw;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 3vw;
+    position: absolute;
+    left: 11.6vw;
+    top: 2vw;
+    outline: none; }
+  .container > .receive > .code {
+    width: 46.4vw;
+    height: 12.8vw;
+    border: 1px solid #fff;
+    border-radius: 2vw;
+    line-height: 12.8vw;
+    font-size: 4vw;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 3vw;
+    position: absolute;
+    left: 11.6vw;
+    top: 17vw;
+    outline: none; }
+  .container > .receive > .getcode {
+    width: 27.4vw;
+    height: 12.8vw;
+    border: 1px solid #fff;
+    border-radius: 2vw;
+    line-height: 12.8vw;
+    font-size: 4vw;
+    background: #fff;
+    color: #CD2D3A;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 3vw;
+    position: absolute;
+    right: 11.6vw;
+    top: 17vw;
+    text-align: center; }
+  .container > .receive > .commit {
+    width: 74.6vw;
+    height: 12.8vw;
+    border-radius: 6.4vw;
+    line-height: 12.8vw;
+    font-size: 4.5vw;
+    background: #fff;
+    color: #CD2D3A;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 3vw;
+    position: absolute;
+    left: 12.7vw;
+    top: 32vw;
+    text-align: center;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 2px 6px 0 rgba(0, 0, 0, 0.06), inset 0 -2px 4px 0 rgba(0, 0, 0, 0.58);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 2px 6px 0 rgba(0, 0, 0, 0.06), inset 0 -2px 4px 0 rgba(0, 0, 0, 0.58); }
+
+.container > .info {
+  width: 88vw;
+  border-radius: 20vw;
+  font-size: 4vw;
+  line-height: 1.4;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.12);
+  position: absolute;
+  top: 2.1vw;
+  left: 6vw;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 2vw 6vw; }
+
+.container > .content {
+  width: 100vw;
+  position: relative; }
+  .container > .content > .title {
+    width: 100vw;
+    height: 26.4vw;
+    background: url("../images/share/pic_huodongname.png") no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: 11;
+    top: -20vw; }
+    .container > .content > .title > .txt {
+      width: 51.5vw;
+      height: 15.1vw;
+      font-size: 4.8vw;
+      line-height: 1.5;
+      text-align: center;
+      color: #368566;
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      -webkit-transform: translate(-50%, -50%) rotateZ(2deg);
+      transform: translate(-50%, -50%) rotateZ(2deg); }
+  .container > .content > .gift {
+    width: 100vw;
+    background: url("../images/share/bg_wenli.png") repeat;
+    background-size: 25vw 25vw;
+    margin-top: -4vw;
+    z-index: 10;
+    position: absolute;
+    top: 4vw; }
+    .container > .content > .gift > .box {
+      width: 100vw;
+      height: 47.6vw; }
+      .container > .content > .gift > .box > div {
+        width: 22.3vw;
+        height: 24.7vw;
+        position: absolute; }
+      .container > .content > .gift > .box > div.normal {
+        background: url("../images/share/present_pic_normal.png") no-repeat;
+        background-size: contain; }
+      .container > .content > .gift > .box > div.disable {
+        background: url("../images/share/present_pic_disable.png") no-repeat;
+        background-size: contain; }
+      .container > .content > .gift > .box > div.zhufu {
+        background: url("../images/share/present_pic_open_zhufu.png") no-repeat;
+        background-size: contain; }
+      .container > .content > .gift > .box > div.jimu {
+        background: url("../images/share/present_pic_open_jimu.png") no-repeat;
+        background-size: contain; }
+      .container > .content > .gift > .box > .box-1 {
+        left: 10.9vw;
+        top: 9.9vw; }
+      .container > .content > .gift > .box > .box-2 {
+        left: 38.9vw;
+        top: 17.3vw; }
+      .container > .content > .gift > .box > .box-3 {
+        right: 10.9vw;
+        top: 9.9vw; }

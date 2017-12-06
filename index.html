@@ -5,52 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>葡萄科技</title>
-    <link rel="stylesheet" href="./style/public.css">
-    <link rel="stylesheet" href="./style/index.css">
-    <!-- <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script> -->
-    <script src="./script/soundjs.min.js"></script>
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./images/loading/6lian1.jpg">
 </head>
 
 <body>
     <div class="wicket" id="wicket">
         <div class="loading" id="loading">
+            <div id="loading_pic"></div>
             <div class="loading_text" id="loading_text">
             正在加载资源请稍等&nbsp;&nbsp;&nbsp;<span id="load_percent">0.00</span>%
             </div>
         </div>
         <div class="stage" id="stage">
-            <img src="./images/moon.png" alt="moon-pic" class="moon" id="moon">
-            <img src="./images/santa_claus_shadow.gif" alt="" class="santa-claus-0" id="santa_claus_0">
-            <img src="./images/santa_claus_shadow.gif" alt="" class="santa-claus" id="santa_claus">
-            <img src="./images/santa_claus_2.gif" alt="" class="santa-claus-2" id="santa_claus_2">
-            <img src="./images/santa_claus_3.gif" alt="" class="santa-claus-3" id="santa_claus_3">
-            <img src="./images/santa_claus_5.png" alt="" class="santa-claus-5" id="santa_claus_5">
-            <img src="./images/gift.png" alt="" class="gift" id="gift">
+            <div class="moon" id="moon">
+                <div id="txt" class="before"></div>
+            </div>
+            <div class="go before" id="go"></div>
+            <div class="santa-claus" id="santa-claus"></div>
+            <div class="gift" id="gift"></div>
+            
             <div class="sky" id="sky">
-                <img src="./images/star_small.png" alt="" class="big star star1">
-                <img src="./images/star_big.png" alt="" class="small star star2">
-                <img src="./images/dark.png" alt="" class="dark river">
+                <div class="star star-big" id="star-big"></div>
+                <div class="star star-small" id="star-small"></div>
+                <div class="river" id="river"></div>
             </div>
-            <img src="./images/bush.png" alt="" class="bush" id="bush">
-            <img src="./images/block_4.png" alt="" class="block block_4" id="block_4">
-            <div class="snow" id="snow">
-                <img src="./images/snow/01.png" alt="" class="snow_1 cover_snow" id="snow_1">
-                <img src="./images/snow/02.png" alt="" class="snow_2 cover_snow" id="snow_2">
-                <img src="./images/snow/03.png" alt="" class="snow_3 cover_snow" id="snow_3">
-                <img src="./images/boom/boom_04.png" alt="" class="boom boom_4">
+            <div class="bush" id="bush"></div>
 
-                <img src="./images/block_1.png" alt="" class="block block_1" id="block_1">
-                <img src="./images/block_1.png" alt="" class="block block_2" id="block_2">
-                <img src="./images/block_2.png" alt="" class="block block_3" id="block_3">
+            <div class="block block-4"></div>
+            <div class="ground" id="ground">
+
+                <div class="snow snow-1"></div>
+                <div class="snow snow-2"></div>
+                <div class="snow snow-3"></div>
+
+                <div class="block block-1 touch"></div>
+                <div class="block block-2 touch"></div>
+                <div class="block block-3 touch"></div>
+                <div class="block block-all"></div>
                 
-                <img src="./images/block_ground.png" alt="" class="block block_ground" id="block_ground">
+                <div class="boom" id="boom"></div>
             </div>
+            <div id="logo" class="logo before"></div>
+            <div id="ticket" class="ticket"></div>
+            <div class="model" id="model"></div>
         </div>
         
     </div>
-    <script src='./script/zepto.min.js'></script>
-    <script src='./script/fastclick.js'></script>
-    <script src="./script/index.js"></script>
+    <script src='./js/zepto.min.js'></script>
+    <script src='./js/fastclick.js'></script>
+    <script src="./js/soundjs.min.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

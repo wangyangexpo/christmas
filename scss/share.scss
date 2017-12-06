@@ -1,0 +1,307 @@
+.container {
+    &>.model {
+        width: 100vw;
+        height: 100vw;
+        background: #027F6E;
+    }
+    &>.receive {
+    	width: 100vw;
+        height: 60vw;
+        background: #027F6E;
+        position: relative;
+        &>.phone {
+			width: 76.8vw;
+			height: 12.8vw;
+			border: 1px solid #fff;
+			border-radius: 2vw;
+			line-height: 12.8vw;
+			font-size: 4vw;
+			background: transparent;
+			color: rgba(255, 255, 255, .5);
+			box-sizing: border-box;
+			padding: 0 3vw;
+			position: absolute;
+			left: 11.6vw;
+			top: 2vw;
+			outline: none;
+        }
+        &>.code {
+			width: 46.4vw;
+			height: 12.8vw;
+			border: 1px solid #fff;
+			border-radius: 2vw;
+			line-height: 12.8vw;
+			font-size: 4vw;
+			background: transparent;
+			color: rgba(255, 255, 255, .5);
+			box-sizing: border-box;
+			padding: 0 3vw;
+			position: absolute;
+			left: 11.6vw;
+			top: 17vw;
+			outline: none;
+        }
+        &>.getcode {
+			width: 27.4vw;
+			height: 12.8vw;
+			border: 1px solid #fff;
+			border-radius: 2vw;
+			line-height: 12.8vw;
+			font-size: 4vw;
+			background: #fff;
+			color: #CD2D3A;
+			box-sizing: border-box;
+			padding: 0 3vw;
+			position: absolute;
+			right: 11.6vw;
+			top: 17vw;
+			text-align: center;
+        }
+        &>.commit {
+			width: 74.6vw;
+			height: 12.8vw;
+			border-radius: 6.4vw;
+			line-height: 12.8vw;
+			font-size: 4.5vw;
+			background: #fff;
+			color: #CD2D3A;
+			box-sizing: border-box;
+			padding: 0 3vw;
+			position: absolute;
+			left: 12.7vw;
+			top: 32vw;
+			text-align: center;
+			box-shadow: 0 2px 4px 0 rgba(0,0,0,0.12), 0 2px 6px 0 rgba(0,0,0,0.06), inset 0 -2px 4px 0 rgba(0,0,0,0.58);
+        }
+    }
+    &>.info {
+    	width: 88vw;
+    	border-radius: 20vw;
+    	font-size: 4vw;
+    	line-height: 1.4;
+    	color: #fff;
+    	background: rgba(0,0,0,0.12);
+    	position: absolute;
+    	top: 2.1vw;
+    	left: 6vw;
+    	box-sizing: border-box;
+    	padding: 2vw 6vw;
+    }
+    &>.content {
+    	width: 100vw;
+    	position: relative;
+		&>.title {
+			width: 100vw;
+			height: 26.4vw;
+			background: url('../images/share/pic_huodongname.png') no-repeat;
+			background-size: cover;
+			position: absolute;
+			z-index: 11;
+			top: -20vw;
+			&>.txt {
+				width: 51.5vw;
+				height: 15.1vw;
+				font-size: 4.8vw;
+				line-height: 1.5;
+				text-align: center;
+				color: #368566;
+				position: absolute;
+				left: 50%;
+				top: 40%;
+				transform: translate(-50%, -50%) rotateZ(2deg);
+			}
+		}
+		&>.gift {
+			width: 100vw;
+			background: url('../images/share/bg_wenli.png') repeat;
+			background-size: 25vw 25vw;
+			margin-top: -4vw;
+			z-index: 10;
+			position: absolute;
+			top: 4vw;
+			&>.box {
+				width: 100vw;
+				height: 47.6vw;
+				&>div {
+					width: 22.3vw;
+					height: 24.7vw;
+					position: absolute;
+				}
+				&>div.normal {
+					background: url('../images/share/present_pic_normal.png') no-repeat;
+					background-size: contain;
+				}
+				&>div.disable {
+					background: url('../images/share/present_pic_disable.png') no-repeat;
+					background-size: contain;
+				}
+				&>div.zhufu {
+					background: url('../images/share/present_pic_open_zhufu.png') no-repeat;
+					background-size: contain;
+				}
+				&>div.jimu {
+					background: url('../images/share/present_pic_open_jimu.png') no-repeat;
+					background-size: contain;
+				}
+				&>.box-1 {
+					left: 10.9vw;
+					top: 9.9vw;
+				}
+				&>.box-2 {
+					left: 38.9vw;
+					top: 17.3vw;
+				}
+				&>.box-3 {
+					right: 10.9vw;
+					top: 9.9vw;
+				}
+			}
+			&>.desc {
+				width: 100vw;
+				height: 95vw;
+				background: url('../images/share/pic_huodongxiangqing.png') no-repeat;
+				background-size: 91.5vw auto;
+				background-position: top center;
+				position: relative;
+				&>.trigger {
+					font-size: 4vw;
+					text-align: center;
+					line-height: 6.2vw;
+					color: #FFBA2C;
+					width: 17vw;
+					height: 6.2vw;
+					position: absolute;
+					top: 9vw;
+					right: 8.2vw;
+					text-decoration: underline;
+				}
+				&>.detail {
+					width: 91.4vw;
+					height: 77.5vw;
+					background: #821B1E;
+					position: absolute;
+					top: 17.3vw;
+					left: 4.3vw;
+					border-radius: 0 0 1.5vw 1.5vw;
+					&>.step {
+						height: 32vw;
+						margin-top: 3vw;
+						position: relative;
+						&>.tit {
+							font-size: 4.5vw;
+							width: 50.6vw;
+							position: absolute;
+							color: #fff;
+							left: 4.2vw;
+							top: 0vw;
+						}
+						&>.exp {
+							font-weight: 100;
+							width: 50.6vw;
+							font-size: 4vw;
+							position: absolute;
+							line-height: 1.5;
+							color: #fff;
+							left: 4.2vw;
+							top: 7vw;
+							letter-spacing: 0.1em;
+							&>span {
+								color: #FFBA2C;
+							}
+						}
+						&>.pic {
+							width: 26.6vw;
+							height: 26.6vw;
+							background: #eee;
+							position: absolute;
+							left: 60.5vw;
+						}
+					}
+					&>.step-2 {
+						margin-top: 6vw;
+					}
+				}
+			}
+			&>.desc.close {
+				height: 19vw;
+				&>.detail {
+					display: none;
+				}
+			}
+			&>.help {
+				width: 100vw;
+				&>.head {
+					width: 100vw;
+					height: 12vw;
+					text-align: center;
+					line-height: 12vw;
+					font-size: 4.5vw;
+					color: #fff;
+					background: url('../images/share/friendzhuli_pic.png') no-repeat;
+					background-size: 42vw auto;
+					background-position: bottom center;
+				}
+				&>ul {
+					/* padding: 5.3vw 6.4vw; */
+					&>li {
+						height: 19.3vw;
+						position: relative;
+						&:after {
+							content: '';
+							display: block;
+							width: 69.3vw;
+							height: 1px;
+							position: absolute;
+							right: 6.5vw;
+							bottom: 0;
+							background: #901D1F;
+							opacity: 0.32;
+						}
+						&>.avatar {
+							display: block;
+							width: 12.8vw;
+							height: 12.8vw;
+							position: absolute;
+							left: 6.4vw;
+							top: 3.2vw;
+							background: #eee;
+							border-radius: 6.4vw;
+							overflow: hidden;
+						}
+						&>.name {
+							width: 48vw;
+							font-size: 4vw;
+							color: #fff;
+							line-height: 1.4;
+							position: absolute;
+							left: 24vw;
+							top: 3.2vw;
+						}
+						&>.gift {
+							width: 38vw;
+							font-size: 2.8vw;
+							color: rgba(255, 255, 255, .7);
+							line-height: 1.4;
+							position: absolute;
+							left: 24vw;
+							top: 11.2vw;
+
+						}
+						&>.date {
+							width: 20vw;
+							font-size: 2.8vw;
+							color: rgba(255, 255, 255, .7);
+							line-height: 1.4;
+							position: absolute;
+							text-align: right;
+							right: 6.5vw;
+							top: 7.2vw;
+
+						}
+					}
+				}
+			}
+		}
+
+    }
+}
