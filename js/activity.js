@@ -10,6 +10,9 @@ $(function() {
                 var master_uid = res.id;
                 var url = config.shareurl + '?master_uid=' + master_uid;
                 wxShare(url, 0)
+                $('.container').on('click', '.begin', function() {
+                    $('.mask').show();
+                })
             }
         })
     } else {
@@ -18,10 +21,6 @@ $(function() {
             mobikeShare(config.defaultshareurl, 0);
         }
     }
-
-    $('.container').on('click', '.begin', function() {
-        $('.mask').show();
-    })
 
     $('.container').on('click', '.rule-title', function() {
         $('.rule-content').toggle();

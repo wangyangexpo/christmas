@@ -38,9 +38,9 @@ $(function() {
         checkMyGift(function(res) {
             console.log(res.id);
             if (res.error_code == 0) {
-                var giftlist = res.gift_list;
+                var giftlist = res.prize_list;
                 var nickname = res.master_info.nickname;
-                var master_uid = res.id;
+                var master_uid = res.master_info.id;
                 render(giftlist, nickname, master_uid);
             }
         })

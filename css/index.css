@@ -3,6 +3,27 @@
   height: 177vw;
   overflow: hidden;
   position: relative; }
+  #wicket > .go-txt {
+    width: 65vw;
+    height: 55.9vw;
+    background: url("../images/start_name.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+    position: absolute;
+    z-index: 1000;
+    top: 27vw;
+    left: 17.5vw;
+    display: none;
+    pointer-events: none; }
+  #wicket > #logo {
+    display: none;
+    width: 70vw;
+    height: 7vw;
+    position: absolute;
+    left: 15vw;
+    top: 5vw;
+    background: url("../images/findlast/logo.png") no-repeat;
+    background-size: cover; }
 
 #stage {
   display: none;
@@ -94,15 +115,6 @@
   animation: go 1s ease-in-out infinite;
   z-index: 999;
   -webkit-tap-highlight-color: transparent; }
-
-#logo {
-  width: 45vw;
-  height: 4.4vw;
-  position: absolute;
-  left: 28vw;
-  top: 52vw;
-  background: url("../images/findlast/logo.png") no-repeat;
-  background-size: cover; }
 
 .disappear {
   opacity: 0;

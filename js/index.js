@@ -139,7 +139,7 @@ function loadHandler(event) {
     if (audioDone >= c_audio_length) {
         clearInterval(loadingani);
         $('#loading').remove();
-        $('#stage').show();
+        $('#stage,#gotext,#logo').show();
         $('#go').on('touchstart', function() {
             $('#go').off('touchstart');
             $('.before').addClass('disappear');
@@ -161,7 +161,7 @@ function preloadAudio(list) {
     } else {
         clearInterval(loadingani);
         $('#loading').remove();
-        $('#stage').show();
+        $('#stage,#gotext,#logo').show();
         $(document).on('touchstart', function() {
             $(document).off('touchstart');
             var instance = createjs.Sound.play('bgm');

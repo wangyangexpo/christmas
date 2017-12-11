@@ -44,9 +44,9 @@ $(function() {
     getAssistList(master_uid, function(res) {
         if (res.error_code == 0) {
             var nickname = '（' + res.master_info.nickname + '）';
-            setData({
-                nickname: res.master_info.nickname
-            });
+            // setData({
+            //     nickname: res.master_info.nickname
+            // });
 
             var headimgurl = res.master_info.headimgurl;
             var html;
@@ -117,8 +117,10 @@ function bindOpenGift(master_uid) {
         openGift(master_uid, position, function(res) {
             var master_result = res.master_result;
             var custom_result = res.custom_result;
-            var mb_code = res.code || '';
+            var custom_nickname = res.custom_nickname;
+            var mb_code = res.custom_code || '';
             setData({
+                custom_nickname: custom_nickname,
                 custom_result: custom_result,
                 mb_code: mb_code,
             })

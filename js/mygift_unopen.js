@@ -1,6 +1,6 @@
 $(function() {
     var giftid = getData('custom_result');
-    var nickname = getData('nickname');
+    var nickname = getData('custom_nickname');
     $('.open-btn').on('click', function() {
         if (!giftid) {
             alert('非法进入！');

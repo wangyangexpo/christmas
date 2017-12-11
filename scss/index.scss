@@ -1,634 +1,652 @@
 #wicket {
-	width: 100vw;
-	height: 177vw;
-	overflow: hidden;
-	position: relative;
+    width: 100vw;
+    height: 177vw;
+    overflow: hidden;
+    position: relative;
+    &>.go-txt {
+        width: 65vw;
+        height: 55.9vw;
+        background: url('../images/start_name.png') no-repeat;
+        background-size: contain;
+        background-position: center center;
+        position: absolute;
+        z-index: 1000;
+        top: 27vw;
+        left: 17.5vw;
+        display: none;
+        pointer-events: none;
+    }
+    &>#logo {
+    	display: none;
+        width: 70vw;
+        height: 7vw;
+        position: absolute;
+        left: 15vw;
+        top: 5vw;
+        background: url('../images/findlast/logo.png') no-repeat;
+        background-size: cover;
+    }
 }
 
 #stage {
-	display: none;
-	width: 100vw;
-	height: 387.6vw;
-	background: url('../images/stage_nothing.jpeg') no-repeat;
-	background-size: 100vw auto;
-	background-position: center top;
-	position: absolute;
-	top: 0vw;/*-128vw*/
-	transform: scale(1.6) translateY(-50vw);
-	transform-origin: center top;
-	will-change: transform;
-	transition: transform 2s;
-	&>.hand-1 {
-		width: 32vw;
-		height: 32vw;
-		background: url('../images/gesture/gesture.png') no-repeat;
-		background-size: contain;
-		position: absolute;
-		pointer-events: none;
-		z-index: 999;
-		left: 5vw;
-		top: 240vw;
-		opacity: 0;
-		&.gesture {
-			animation: gesture 10s linear infinite;
-		}
-	}
+    display: none;
+    width: 100vw;
+    height: 387.6vw;
+    background: url('../images/stage_nothing.jpeg') no-repeat;
+    background-size: 100vw auto;
+    background-position: center top;
+    position: absolute;
+    top: 0vw;
+    /*-128vw*/
+    transform: scale(1.6) translateY(-50vw);
+    transform-origin: center top;
+    will-change: transform;
+    transition: transform 2s;
+    &>.hand-1 {
+        width: 32vw;
+        height: 32vw;
+        background: url('../images/gesture/gesture.png') no-repeat;
+        background-size: contain;
+        position: absolute;
+        pointer-events: none;
+        z-index: 999;
+        left: 5vw;
+        top: 240vw;
+        opacity: 0;
+        &.gesture {
+            animation: gesture 10s linear infinite;
+        }
+    }
 
-	&>.hand-2 {
-		width: 32vw;
-		height: 32vw;
-		background: url('../images/gesture/gesture.gif') no-repeat;
-		background-size: contain;
-		position: absolute;
-		pointer-events: none;
-		left: 65vw;
-		top: 282vw;
-		z-index: 999;
-		display: none;
-	}
+    &>.hand-2 {
+        width: 32vw;
+        height: 32vw;
+        background: url('../images/gesture/gesture.gif') no-repeat;
+        background-size: contain;
+        position: absolute;
+        pointer-events: none;
+        left: 65vw;
+        top: 282vw;
+        z-index: 999;
+        display: none;
+    }
 }
 
 #stage.far {
-	transform: scale(1) translateY(-80vw);
-	transform-origin: center top;
+    transform: scale(1) translateY(-80vw);
+    transform-origin: center top;
 }
 
 #moon {
-	position: absolute;
-	display: block;
-	width: 30vw;
-	height: 27.5vw;
-	border-radius: 12vw;
-	overflow: hidden;
-	right: 35vw;
-	top: 75vw;
-	background: url('../images/moon.png') no-repeat;
-	background-size: cover;
-	z-index: 100;
-	will-change: transform;
-	transform: scale(2);
-	transition: all 2s;
-	opacity: 1;
+    position: absolute;
+    display: block;
+    width: 30vw;
+    height: 27.5vw;
+    border-radius: 12vw;
+    overflow: hidden;
+    right: 35vw;
+    top: 75vw;
+    background: url('../images/moon.png') no-repeat;
+    background-size: cover;
+    z-index: 100;
+    will-change: transform;
+    transform: scale(2);
+    transition: all 2s;
+    opacity: 1;
 
-	&>#txt {
-		width: 30vw;
-		height: 26.6vw;
-		background: url('../images/start_name.png') no-repeat;
-		background-size: 22.5vw auto;
-		background-position: center center;
-		position: absolute;
-		top: -1vw;
-	}
+    &>#txt {
+        width: 30vw;
+        height: 26.6vw;
+        background: url('../images/start_name.png') no-repeat;
+        background-size: 22.5vw auto;
+        background-position: center center;
+        position: absolute;
+        top: -1vw;
+    }
 }
 
 #go {
-	width: 12vw;
-	height: 12vw;
-	background: url('../images/start_btn.png') no-repeat;
-	background-size: cover;
-	position: absolute;
-	left: 44vw;
-	top: 125vw;
-	animation: go 1s ease-in-out infinite;
-	z-index: 999;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    width: 12vw;
+    height: 12vw;
+    background: url('../images/start_btn.png') no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 44vw;
+    top: 125vw;
+    animation: go 1s ease-in-out infinite;
+    z-index: 999;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-#logo {
-	width: 45vw;
-	height: 4.4vw;
-	position: absolute;
-	left: 28vw;
-	top: 52vw;
-	background: url('../images/findlast/logo.png') no-repeat;
-	background-size: cover;
-}
+
 
 .disappear {
-	opacity: 0;
-	transition: opacity .6s ease-out;
+    opacity: 0;
+    transition: opacity .6s ease-out;
 }
 
 #moon.far {
-	transform: scale(1) translate(20vw, 12vw);
+    transform: scale(1) translate(20vw, 12vw);
 }
 
 #sky {
-	position: absolute;
-	display: block;
-	width: 100vw;
-	left: 0vw;
-	top: 0vw;
+    position: absolute;
+    display: block;
+    width: 100vw;
+    left: 0vw;
+    top: 0vw;
 }
 
 #sky .star {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100vw;
-	height: 132.4vw;
-	opacity: 0;
-	overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 132.4vw;
+    opacity: 0;
+    overflow: hidden;
 }
 
 #sky .star-small {
-	background: url('../images/star_small.png') no-repeat;
-	background-size: cover;
-	animation: shine1 3s ease-in-out infinite;
-	transform: rotateZ(270deg);
+    background: url('../images/star_small.png') no-repeat;
+    background-size: cover;
+    animation: shine1 3s ease-in-out infinite;
+    transform: rotateZ(270deg);
 }
 
 #sky .star-big {
-	background: url('../images/star_big.png') no-repeat;
-	background-size: cover;
-	animation: shine2 3s ease-in-out infinite;
+    background: url('../images/star_big.png') no-repeat;
+    background-size: cover;
+    animation: shine2 3s ease-in-out infinite;
 }
 
 #sky .river {
-	display: block;
-	position: absolute;
-	width: 58vw;
-	height: 69vw;
-	left: 20vw;
-	top: 85vw;
-	opacity: 0;
-	transition: all 2s ease-in;
-	background: url('../images/dark.png') no-repeat;
-	background-size: cover;
+    display: block;
+    position: absolute;
+    width: 58vw;
+    height: 69vw;
+    left: 20vw;
+    top: 85vw;
+    opacity: 0;
+    transition: all 2s ease-in;
+    background: url('../images/dark.png') no-repeat;
+    background-size: cover;
 }
 
 #sky.far .river {
-	opacity: 0.05;
-	animation: river 5s ease-out infinite;
+    opacity: 0.05;
+    animation: river 5s ease-out infinite;
 }
 
 .bush {
-	display: block;
-	position: absolute;
-	width: 45vw;
-	height: 118.2vw;
-	right: 0;
-	top: 200vw;
-	z-index: 110;
-	background: url('../images/bush.png') no-repeat;
-	background-size: 45vw auto;
+    display: block;
+    position: absolute;
+    width: 45vw;
+    height: 118.2vw;
+    right: 0;
+    top: 200vw;
+    z-index: 110;
+    background: url('../images/bush.png') no-repeat;
+    background-size: 45vw auto;
 }
 
 .santa-claus-1 {
-	position: absolute;
-	left: 100vw;
-	top: 76vw;
-	width: 12vw;
-	height: 12.4vw;
-	background: url('../images/santa_claus_shadow_left.gif') no-repeat;
-	background-size: cover;
-	z-index: 99;
+    position: absolute;
+    left: 100vw;
+    top: 76vw;
+    width: 12vw;
+    height: 12.4vw;
+    background: url('../images/santa_claus_shadow_left.gif') no-repeat;
+    background-size: cover;
+    z-index: 99;
 }
 
 .santa-claus-2 {
-	position: absolute;
-	left: -15vw;
-	top: 92vw;
-	width: 15vw;
-	height: 8.5vw;
-	background: url('../images/santa_claus_shadow.gif') no-repeat;
-	background-size: cover;
-	z-index: 101;
+    position: absolute;
+    left: -15vw;
+    top: 92vw;
+    width: 15vw;
+    height: 8.5vw;
+    background: url('../images/santa_claus_shadow.gif') no-repeat;
+    background-size: cover;
+    z-index: 101;
 }
 
 .santa-claus-3 {
-	position: absolute;
-	left: 100vw;
-	top: 145vw;
-	width: 50vw;
-	height: 26.2vw;
-	background: url('../images/santa_claus_normal.gif') no-repeat;
-	background-size: cover;
-	z-index: 101;
+    position: absolute;
+    left: 100vw;
+    top: 145vw;
+    width: 50vw;
+    height: 26.2vw;
+    background: url('../images/santa_claus_normal.gif') no-repeat;
+    background-size: cover;
+    z-index: 101;
 }
 
 .santa-claus-4 {
-	position: absolute;
-	left: -60vw;/*25vw*/
-	top: 140vw;
-	width: 60vw;
-	height: 90.3vw;
-	background: url('../images/santa_claus_gift.gif') no-repeat;
-	background-size: cover;
-	z-index: 101;
+    position: absolute;
+    left: -60vw;
+    /*25vw*/
+    top: 140vw;
+    width: 60vw;
+    height: 90.3vw;
+    background: url('../images/santa_claus_gift.gif') no-repeat;
+    background-size: cover;
+    z-index: 101;
 }
 
 .santa-claus-5 {
-	position: absolute;
-	left: 25vw;
-	top: 140vw;
-	width: 60vw;
-	height: 90.3vw;
-	background: url('../images/santa_claus_done.png') no-repeat;
-	background-size: cover;
-	z-index: 101;
+    position: absolute;
+    left: 25vw;
+    top: 140vw;
+    width: 60vw;
+    height: 90.3vw;
+    background: url('../images/santa_claus_done.png') no-repeat;
+    background-size: cover;
+    z-index: 101;
 }
 
 .gift {
-	width: 13vw;
-	height: 14.9vw;
-	position: absolute;
-	display: none;
-	left: 29vw;
-	top: 150vw;
-	z-index: 120;
-	animation: spin 1s linear infinite;
-	background: url('../images/gift.png') no-repeat;
-	background-size: cover;
+    width: 13vw;
+    height: 14.9vw;
+    position: absolute;
+    display: none;
+    left: 29vw;
+    top: 150vw;
+    z-index: 120;
+    animation: spin 1s linear infinite;
+    background: url('../images/gift.png') no-repeat;
+    background-size: cover;
 }
 
 
 
 
 #loading {
-	width: 100vw;
-	height: 177.8vw;
-	background-color: #091e39;
-	position: relative;
+    width: 100vw;
+    height: 177.8vw;
+    background-color: #091e39;
+    position: relative;
 }
 
 #loading_pic {
-	position: absolute;
-	left: 30vw;
-	top: 60vw;
-	width: 40vw;
-	height: 49.5vw;
-	display: block;
-	background: url('../images/loading/6lian1.jpg') no-repeat;
-	background-size: auto 49.5vw;
-	background-position: 0vw;
+    position: absolute;
+    left: 30vw;
+    top: 60vw;
+    width: 40vw;
+    height: 49.5vw;
+    display: block;
+    background: url('../images/loading/6lian1.jpg') no-repeat;
+    background-size: auto 49.5vw;
+    background-position: 0vw;
 }
 
 #loading_text {
-	width: 100vw;
-	text-align: center;
-	color: #fff;
-	font-size: 3.6vw;
-	position: absolute;
-	top: 120vw;
+    width: 100vw;
+    text-align: center;
+    color: #fff;
+    font-size: 3.6vw;
+    position: absolute;
+    top: 120vw;
 }
 
 
 .ground {
-	width: 100vw;
-	height: 177.8vw;
-	position: absolute;
-	top: 224vw;
-	z-index: 111;
+    width: 100vw;
+    height: 177.8vw;
+    position: absolute;
+    top: 224vw;
+    z-index: 111;
 }
 
 .block {
-	display: none;
+    display: none;
 }
 
 .block-all {
-	width: 100vw;
-	height: 177.8vw;
-	background: url('../images/block_all.png') no-repeat;
-	background-size: 100vw auto;
-	position: absolute;
-	z-index: 111;
+    width: 100vw;
+    height: 177.8vw;
+    background: url('../images/block_all.png') no-repeat;
+    background-size: 100vw auto;
+    position: absolute;
+    z-index: 111;
 }
 
 .block-1 {
-	width: 18vw;
-	height: 20.9vw;
-	position: absolute;
-	left: 12vw;
-	top: 4vw;
-	transform: rotateZ(16deg);
-	background: url('../images/block_1.png') no-repeat;
-	background-size: contain;
-	animation: shaking1 7s ease-in-out infinite;
-	transform-origin: left bottom;
-	z-index: 112;
+    width: 18vw;
+    height: 20.9vw;
+    position: absolute;
+    left: 12vw;
+    top: 4vw;
+    transform: rotateZ(16deg);
+    background: url('../images/block_1.png') no-repeat;
+    background-size: contain;
+    animation: shaking1 7s ease-in-out infinite;
+    transform-origin: left bottom;
+    z-index: 112;
 }
 
 .block-2 {
-	width: 20vw;
-	height: 17vw;
-	position: absolute;
-	left: 62vw;
-	top: 56vw;
-	background: url('../images/block_2.png') no-repeat;
-	background-size: contain;
-	animation: shaking2 7s ease-in-out infinite;
-	transform-origin: left bottom;
-	z-index: 112;
+    width: 20vw;
+    height: 17vw;
+    position: absolute;
+    left: 62vw;
+    top: 56vw;
+    background: url('../images/block_2.png') no-repeat;
+    background-size: contain;
+    animation: shaking2 7s ease-in-out infinite;
+    transform-origin: left bottom;
+    z-index: 112;
 }
 
 .block-3 {
-	width: 18vw;
-	height: 20.9vw;
-	position: absolute;
-	left: 12vw;
-	top: 117vw;
-	background: url('../images/block_1.png') no-repeat;
-	background-size: contain;
-	animation: shaking3 7s ease-in-out infinite;
-	transform-origin: left bottom;
-	z-index: 112;
+    width: 18vw;
+    height: 20.9vw;
+    position: absolute;
+    left: 12vw;
+    top: 117vw;
+    background: url('../images/block_1.png') no-repeat;
+    background-size: contain;
+    animation: shaking3 7s ease-in-out infinite;
+    transform-origin: left bottom;
+    z-index: 112;
 }
 
 .block-4 {
-	width: 14vw;
-	height: 7vw;
-	position: absolute;
-	left: 49vw;
-	top: 254vw;
-	z-index: 105;
-	background: url('../images/block_4.png') no-repeat;
-	background-size: contain;
+    width: 14vw;
+    height: 7vw;
+    position: absolute;
+    left: 49vw;
+    top: 254vw;
+    z-index: 105;
+    background: url('../images/block_4.png') no-repeat;
+    background-size: contain;
 }
 
 .boom {
-	display: none;
-	width: 100vw;
-	height: 146.9vw;
-	z-index: 115;
-	position: absolute;
-	background: url('../images/boom/boom_04.png') no-repeat;
-	background-size: contain;
-	animation: fade 5s linear;
-	animation-fill-mode: forwards;
+    display: none;
+    width: 100vw;
+    height: 146.9vw;
+    z-index: 115;
+    position: absolute;
+    background: url('../images/boom/boom_04.png') no-repeat;
+    background-size: contain;
+    animation: fade 5s linear;
+    animation-fill-mode: forwards;
 }
 
 .snow {
-	position: absolute;
-	width: 100vw;
-	height: 177.8vw;
+    position: absolute;
+    width: 100vw;
+    height: 177.8vw;
 }
 
 .snow-1 {
-	background: url('../images/snow/snow_01.png') no-repeat;
-	background-size: cover;
-	z-index: 118;
+    background: url('../images/snow/snow_01.png') no-repeat;
+    background-size: cover;
+    z-index: 118;
 }
 
 .snow-2 {
-	background: url('../images/snow/snow_02.png') no-repeat;
-	background-size: cover;
-	z-index: 116;
+    background: url('../images/snow/snow_02.png') no-repeat;
+    background-size: cover;
+    z-index: 116;
 }
 
 .snow-3 {
-	background: url('../images/snow/snow_03.png') no-repeat;
-	background-size: cover;
-	z-index: 117;
+    background: url('../images/snow/snow_03.png') no-repeat;
+    background-size: cover;
+    z-index: 117;
 }
 
 @keyframes go {
-	0% {
-		transform: scale(1);
-	}
-	50% {
-		transform: scale(1.2);
-	}
-	100% {
-		transform: scale(1);
-	}
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 @keyframes shine1 {
-	0% {
-		opacity: 0;
-	}
-	50% {
-		opacity: 0.9;
-	}
-	100% {
-		opacity: 0;
-	}
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes shine2 {
-	0% {
-		opacity: 0.9;
-	}
-	50% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 0.9;
-	}
+    0% {
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.9;
+    }
 }
 
 @keyframes river {
-	0% {
-		opacity: 0.1;
-	}
-	50% {
-		opacity: 0.25;
-	}
-	100% {
-		opacity: 0.1;
-	}
+    0% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 0.1;
+    }
 }
 
 @keyframes spin {
-	0% {
-		transform: rotateZ(0deg);
-	}
-	100% {
-		transform: rotateZ(360deg);
-	}
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
 }
 
 @keyframes fade {
-	0% {
-		opacity: 1;
-	}
-	50% {
-		opacity: 0.8;
-	}
-	100% {
-		opacity: 0;
-	}
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes shaking1 {
-	0% {
-		transform: rotateZ(16deg);
-	}
-	2% {
-		transform: rotateZ(8deg);
-	}
-	4% {
-		transform: rotateZ(22deg);
-	}
-	6% {
-		transform: rotateZ(12deg);
-	}
-	8% {
-		transform: rotateZ(19deg);
-	}
-	10% {
-		transform: rotateZ(16deg);
-	}
-	100% {
-		transform: rotateZ(16deg);
-	}
+    0% {
+        transform: rotateZ(16deg);
+    }
+    2% {
+        transform: rotateZ(8deg);
+    }
+    4% {
+        transform: rotateZ(22deg);
+    }
+    6% {
+        transform: rotateZ(12deg);
+    }
+    8% {
+        transform: rotateZ(19deg);
+    }
+    10% {
+        transform: rotateZ(16deg);
+    }
+    100% {
+        transform: rotateZ(16deg);
+    }
 }
 
 @keyframes shaking2 {
-	0% {
-		transform: rotateZ(0deg);
-	}
-	70% {
-		transform: rotateZ(0deg);
-	}
-	72% {
-		transform: rotateZ(-6deg);
-	}
-	74% {
-		transform: rotateZ(6deg);
-	}
-	76% {
-		transform: rotateZ(-4deg);
-	}
-	78% {
-		transform: rotateZ(4deg);
-	}
-	80% {
-		transform: rotateZ(0deg);
-	}
-	100% {
-		transform: rotateZ(0deg);
-	}
+    0% {
+        transform: rotateZ(0deg);
+    }
+    70% {
+        transform: rotateZ(0deg);
+    }
+    72% {
+        transform: rotateZ(-6deg);
+    }
+    74% {
+        transform: rotateZ(6deg);
+    }
+    76% {
+        transform: rotateZ(-4deg);
+    }
+    78% {
+        transform: rotateZ(4deg);
+    }
+    80% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
 }
 
 @keyframes shaking3 {
-	0% {
-		transform: rotateZ(-20deg);
-	}
-	33% {
-		transform: rotateZ(-20deg);
-	}
-	35% {
-		transform: rotateZ(-26deg);
-	}
-	37% {
-		transform: rotateZ(-14deg);
-	}
-	39% {
-		transform: rotateZ(-22deg);
-	}
-	41% {
-		transform: rotateZ(-16deg);
-	}
-	43% {
-		transform: rotateZ(-20deg);
-	}
-	100% {
-		transform: rotateZ(-20deg);
-	}
+    0% {
+        transform: rotateZ(-20deg);
+    }
+    33% {
+        transform: rotateZ(-20deg);
+    }
+    35% {
+        transform: rotateZ(-26deg);
+    }
+    37% {
+        transform: rotateZ(-14deg);
+    }
+    39% {
+        transform: rotateZ(-22deg);
+    }
+    41% {
+        transform: rotateZ(-16deg);
+    }
+    43% {
+        transform: rotateZ(-20deg);
+    }
+    100% {
+        transform: rotateZ(-20deg);
+    }
 }
 
 @keyframes loading {
-	0% {
-		transform: translateY(0vw) rotateZ(0deg);
-	}
-	25% {
-		transform: translateY(10vw) rotateZ(-30deg);
-	}
-	50% {
-		transform: translateY(0vw) rotateZ(0deg);
-	}
-	75% {
-		transform: translateY(10vw) rotateZ(30deg);
-	}
-	100% {
-		transform: translateY(0vw) rotateZ(0deg);
-	}
+    0% {
+        transform: translateY(0vw) rotateZ(0deg);
+    }
+    25% {
+        transform: translateY(10vw) rotateZ(-30deg);
+    }
+    50% {
+        transform: translateY(0vw) rotateZ(0deg);
+    }
+    75% {
+        transform: translateY(10vw) rotateZ(30deg);
+    }
+    100% {
+        transform: translateY(0vw) rotateZ(0deg);
+    }
 }
 
 #ticket {
-	width: 100vw;
-	height: 60vw;
-	background: url('../images/ticket.png') no-repeat;
-	background-size: contain;
-	position: absolute;
-	transform: rotateZ(-15deg);
-	left: 104vw; /*-2*/
-	top: 180vw; /*275*/
-	z-index: 1000;
+    width: 100vw;
+    height: 60vw;
+    background: url('../images/ticket.png') no-repeat;
+    background-size: contain;
+    position: absolute;
+    transform: rotateZ(-15deg);
+    left: 104vw;
+    /*-2*/
+    top: 180vw;
+    /*275*/
+    z-index: 1000;
 }
 
 #ticket.fly {
-	animation: fly 5s linear;
+    animation: fly 5s linear;
 }
 
 #model {
-	width: 37.6vw;
-	height: 104.9vw;
-	background: url('../images/santa_claus_finish.png') no-repeat;
-	background-size: contain;
-	position: absolute;
-	left: 31.2vw;
-	top: 240vw;
-	opacity: 0;
-
+    width: 37.6vw;
+    height: 104.9vw;
+    background: url('../images/santa_claus_finish.png') no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 31.2vw;
+    top: 240vw;
+    opacity: 0;
 }
 
 #model.appear {
-	opacity: 1;
-	transition: opacity 1s ease-out;
+    opacity: 1;
+    transition: opacity 1s ease-out;
 }
 
 @keyframes fly {
-	0% {
-		transform: rotateZ(-15deg) translate(0vw, 0vw);
-	}
-	20% {
-		transform: rotateZ(-15deg) translate(-120vw, 50vw);
-	}
-	75% {
-		transform: rotateZ(-15deg) translate(-120vw, 50vw);
-	}
-	100% {
-		transform: rotateZ(-15deg)  translate(-250vw, 100vw);
-	}
+    0% {
+        transform: rotateZ(-15deg) translate(0vw, 0vw);
+    }
+    20% {
+        transform: rotateZ(-15deg) translate(-120vw, 50vw);
+    }
+    75% {
+        transform: rotateZ(-15deg) translate(-120vw, 50vw);
+    }
+    100% {
+        transform: rotateZ(-15deg) translate(-250vw, 100vw);
+    }
 }
 
 @keyframes gesture {
-	0% {
-		opacity: 0;
-		transform: translateX(0vw);
-	}
-	10% {
-		opacity: 1;
-		transform: translateX(0vw);
-	}
-	20% {
-		opacity: 1;
-		transform: translateX(20vw);
-	}
-	21% {
-		opacity: 1;
-		transform: translateX(0vw);
-	}
-	30% {
-		opacity: 1;
-		transform: translateX(20vw);
-	}
-	31% {
-		opacity: 1;
-		transform: translateX(0vw);
-	}
-	40% {
-		opacity: 1;
-		transform: translateX(20vw);
-	}
-	41% {
-		opacity: 0;
-		transform: translateX(0vw);
-	}
-	100% {
-		opacity: 0;
-	}
+    0% {
+        opacity: 0;
+        transform: translateX(0vw);
+    }
+    10% {
+        opacity: 1;
+        transform: translateX(0vw);
+    }
+    20% {
+        opacity: 1;
+        transform: translateX(20vw);
+    }
+    21% {
+        opacity: 1;
+        transform: translateX(0vw);
+    }
+    30% {
+        opacity: 1;
+        transform: translateX(20vw);
+    }
+    31% {
+        opacity: 1;
+        transform: translateX(0vw);
+    }
+    40% {
+        opacity: 1;
+        transform: translateX(20vw);
+    }
+    41% {
+        opacity: 0;
+        transform: translateX(0vw);
+    }
+    100% {
+        opacity: 0;
+    }
 }

@@ -120,12 +120,10 @@
             background-position: center 10vw;
             &>.desc {
                 width: 100vw;
-                height: 180vw;
                 position: relative;
 
                 &>.detail {
                     width: 91.4vw;
-                    height: 172vw;
                     margin: 0vw auto;
                     position: relative;
                     /* top: -20vw; */
@@ -156,13 +154,15 @@
                     text-align: center;
                     font-size: 2.4vw;
                     position: relative;
-                    /* top: -20vw; */
+                    margin: 4vw 0 0;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
                 }
             }
             &>.help {
                 width: 100vw;
                 position: relative;
-                /* top: -20vw; */
                 &>.head {
                     width: 100vw;
                     height: 12vw;
@@ -244,7 +244,7 @@
                                 text-align: right;
                             }
                             &>.date {
-                                width: 20vw;
+                                width: 24vw;
                                 font-size: 2.8vw;
                                 color: #fff;
                                 line-height: 1.4;

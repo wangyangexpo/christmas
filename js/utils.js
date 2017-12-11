@@ -10,7 +10,7 @@ var test_res = {
         // "nickname": "187****5353",
         // "headimgurl": "",
     },
-    "custom_prize_status": 0, // 1 表示客人可以抽奖 0 表示客人已经抽过奖
+    "custom_prize_status": 1, // 1 表示客人可以抽奖 0 表示客人已经抽过奖
     "custom_prize_info": {
         "position": 1, // 位置有3个 从左到右 1 2 3
         "result": 56, //抽奖结果
@@ -18,7 +18,7 @@ var test_res = {
     },
     "master_prize_status": 1, // 1 表示主人已经中奖了, 0 表示主人没有中奖
     "master_prize_info": {
-        "result": 103, //抽奖结果
+        "result": 101, //抽奖结果
     },
     "prize_list": [{
             "headimgurl": "../images/test_avatar.jpeg",
@@ -33,43 +33,34 @@ var test_res = {
             "time": 151863124,
         },
     ],
-    "gift_list": [{
-            "result": 20,
-            "status": 0,
-            "time": 151823123,
+    "master_result": 51, //51-73 || 103
+    "custom_result": 102, //1-20 || 101,102,104
+    "custom_nickname": 'xixihaha',
+    "custom_code": 'test-8888999966664321',
+    "id": 'WMYLWYXNXYXRDYY',
+
+}
+
+var test_mygift = {
+    "error_code": 0,
+    "error_msg": "",
+    "master_info": {
+        "headimgurl": "xxx.jpg",
+        "nickname": "yyy",
+        "id": 14,
+        "status": 1 //1 已领奖 0未领奖
+    },
+    "prize_list": [{
+            "result": 2,
+            "time": 15812341234,
+            "code": ""
         },
         {
             "result": 101,
-            "status": 1,
-            "time": 151823123,
-            "code": 'mon-8888123499997777'
+            "time": 15812341234,
+            "code": "test-8888999966664321"
         },
-        {
-            "result": 102,
-            "status": 1,
-            "time": 151823123,
-            "code": 'yea-8888123499997777'
-        },
-        {
-            "result": 103,
-            "status": 1,
-            "time": 151823123,
-        },
-        {
-            "result": 104,
-            "status": 1,
-            "time": 151823123,
-        },
-        {
-            "result": 105,
-            "status": 1,
-            "time": 151823123,
-        },
-    ],
-    "master_result": 51, //51-73 || 103
-    "custom_result": 1, //1-20 || 101,102,104
-    "code": 'test-8888999966664321',
-    "id": 'WMYLWYXNXYXRDYY',
+    ]
 }
 
 function getQueryString(name) {
@@ -128,7 +119,12 @@ function mobikeShare(url, sid) {
 function ajaxGet(url, data, callback) {
 
     if (config.is_test) {
-        callback ? callback(test_res) : null;
+        if (test_res.error_code == 0) {
+            callback ? callback(test_res) : null;
+            
+        } else {
+            console.log(config.error[test_res.error_code] || '未知错误');
+        }
         return;
     }
     $.ajax({
@@ -143,7 +139,7 @@ function ajaxGet(url, data, callback) {
                 console.log('success');
                 callback ? callback(res) : null;
             } else {
-                alert(res.error_msg);
+                alert(config.error[res.error_code] || '未知错误');
             }
         }
     });
@@ -226,6 +222,10 @@ function giftCheckCode(phone, code, callback) {
 
 // 帮助页面查看我的奖品（仅限微信用户）
 function checkMyGift(callback) {
+    if (config.is_test) {
+        callback(test_mygift);
+        return;
+    }
     var url = config.host + config.giftlist;
     if (config.is_auth) {
         ajaxGet(url, {}, callback);
