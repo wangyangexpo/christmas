@@ -1,0 +1,9 @@
+.container {
+	width: 100vw;
+	position: relative;
+	&>.bg-img {
+		width: 100vw;
+		height: auto;
+		display: block;
+	}
+}

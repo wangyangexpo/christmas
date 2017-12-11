@@ -1,0 +1,188 @@
+.container {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #D5303A;
+    padding-bottom: 4vw;
+    &>.banner {
+        display: block;
+        width: 100vw;
+        height: auto;
+    }
+    &>.check-code {
+        display: none;
+        width: 100vw;
+        position: relative;
+        height: 40vw;
+        &>.phone {
+            width: 76.8vw;
+            height: 11.7vw;
+            line-height: 11.7vw;
+            box-sizing: border-box;
+            padding: 0 3vw;
+            outline: none;
+            border-radius: 2vw;
+            color: rgba(255, 255, 255, .5);
+            border: 1px solid #fff;
+            font-size: 4vw;
+            background: transparent;
+            position: absolute;
+            left: 11.6vw;
+            top: 0;
+        }
+        &>.code {
+            width: 76.8vw;
+            height: 11.7vw;
+            border: 1px solid #fff;
+            border-radius: 2vw;
+            line-height: 11.7vw;
+            font-size: 4vw;
+            background: transparent;
+            color: rgba(255, 255, 255, .5);
+            box-sizing: border-box;
+            padding: 0 3vw;
+            position: absolute;
+            left: 11.6vw;
+            top: 13vw;
+            outline: none;
+        }
+        &>.getcode {
+            width: 35vw;
+            height: 11.7vw;
+            text-align: center;
+            border: 1px solid #fff;
+            border-radius: 2vw;
+            line-height: 11.7vw;
+            font-size: 4vw;
+            background: #fff;
+            color: #CD2D3A;
+            box-sizing: border-box;
+            position: absolute;
+            right: 11.6vw;
+            top: 13vw;
+        }
+        &>.commit {
+            width: 74.6vw;
+            height: 12.8vw;
+            border-radius: 6.4vw;
+            line-height: 12.8vw;
+            font-size: 4.5vw;
+            background: #fff;
+            color: #CD2D3A;
+            box-sizing: border-box;
+            padding: 0 3vw;
+            position: absolute;
+            left: 12.7vw;
+            top: 27vw;
+            text-align: center;
+            box-shadow: 0 2px 4px 0 rgba(175, 34, 45, 0.60), 0 2px 6px 0 rgba(159, 30, 41, 0.51), inset 0 -2px 4px 0 rgba(177, 22, 35, 0.30);
+        }
+    }
+    &>.inwx {
+        width: 100vw;
+        height: 14vw;
+        position: relative;
+        display: none;
+        &>.begin {
+            width: 74.6vw;
+            height: 12.8vw;
+            border-radius: 6.4vw;
+            line-height: 12.8vw;
+            font-size: 4.5vw;
+            background: #fff;
+            color: #CD2D3A;
+            box-sizing: border-box;
+            padding: 0 3vw;
+            position: absolute;
+            left: 12.7vw;
+            text-align: center;
+            box-shadow: 0 2px 4px 0 rgba(175, 34, 45, 0.60), 0 2px 6px 0 rgba(159, 30, 41, 0.51), inset 0 -2px 4px 0 rgba(177, 22, 35, 0.30);
+        }
+    }
+
+    &>.wxcode {
+        display: none;
+        width: 87.2vw;
+        height: 27.2vw;
+        background: #B72831;
+        border-radius: 2vw;
+        margin: 0 auto 2vw;
+        position: relative;
+        &>img {
+            width: 23vw;
+            height: 23vw;
+            display: block;
+            position: absolute;
+            left: 5.2vw;
+            top: 2.1vw;
+            border-radius: 1vw;
+        }
+        &>.name {
+            width: 4vw;
+            position: absolute;
+            font-size: 3vw;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.2;
+            left: 30vw;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &>.desc {
+            width: 44vw;
+            font-size: 3.2vw;
+            color: #fff;
+            line-height: 1.5;
+            position: absolute;
+            left: 37vw;
+            top: 3vw;
+        }
+        &>.tip {
+            width: 48vw;
+            font-size: 3vw;
+            color: rgba(255, 255, 255, 0.6);
+            position: absolute;
+            left: 37vw;
+            top: 20vw;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    &>.logo {
+        width: 100vw;
+        height: 13.3vw;
+        background: url('../images/findlast/logo.png') no-repeat;
+        background-size: 65vw auto;
+        background-position: center center;
+    }
+    &>.rule-title {
+        text-align: center;
+        text-decoration: underline;
+        color: #fff;
+        font-size: 4vw;
+    }
+    &>.rule-content {
+        display: block;
+        &>.rule-item {
+            width: 77.3vw;
+            margin: 5vw auto 0;
+            &>.rule-name {
+                font-size: 4vw;
+                line-height: 1.5;
+                color: #fff;
+            }
+            &>.rule-desc {
+                font-size: 3.5vw;
+                line-height: 1.6;
+                color: rgba(255, 255, 255, .8);
+            }
+        }
+
+        &>.copyright {
+            height: 8vw;
+            padding: 8vw 0 0;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            font-size: 2.4vw;
+        }
+    }
+}

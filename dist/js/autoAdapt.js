@@ -1,1 +1,0 @@
-function autoAdapt(){var t=window.innerWidth;document.querySelector("html").style.fontSize=t+"px"}window.onresize=function(){var t=window.innerWidth;document.querySelector("html").style.fontSize=t+"px"},autoAdapt();

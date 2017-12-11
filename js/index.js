@@ -21,7 +21,7 @@ var cacheImage = [
     './images/santa_claus_done.png',
     './images/gift.png',
     './images/bush.png',
-    './images/stage_nothing.png',
+    './images/stage_nothing.jpeg',
     './images/star_big.png',
     './images/star_small.png',
     './images/snow/snow_01.png',
@@ -37,33 +37,42 @@ var cacheImage = [
     './images/start_name.png',
     './images/ticket.png',
     './images/santa_claus_finish.png',
+    './images/gesture/gesture.png',
+    './images/gesture/gesture.gif',
 
 ];
 // 需要预加载的音频资源列表 id是音频的id 调用soundjs的时候使用的对应id
-var cacheAudio = [
-    {
-     src: './sound/gift.mp3',
-     id: 'gift'
+var cacheAudio = [{
+        src: './sound/gift.mp3',
+        id: 'gift'
     },
     {
-     src: './sound/boom.wav',
-     id: 'boom'
+        src: './sound/boom.wav',
+        id: 'boom'
     },
     {
-     src: './sound/wipe.mp3',
-     id: 'wipe'
+        src: './sound/wipe.mp3',
+        id: 'wipe'
     },
     {
-     src: './sound/bgm.mp3',
-     id: 'bgm'
+        src: './sound/bgm.mp3',
+        id: 'bgm'
     },
     {
-     src: './sound/laugh.mp3',
-     id: 'laugh'
+        src: './sound/laugh.mp3',
+        id: 'laugh'
+    },
+    // {
+    //     src: './sound/bell.mp3',
+    //     id: 'bell'
+    // },
+    {
+        src: './sound/wind.mp3',
+        id: 'wind'
     },
     {
-     src: './sound/bell.mp3',
-     id: 'bell'
+        src: './sound/combine.mp3',
+        id: 'combine'
     }
 ];
 
@@ -79,11 +88,15 @@ var loadingani = loading();
 
 $(function() {
 
-    // 先加载图片列表
-    preloadImages(cacheImage, function() {
-        // 加载完毕加载音频列表
-        preloadAudio(cacheAudio);
-    }, res_total_length);
+    if (is_weixin() || is_mobike()) {
+        // 先加载图片列表
+        preloadImages(cacheImage, function() {
+            // 加载完毕加载音频列表
+            preloadAudio(cacheAudio);
+        }, res_total_length);
+    } else {
+        location.replace('./html/notfound.html');
+    }
 
 })
 
@@ -112,18 +125,18 @@ function preloadImages(list, callback, total) {
                 callback();
             }
         };
-        
+
     }
 }
 
 // 音频预加载
 function loadHandler(event) {
-    
+
     audioDone++;
 
     $('#load_percent').text(((c_image_length + audioDone) / res_total_length * 100).toFixed(2));
-    
-    if (audioDone  >= c_audio_length) {
+
+    if (audioDone >= c_audio_length) {
         clearInterval(loadingani);
         $('#loading').remove();
         $('#stage').show();
@@ -134,14 +147,14 @@ function loadHandler(event) {
             santaClausAnimate1();
         })
     }
-    
+
 }
 
 function preloadAudio(list) {
 
     createjs.Sound.on("fileload", loadHandler);
     var len = list.length;
-    if(len) {
+    if (len) {
         for (var i = 0; i < len; i++) {
             createjs.Sound.registerSound(list[i].src, list[i].id);
         }
@@ -155,17 +168,17 @@ function preloadAudio(list) {
             santaClausAnimate1();
         })
     }
-    
+
 }
 
 var $santaClaus = $('#santa-claus');
 
 // 圣诞老人剪影动画0
 function santaClausAnimate1() {
-    belling = createjs.Sound.play('bell');
-    belling.loop = Infinity;
+    //belling = createjs.Sound.play('bell');
+    //belling.loop = Infinity;
     $santaClaus.addClass('santa-claus-1');
-    animate('#santa-claus', 'left', 100, -15, 0.5, function() {
+    animate('#santa-claus', 'left', 100, -15, 0.8, function() {
         $santaClaus.removeClass('santa-claus-1');
         santaClausAnimate2();
     });
@@ -174,7 +187,7 @@ function santaClausAnimate1() {
 // 圣诞老人剪影动画
 function santaClausAnimate2() {
     $santaClaus.addClass('santa-claus-2');
-    animate('#santa-claus', 'left', -20, 110, 0.6, function() {
+    animate('#santa-claus', 'left', -15, 104, 0.8, function() {
         $santaClaus.removeClass('santa-claus-2');
         furtherStageAnimate();
     });
@@ -184,9 +197,9 @@ function santaClausAnimate2() {
 function santaClausAnimate3() {
 
     $santaClaus.addClass('santa-claus-3');
-    animate('#santa-claus', 'left', 100, -75, 1.2, function() {
+    animate('#santa-claus', 'left', 100, -75, 1.5, function() {
         $santaClaus.removeClass('santa-claus-3');
-        belling.stop();
+        //belling.stop();
         santaClausAnimate4();
     });
 }
@@ -341,18 +354,22 @@ function snowBoomAnimate() {
 
     setTimeout(function() {
         $('#boom').remove();
+        $('.hand-1').addClass('gesture');
         // boom消失，绑定擦除积雪效果
         _ground.on('touchend', '.snow', function() {
             createjs.Sound.play("wipe");
             $(this).off('touchend').remove();
-            if($('.snow').length == 0) {
+            if ($('.snow').length == 0) {
+                $('.hand-1').remove();
                 ticketAnimate();
             }
-        }).on('touchend', '.touch', function(){
+        }).on('touchend', '.touch', function() {
             _ground.off('touchend');
             _block.addClass('disappear');
             _model.addClass('appear');
+            $('.hand-2').remove();
             _model.css('zIndex', 999);
+            createjs.Sound.play("combine");
             _model.on('touchend', function() {
                 location.href = './html/findlast.html';
             })
@@ -370,7 +387,75 @@ function furtherStageAnimate() {
 
 // 机票飞过屏幕的动画
 function ticketAnimate() {
-    $('#ticket').addClass('fly');
+    var _ticket = $('#ticket').css('willChange', 'top,left');
+    var t_t_step = 1.5;
+    var ticket_top_from = 180;
+    var ticket_top_end = 270;
+    var ticket_left_from = 104;
+    var ticket_left_end = 0;
+
+    var base_cross = Math.abs(ticket_top_end - ticket_top_from);
+    var base_step = Math.abs(t_t_step);
+
+    var t_l_step = (ticket_left_end - ticket_left_from) * base_step / base_cross;
+    createjs.Sound.play("wind");
+
+    var flyIn = function() {
+        ticket_top_from += t_t_step;
+        ticket_left_from += t_l_step;
+
+        _ticket.css({
+            'top': ticket_top_from + 'vw',
+            'left': ticket_left_from + 'vw'
+        })
+
+        if (Math.abs(ticket_top_end - ticket_top_from) < Math.abs(t_t_step)) {
+            _ticket.css({
+                'top': ticket_top_end + 'vw',
+                'left': ticket_left_end + 'vw'
+            })
+            t_t_step = 2;
+            ticket_top_from = ticket_top_end;
+            ticket_top_end = 360;
+            ticket_left_from = ticket_left_end;
+            ticket_left_end = -104;
+            base_cross = Math.abs(ticket_top_end - ticket_top_from);
+            base_step = Math.abs(t_t_step);
+
+            t_l_step = (ticket_left_end - ticket_left_from) * base_step / base_cross;
+            setTimeout(function() {
+                requestAnimationFrame(flyOut);
+            }, 2000);
+        } else {
+            requestAnimationFrame(flyIn);
+        }
+    }
+
+    var flyOut = function() {
+        ticket_top_from += t_t_step;
+        ticket_left_from += t_l_step;
+
+        _ticket.css({
+            'top': ticket_top_from + 'vw',
+            'left': ticket_left_from + 'vw'
+        })
+
+        if (Math.abs(ticket_top_end - ticket_top_from) < Math.abs(t_t_step)) {
+            _ticket.css({
+                'top': ticket_top_end + 'vw',
+                'left': ticket_left_end + 'vw',
+                'willChange': 'auto',
+            })
+            console.log('ticket fly done');
+            $('.hand-2').show();
+        } else {
+            requestAnimationFrame(flyOut);
+        }
+
+    }
+
+    requestAnimationFrame(flyIn);
+
 }
 
 // 动画执行函数 step是以最大的变化属性的step
@@ -390,4 +475,3 @@ function animate(ele, attr, start, end, step, callback) {
     }
     requestAnimationFrame(ani);
 }
-

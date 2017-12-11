@@ -1,8 +1,76 @@
+body {
+    overflow: scroll !important;
+    min-height: 100vh;
+    background-color: #26eca9;
+}
 .container {
 	width: 100vw;
+	background-color: #26eca9;
+    min-height: 77vw;
+    z-index: 100;
+    position: absolute;
+    top: 99.5vw;
 	&>.model {
         width: 100vw;
         height: 100vw;
-        background: #eee;
     }
+    &>.content {
+    	width: 100vw;
+    	height: 65.3vw;
+    	background: url('../images/findlast/window.png') no-repeat;
+    	background-size: 89vw auto;
+    	background-position: left center;
+    	&>.btn {
+    		width: 57.3vw;
+    		height: 12.8vw;
+    		background: url('../images/findlast/btn.png') no-repeat;
+    		background-size: contain;
+    		position: absolute;
+    		left: 21.3vw;
+    		top: 38vw;
+    		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    		line-height: 12vw;
+    		font-size: 4.4vw;
+    		color: #fff;
+    		text-align: center;
+    		vertical-align: middle;
+    		&:after {
+    			content: '';
+    			display: inline-block;
+    			width: 2vw;
+    			height: 2vw;
+    			border: 0.8vw solid transparent;
+    			border-top-color: #fff;
+    			border-right-color: #fff;
+    			vertical-align: middle;
+    			transform: rotateZ(45deg);
+    			position: relative;
+    			top: -0.4vw;
+    			animation: arrow .8s ease-in-out infinite;
+    		}
+		}
+    	&>.txt{
+    		width: 61.3vw;
+    		height: 17.6vw;
+    		position: absolute;
+    		top: 17.5vw;
+    		left: 19vw;
+    		&>p {
+    			height: 5.9vw;
+    			line-height: 5.9vw;
+    			text-align: center;
+    			font-size: 4vw;
+    			color: #407C69;
+    		}
+    	}
+    }
+}
+
+@keyframes arrow {
+	0% {
+		transform: translateX(0vw) rotateZ(45deg);
+	}
+	100% {
+		transform: translateX(2vw) rotateZ(45deg);
+	}
 }

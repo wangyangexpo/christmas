@@ -9,7 +9,7 @@
 	display: none;
 	width: 100vw;
 	height: 387.6vw;
-	background: url('../images/stage_nothing.png') no-repeat;
+	background: url('../images/stage_nothing.jpeg') no-repeat;
 	background-size: 100vw auto;
 	background-position: center top;
 	position: absolute;
@@ -18,6 +18,34 @@
 	transform-origin: center top;
 	will-change: transform;
 	transition: transform 2s;
+	&>.hand-1 {
+		width: 32vw;
+		height: 32vw;
+		background: url('../images/gesture/gesture.png') no-repeat;
+		background-size: contain;
+		position: absolute;
+		pointer-events: none;
+		z-index: 999;
+		left: 5vw;
+		top: 240vw;
+		opacity: 0;
+		&.gesture {
+			animation: gesture 10s linear infinite;
+		}
+	}
+
+	&>.hand-2 {
+		width: 32vw;
+		height: 32vw;
+		background: url('../images/gesture/gesture.gif') no-repeat;
+		background-size: contain;
+		position: absolute;
+		pointer-events: none;
+		left: 65vw;
+		top: 282vw;
+		z-index: 999;
+		display: none;
+	}
 }
 
 #stage.far {
@@ -28,26 +56,28 @@
 #moon {
 	position: absolute;
 	display: block;
-	width: 24vw;
+	width: 30vw;
 	height: 27.5vw;
 	border-radius: 12vw;
 	overflow: hidden;
-	right: 37vw;
-	top: 80vw;
+	right: 35vw;
+	top: 75vw;
 	background: url('../images/moon.png') no-repeat;
 	background-size: cover;
 	z-index: 100;
 	will-change: transform;
 	transform: scale(2);
 	transition: all 2s;
+	opacity: 1;
+
 	&>#txt {
-		width: 24vw;
-		height: 20.6vw;
+		width: 30vw;
+		height: 26.6vw;
 		background: url('../images/start_name.png') no-repeat;
-		background-size: 18.5vw auto;
+		background-size: 22.5vw auto;
 		background-position: center center;
 		position: absolute;
-		top: 0;
+		top: -1vw;
 	}
 }
 
@@ -58,7 +88,7 @@
 	background-size: cover;
 	position: absolute;
 	left: 44vw;
-	top: 120vw;
+	top: 125vw;
 	animation: go 1s ease-in-out infinite;
 	z-index: 999;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -69,8 +99,8 @@
 	height: 4.4vw;
 	position: absolute;
 	left: 28vw;
-	top: 155vw;
-	background: url('../images/start_logo.png') no-repeat;
+	top: 52vw;
+	background: url('../images/findlast/logo.png') no-repeat;
 	background-size: cover;
 }
 
@@ -526,12 +556,11 @@
 	transform: rotateZ(-15deg);
 	left: 104vw; /*-2*/
 	top: 180vw; /*275*/
-	z-index: 999;
+	z-index: 1000;
 }
 
 #ticket.fly {
 	animation: fly 5s linear;
-	animation-fill-mode: forwards;
 }
 
 #model {
@@ -543,6 +572,7 @@
 	left: 31.2vw;
 	top: 240vw;
 	opacity: 0;
+
 }
 
 #model.appear {
@@ -552,7 +582,7 @@
 
 @keyframes fly {
 	0% {
-		transform: rotateZ(-15deg);
+		transform: rotateZ(-15deg) translate(0vw, 0vw);
 	}
 	20% {
 		transform: rotateZ(-15deg) translate(-120vw, 50vw);
@@ -562,5 +592,43 @@
 	}
 	100% {
 		transform: rotateZ(-15deg)  translate(-250vw, 100vw);
+	}
+}
+
+@keyframes gesture {
+	0% {
+		opacity: 0;
+		transform: translateX(0vw);
+	}
+	10% {
+		opacity: 1;
+		transform: translateX(0vw);
+	}
+	20% {
+		opacity: 1;
+		transform: translateX(20vw);
+	}
+	21% {
+		opacity: 1;
+		transform: translateX(0vw);
+	}
+	30% {
+		opacity: 1;
+		transform: translateX(20vw);
+	}
+	31% {
+		opacity: 1;
+		transform: translateX(0vw);
+	}
+	40% {
+		opacity: 1;
+		transform: translateX(20vw);
+	}
+	41% {
+		opacity: 0;
+		transform: translateX(0vw);
+	}
+	100% {
+		opacity: 0;
 	}
 }
