@@ -2,7 +2,7 @@ var baseUrl = 'https://web-huodong.putaocdn.com/';
 
 window.config = {
 
-    is_test: true,
+    is_test: false,
 
     is_weixin: true,
 

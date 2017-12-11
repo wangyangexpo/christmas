@@ -288,6 +288,7 @@ function wxShare(url, sid, param) {
         type: "get",
         url: config.host + config.wxsdk,
         success: function(res) {
+            
             if (res.error_code == 0) {
                 var r = res.data;
                 wx.config({
