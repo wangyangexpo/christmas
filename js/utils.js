@@ -35,7 +35,7 @@ var test_res = {
     ],
     "master_result": 51, //51-73 || 103
     "custom_result": 102, //1-20 || 101,102,104
-    "custom_nickname": 'xixihaha',
+    "nickname": 'xixihaha',
     "custom_code": 'test-8888999966664321',
     "id": 'WMYLWYXNXYXRDYY',
 

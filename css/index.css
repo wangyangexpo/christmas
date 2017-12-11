@@ -23,7 +23,23 @@
     left: 15vw;
     top: 5vw;
     background: url("../images/findlast/logo.png") no-repeat;
-    background-size: cover; }
+    background-size: cover;
+    pointer-events: none; }
+  #wicket > #go {
+    display: none;
+    width: 19vw;
+    height: 19vw;
+    background: url("../images/start_btn.png") no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 42vw;
+    top: 118vw;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation: go 1s ease-in-out infinite;
+    animation: go 1s ease-in-out infinite;
+    z-index: 999;
+    -webkit-tap-highlight-color: transparent; }
 
 #stage {
   display: none;
@@ -102,19 +118,6 @@
     background-position: center center;
     position: absolute;
     top: -1vw; }
-
-#go {
-  width: 12vw;
-  height: 12vw;
-  background: url("../images/start_btn.png") no-repeat;
-  background-size: cover;
-  position: absolute;
-  left: 44vw;
-  top: 125vw;
-  -webkit-animation: go 1s ease-in-out infinite;
-  animation: go 1s ease-in-out infinite;
-  z-index: 999;
-  -webkit-tap-highlight-color: transparent; }
 
 .disappear {
   opacity: 0;

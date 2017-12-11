@@ -139,7 +139,7 @@ function loadHandler(event) {
     if (audioDone >= c_audio_length) {
         clearInterval(loadingani);
         $('#loading').remove();
-        $('#stage,#gotext,#logo').show();
+        $('#stage,#gotext,#logo,#go').show();
         $('#go').on('touchstart', function() {
             $('#go').off('touchstart');
             $('.before').addClass('disappear');
@@ -161,7 +161,7 @@ function preloadAudio(list) {
     } else {
         clearInterval(loadingani);
         $('#loading').remove();
-        $('#stage,#gotext,#logo').show();
+        $('#stage,#gotext,#logo,#go').show();
         $(document).on('touchstart', function() {
             $(document).off('touchstart');
             var instance = createjs.Sound.play('bgm');
@@ -180,6 +180,7 @@ function santaClausAnimate1() {
     $santaClaus.addClass('santa-claus-1');
     animate('#santa-claus', 'left', 100, -15, 0.8, function() {
         $santaClaus.removeClass('santa-claus-1');
+        $('#gotext,#logo,#go').remove();
         santaClausAnimate2();
     });
 }

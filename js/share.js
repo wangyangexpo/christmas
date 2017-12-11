@@ -117,7 +117,7 @@ function bindOpenGift(master_uid) {
         openGift(master_uid, position, function(res) {
             var master_result = res.master_result;
             var custom_result = res.custom_result;
-            var custom_nickname = res.custom_nickname;
+            var custom_nickname = res.nickname;
             var mb_code = res.custom_code || '';
             setData({
                 custom_nickname: custom_nickname,
