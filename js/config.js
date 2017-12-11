@@ -17,7 +17,7 @@ window.config = {
 
     host: 'https://mobahuodong.putao.com',
 
-    authorization: '/index/authorization',
+    authorization: '/authorization',
 
     joinbyphone: '/fromOtherJoin',
 
@@ -44,6 +44,8 @@ window.config = {
     shareurl: baseUrl + 'christmas/html/share.html',
 
     notfound: baseUrl + 'christmas/html/notfound.html',
+
+    authurl: baseUrl + 'authorization',
 
     sharetitle: {
         0: '葡萄积木携手摩拜，送你去芬兰！',
