@@ -1,10 +1,15 @@
+var baseUrl = 'https://web-huodong.putaocdn.com/';
+
 window.config = {
 
     is_test: true,
 
-    is_weixin: false,
+    is_weixin: true,
 
-    is_mobike: true,
+    is_mobike: false,
+
+    // 下面是项目用到的固定参数，不需要改动
+    is_auth: false,
 
     jsbridge: 'https://static.mobike.com/cdn/jsbridge/1.1.1/jsbridge.js',
 
@@ -28,15 +33,17 @@ window.config = {
 
 	bindcheck: '/bindCheck',
 
-    shareorigin: window.location.href.split('christmas')[0] + 'christmas/',
+    giftlist: '',
 
-    defaultshareurl: window.location.href.split('christmas')[0] + 'christmas/index.html',
+    shareorigin: baseUrl + 'christmas/',
 
-    shareicon: window.location.href.split('christmas')[0] + 'christmas/images/share/icon_share.png',
+    defaultshareurl: baseUrl + 'christmas/index.html',
 
-    shareurl: window.location.href.split('christmas')[0] + 'christmas/html/share.html',
+    shareicon: baseUrl + 'christmas/images/share/icon_share.png',
 
-    notfound: window.location.href.split('christmas')[0] + 'christmas/html/notfound.html',
+    shareurl: baseUrl + 'christmas/html/share.html',
+
+    notfound: baseUrl + 'christmas/html/notfound.html',
 
     sharetitle: {
         0: '葡萄积木携手摩拜，送你去芬兰！',

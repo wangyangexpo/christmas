@@ -33,8 +33,7 @@ var test_res = {
             "time": 151863124,
         },
     ],
-    "gift_list": [
-        {
+    "gift_list": [{
             "result": 20,
             "status": 0,
             "time": 151823123,
@@ -67,8 +66,8 @@ var test_res = {
             "time": 151823123,
         },
     ],
-    "master_result" : 51, //51-73 || 103
-    "custom_result" : 1, //1-20 || 101,102,104
+    "master_result": 51, //51-73 || 103
+    "custom_result": 1, //1-20 || 101,102,104
     "code": 'test-8888999966664321',
     "id": 'WMYLWYXNXYXRDYY',
 }
@@ -91,7 +90,7 @@ function getData(key) {
 }
 
 function is_weixin() {
-	if (config.is_test == true) {
+    if (config.is_test == true) {
         return config.is_weixin;
     }
     var ua = window.navigator.userAgent.toLowerCase();
@@ -103,7 +102,7 @@ function is_weixin() {
 }
 
 function is_mobike() {
-	if (config.is_test) {
+    if (config.is_test) {
         return config.is_mobike;
     }
     var ua = window.navigator.userAgent.toLowerCase()
@@ -127,7 +126,7 @@ function mobikeShare(url, sid) {
 }
 
 function ajaxGet(url, data, callback) {
-	console.log(config.is_test);
+
     if (config.is_test) {
         callback ? callback(test_res) : null;
         return;
@@ -153,7 +152,14 @@ function ajaxGet(url, data, callback) {
 //微信授权
 function authorization(callback) {
     var url = config.host + config.authorization;
-    ajaxGet(url, {}, callback);
+    if (!is_weixin()) {
+        console.log('not in wx!');
+        return;
+    }
+    ajaxGet(url, {}, function() {
+        config.is_auth = true;
+        callback ? callback() : null;
+    });
 }
 
 //手机号码参加游戏发送验证码
@@ -176,21 +182,29 @@ function checkJoinCode(phone, code, callback) {
 //通过微信号参加游戏
 function joinGameByWX(callback) {
     var url = config.host + config.joinbyweixin;
-    authorization(function() {
-        console.log(document.cookie);
+    if (config.is_auth) {
         ajaxGet(url, {}, callback);
-    })
+    } else {
+        authorization(function() {
+            ajaxGet(url, {}, callback);
+        })
+    }
 }
 
 //进入分享页获取数据的接口
 function getAssistList(master_uid, callback) {
     var url = config.host + config.prizelist;
-    authorization(function() {
-        console.log(document.cookie);
+    if (config.is_auth) {
         ajaxGet(url, {
             master_uid: master_uid
         }, callback);
-    })
+    } else {
+        authorization(function() {
+            ajaxGet(url, {
+                master_uid: master_uid
+            }, callback);
+        })
+    }
 }
 
 // 领取奖品发送手机验证码
@@ -212,8 +226,14 @@ function giftCheckCode(phone, code, callback) {
 
 // 帮助页面查看我的奖品（仅限微信用户）
 function checkMyGift(callback) {
-    var url = config.host + config.prizelist;
-    ajaxGet(url, {}, callback);
+    var url = config.host + config.giftlist;
+    if (config.is_auth) {
+        ajaxGet(url, {}, callback);
+    } else {
+        authorization(function() {
+            ajaxGet(url, {}, callback);
+        })
+    }
 }
 
 // 客人助力
@@ -223,6 +243,15 @@ function openGift(master_uid, position, callback) {
         master_uid: master_uid,
         position: position
     }, callback);
+}
+
+// 获取cookie
+function getCookie(name) {
+    var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+    if (arr = document.cookie.match(reg))
+        return unescape(arr[2]);
+    else
+        return null;
 }
 
 //微信分享初始化
@@ -245,10 +274,10 @@ function wxShare(url, sid, param) {
     var shareLink = url;
 
     if (config.is_test) {
-		console.log(title);
-		console.log(sec);
-		console.log(icon);
-		console.log(shareLink);
+        console.log(title);
+        console.log(sec);
+        console.log(icon);
+        console.log(shareLink);
         return;
     }
 
@@ -311,6 +340,12 @@ function wxShare(url, sid, param) {
 }
 
 if (is_weixin()) {
+    if (getCookie('uid') && getCookie('token')) {
+        config.is_auth = true;
+    } else {
+        authorization();
+    }
+
     wxShare(config.defaultshareurl, 0);
 } else if (is_mobike()) {
     mobikeShare(config.defaultshareurl, 0);
