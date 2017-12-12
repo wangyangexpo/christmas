@@ -3,16 +3,28 @@
   height: 177vw;
   overflow: hidden;
   position: relative; }
+  #wicket > .snow-mask {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    opacity: 1;
+    z-index: 9999;
+    -webkit-animation: fade 1.5s ease-in;
+    animation: fade 1.5s ease-in;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    display: none; }
   #wicket > .go-txt {
-    width: 65vw;
-    height: 55.9vw;
+    width: 75vw;
+    height: 77vw;
     background: url("../images/start_name.png") no-repeat;
     background-size: contain;
     background-position: center center;
     position: absolute;
     z-index: 1000;
-    top: 27vw;
-    left: 17.5vw;
+    top: 21vw;
+    left: 17vw;
     display: none;
     pointer-events: none; }
   #wicket > #logo {
@@ -29,8 +41,8 @@
     display: none;
     width: 19vw;
     height: 19vw;
-    background: url("../images/start_btn.png") no-repeat;
-    background-size: cover;
+    background: url("../images/btn/start_btn.png") no-repeat;
+    background-size: contain;
     position: absolute;
     left: 42vw;
     top: 118vw;
@@ -60,6 +72,40 @@
   transition: -webkit-transform 2s;
   transition: transform 2s;
   transition: transform 2s, -webkit-transform 2s; }
+  #stage > .res-window {
+    width: 100vw;
+    height: 65.3vw;
+    background: url("../images/findlast/window.png") no-repeat;
+    background-size: 89vw auto;
+    background-position: left center;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    z-index: 999; }
+    #stage > .res-window.appear {
+      opacity: 1;
+      -webkit-transition: opacity 1s linear;
+      transition: opacity 1s linear; }
+    #stage > .res-window > .txt {
+      width: 61.3vw;
+      height: 17.6vw;
+      position: absolute;
+      top: 22.5vw;
+      left: 22vw; }
+      #stage > .res-window > .txt > p {
+        height: 7vw;
+        line-height: 7vw;
+        text-align: center;
+        font-size: 4.5vw;
+        color: #407C69; }
+    #stage > .res-window > .btn {
+      width: 12vw;
+      height: 12vw;
+      position: absolute;
+      left: 44vw;
+      bottom: 14vw;
+      background: url("../images/btn/btn_next.png") no-repeat;
+      background-size: contain; }
   #stage > .hand-1 {
     width: 32vw;
     height: 32vw;
@@ -72,8 +118,8 @@
     top: 240vw;
     opacity: 0; }
     #stage > .hand-1.gesture {
-      -webkit-animation: gesture 10s linear infinite;
-      animation: gesture 10s linear infinite; }
+      -webkit-animation: gesture 6s linear infinite;
+      animation: gesture 6s linear infinite; }
   #stage > .hand-2 {
     width: 32vw;
     height: 32vw;
@@ -120,9 +166,10 @@
     top: -1vw; }
 
 .disappear {
+  pointer-events: none;
   opacity: 0;
-  -webkit-transition: opacity .6s ease-out;
-  transition: opacity .6s ease-out; }
+  -webkit-transition: opacity 1s ease-out;
+  transition: opacity 1s ease-out; }
 
 #moon.far {
   -webkit-transform: scale(1) translate(20vw, 12vw);
@@ -216,6 +263,19 @@
   background: url("../images/santa_claus_normal.gif") no-repeat;
   background-size: cover;
   z-index: 101; }
+  .santa-claus-3 > .pop {
+    width: 48.1vw;
+    height: 19.6vw;
+    position: absolute;
+    top: -12vw;
+    left: 5vw;
+    background: url("../images/pop_1.png") no-repeat;
+    background-size: contain;
+    opacity: 0;
+    -webkit-transition: .5s;
+    transition: .5s; }
+    .santa-claus-3 > .pop.show {
+      opacity: 1; }
 
 .santa-claus-4 {
   position: absolute;
@@ -227,6 +287,21 @@
   background: url("../images/santa_claus_gift.gif") no-repeat;
   background-size: cover;
   z-index: 101; }
+  .santa-claus-4 > .pop {
+    width: 48.1vw;
+    height: 19.6vw;
+    position: absolute;
+    top: -8vw;
+    left: 26vw;
+    background: url("../images/pop_2.png") no-repeat;
+    background-size: contain;
+    opacity: 1;
+    -webkit-transition: .5s;
+    transition: .5s;
+    opacity: 0;
+    transition: .5s; }
+    .santa-claus-4 > .pop.show {
+      opacity: 1; }
 
 .santa-claus-5 {
   position: absolute;
@@ -237,6 +312,21 @@
   background: url("../images/santa_claus_done.png") no-repeat;
   background-size: cover;
   z-index: 101; }
+  .santa-claus-5 > .pop {
+    width: 48.1vw;
+    height: 19.6vw;
+    position: absolute;
+    top: -8vw;
+    left: 26vw;
+    background: url("../images/pop_2.png") no-repeat;
+    background-size: contain;
+    opacity: 1;
+    -webkit-transition: .5s;
+    transition: .5s;
+    opacity: 0;
+    transition: .5s; }
+    .santa-claus-5 > .pop.show {
+      opacity: 1; }
 
 .gift {
   width: 13vw;
@@ -356,8 +446,8 @@
   position: absolute;
   background: url("../images/boom/boom_04.png") no-repeat;
   background-size: contain;
-  -webkit-animation: fade 5s linear;
-  animation: fade 5s linear;
+  -webkit-animation: fadeDown 4.5s linear;
+  animation: fadeDown 4.5s linear;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards; }
 
@@ -470,18 +560,50 @@
 @-webkit-keyframes fade {
   0% {
     opacity: 1; }
-  50% {
-    opacity: 0.8; }
   100% {
     opacity: 0; } }
 
 @keyframes fade {
   0% {
     opacity: 1; }
-  50% {
-    opacity: 0.8; }
   100% {
     opacity: 0; } }
+
+@-webkit-keyframes fadeDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0); }
+  30% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0); }
+  65% {
+    opacity: 0.8;
+    -webkit-transform: translateY(10vw);
+    transform: translateY(10vw); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20vw);
+    transform: translateY(20vw); } }
+
+@keyframes fadeDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0); }
+  30% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0); }
+  65% {
+    opacity: 0.8;
+    -webkit-transform: translateY(10vw);
+    transform: translateY(10vw); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20vw);
+    transform: translateY(20vw); } }
 
 @-webkit-keyframes shaking1 {
   0% {
@@ -673,18 +795,21 @@
   background: url("../images/ticket.png") no-repeat;
   background-size: contain;
   position: absolute;
-  -webkit-transform: rotateZ(-15deg);
-  transform: rotateZ(-15deg);
-  left: 104vw;
-  /*-2*/
-  top: 180vw;
-  /*275*/
-  z-index: 1000; }
+  /* transform: rotateZ(-15deg); */
+  left: 0vw;
+  top: 275vw;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
 
-#ticket.fly {
-  -webkit-animation: fly 5s linear;
-  animation: fly 5s linear; }
+#ticket.animated {
+  opacity: 1; }
 
+/* #ticket.fly {
+    animation: fly 5s linear;
+} */
 #model {
   width: 37.6vw;
   height: 104.9vw;
@@ -733,31 +858,31 @@
     opacity: 0;
     -webkit-transform: translateX(0vw);
     transform: translateX(0vw); }
-  10% {
+  15% {
     opacity: 1;
     -webkit-transform: translateX(0vw);
     transform: translateX(0vw); }
-  20% {
+  25% {
     opacity: 1;
     -webkit-transform: translateX(20vw);
     transform: translateX(20vw); }
-  21% {
+  26% {
     opacity: 1;
     -webkit-transform: translateX(0vw);
     transform: translateX(0vw); }
-  30% {
+  35% {
     opacity: 1;
     -webkit-transform: translateX(20vw);
     transform: translateX(20vw); }
-  31% {
+  36% {
     opacity: 1;
     -webkit-transform: translateX(0vw);
     transform: translateX(0vw); }
-  40% {
+  45% {
     opacity: 1;
     -webkit-transform: translateX(20vw);
     transform: translateX(20vw); }
-  41% {
+  50% {
     opacity: 0;
     -webkit-transform: translateX(0vw);
     transform: translateX(0vw); }
@@ -769,31 +894,31 @@
     opacity: 0;
     -webkit-transform: translateX(0vw);
     transform: translateX(0vw); }
-  10% {
+  15% {
     opacity: 1;
     -webkit-transform: translateX(0vw);
     transform: translateX(0vw); }
-  20% {
+  25% {
     opacity: 1;
     -webkit-transform: translateX(20vw);
     transform: translateX(20vw); }
-  21% {
+  26% {
     opacity: 1;
     -webkit-transform: translateX(0vw);
     transform: translateX(0vw); }
-  30% {
+  35% {
     opacity: 1;
     -webkit-transform: translateX(20vw);
     transform: translateX(20vw); }
-  31% {
+  36% {
     opacity: 1;
     -webkit-transform: translateX(0vw);
     transform: translateX(0vw); }
-  40% {
+  45% {
     opacity: 1;
     -webkit-transform: translateX(20vw);
     transform: translateX(20vw); }
-  41% {
+  50% {
     opacity: 0;
     -webkit-transform: translateX(0vw);
     transform: translateX(0vw); }

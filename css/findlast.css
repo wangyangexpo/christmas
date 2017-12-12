@@ -1,11 +1,10 @@
 body {
   overflow: scroll !important;
-  min-height: 100vh;
-  background-color: #26eca9; }
+  background-color: #0B774E; }
 
 .container {
   width: 100vw;
-  background-color: #26eca9;
+  background-color: #0B774E;
   min-height: 77vw;
   z-index: 100;
   position: absolute;

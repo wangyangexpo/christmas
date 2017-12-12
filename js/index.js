@@ -2,11 +2,24 @@
 window.requestAnimationFrame = (function() {
     return window.requestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        function(callback) {
-            window.setTimeout(callback, 1000 / 60);
-        };
+        window.mozRequestAnimationFrame;
 })();
+
+if (!window.requestAnimationFrame) {
+    var lastTime = 0;
+    window.requestAnimationFrame = function(callback, element) {
+        var currTime = new Date().getTime();
+        var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));
+        var id = window.setTimeout(function() {
+            callback(currTime + timeToCall);
+        }, timeToCall);
+        lastTime = currTime + timeToCall;
+        return id;
+    };
+    window.cancelAnimationFrame = function(id) {
+        clearTimeout(id);
+    };
+}
 
 FastClick.attach(document.body);
 
@@ -19,6 +32,7 @@ var cacheImage = [
     './images/santa_claus_normal.gif',
     './images/santa_claus_gift.gif',
     './images/santa_claus_done.png',
+    './images/santa_claus_finish.png',
     './images/gift.png',
     './images/bush.png',
     './images/stage_nothing.jpeg',
@@ -32,13 +46,28 @@ var cacheImage = [
     './images/block_2.png',
     './images/block_all.png',
     './images/block_4.png',
-    './images/start_btn.png',
+    './images/btn/start_btn.png',
     './images/start_logo.png',
     './images/start_name.png',
     './images/ticket.png',
-    './images/santa_claus_finish.png',
     './images/gesture/gesture.png',
     './images/gesture/gesture.gif',
+    './images/pop_1.png',
+    './images/pop_2.png',
+    './images/findlast/window.png',
+    './images/findlast/fenxiang_bg.png',
+    './images/btn/btn_next.png',
+
+    './images/opened/bg_light.png',
+    './images/opened/card_bg.png',
+    './images/opened/jingche.png',
+    './images/opened/nianka.png',
+    './images/opened/yueka.png',
+    './images/share/bg_xmas.png',
+    './images/snow/santa_claus_no_hat.png',
+    './images/snow/santa_claus_with_hat.png',
+    './images/unopen/pic_liwu.png',
+    './images/unopen/santa.png',
 
 ];
 // 需要预加载的音频资源列表 id是音频的id 调用soundjs的时候使用的对应id
@@ -46,10 +75,10 @@ var cacheAudio = [{
         src: './sound/gift.mp3',
         id: 'gift'
     },
-    {
-        src: './sound/boom.wav',
-        id: 'boom'
-    },
+    // {
+    //     src: './sound/boom.wav',
+    //     id: 'boom'
+    // },
     {
         src: './sound/wipe.mp3',
         id: 'wipe'
@@ -70,10 +99,10 @@ var cacheAudio = [{
         src: './sound/wind.mp3',
         id: 'wind'
     },
-    {
-        src: './sound/combine.mp3',
-        id: 'combine'
-    }
+    // {
+    //     src: './sound/combine.mp3',
+    //     id: 'combine'
+    // }
 ];
 
 var c_image_length = cacheImage.length;
@@ -81,8 +110,6 @@ var c_audio_length = cacheAudio.length;
 var res_total_length = c_image_length + c_audio_length;
 
 var audioDone = 0;
-
-var belling = null;
 
 var loadingani = loading();
 
@@ -143,8 +170,8 @@ function loadHandler(event) {
         $('#go').on('touchstart', function() {
             $('#go').off('touchstart');
             $('.before').addClass('disappear');
-            var instance = createjs.Sound.play('bgm');
-            santaClausAnimate1();
+            createjs.Sound.play('bgm');
+            santaClausAnimate2();
         })
     }
 
@@ -162,10 +189,11 @@ function preloadAudio(list) {
         clearInterval(loadingani);
         $('#loading').remove();
         $('#stage,#gotext,#logo,#go').show();
-        $(document).on('touchstart', function() {
-            $(document).off('touchstart');
-            var instance = createjs.Sound.play('bgm');
-            santaClausAnimate1();
+        $('#go').on('touchstart', function() {
+            $('#go').off('touchstart');
+            $('.before').addClass('disappear');
+            createjs.Sound.play('bgm');
+            santaClausAnimate2();
         })
     }
 
@@ -173,17 +201,15 @@ function preloadAudio(list) {
 
 var $santaClaus = $('#santa-claus');
 
-// 圣诞老人剪影动画0
-function santaClausAnimate1() {
-    //belling = createjs.Sound.play('bell');
-    //belling.loop = Infinity;
-    $santaClaus.addClass('santa-claus-1');
-    animate('#santa-claus', 'left', 100, -15, 0.8, function() {
-        $santaClaus.removeClass('santa-claus-1');
-        $('#gotext,#logo,#go').remove();
-        santaClausAnimate2();
-    });
-}
+// 圣诞老人剪影动画
+// function santaClausAnimate1() {
+//     $santaClaus.addClass('santa-claus-1');
+//     animate('#santa-claus', 'left', 100, -15, 0.8, function() {
+//         $santaClaus.removeClass('santa-claus-1');
+//         $('#gotext,#logo,#go').remove();
+//         santaClausAnimate2();
+//     });
+// }
 
 // 圣诞老人剪影动画
 function santaClausAnimate2() {
@@ -194,21 +220,27 @@ function santaClausAnimate2() {
     });
 }
 
-// 圣诞老人二次入场动画
+// 圣诞老人二次入场动画 100 ————》 -75
 function santaClausAnimate3() {
 
     $santaClaus.addClass('santa-claus-3');
-    animate('#santa-claus', 'left', 100, -75, 1.5, function() {
-        $santaClaus.removeClass('santa-claus-3');
-        //belling.stop();
-        santaClausAnimate4();
+    animate('#santa-claus', 'left', 100, 90, 1.2, function() {
+        $santaClaus.find('.pop').addClass('show');
+        animate('#santa-claus', 'left', 90, 20, 1.2, function() {
+            $santaClaus.find('.pop').removeClass('show');
+            animate('#santa-claus', 'left', 20, -60, 1.2, function() {
+                $santaClaus.removeClass('santa-claus-3');
+                santaClausAnimate4();
+            })
+        })
     });
 }
 
 // 圣诞老人三次入场动画
 function santaClausAnimate4() {
     $santaClaus.addClass('santa-claus-4');
-    animate('#santa-claus', 'left', -120, 20, 2.5, function() {
+    animate('#santa-claus', 'left', -120, 20, 2, function() {
+        $santaClaus.find('.pop').addClass('show');
         createjs.Sound.play("laugh");
         setTimeout(function() {
             $santaClaus.removeClass('santa-claus-4');
@@ -275,8 +307,8 @@ function giftAnimate() {
 
 // 礼物下落动画
 function giftDroping() {
-    var _stage = $('#stage').css('willChange', 'top');
-    var _gift = $('#gift').css('willChange', 'top,left,width');
+    var _stage = $('#stage');
+    var _gift = $('#gift');
 
     var s_t_step = -3;
     var stage_top_from = 0;
@@ -322,12 +354,10 @@ function giftDroping() {
                 'width': gift_width_end + 'vw',
                 'height': gift_height_end + 'vw',
                 'left': gift_left_end + 'vw',
-                'willChange': 'auto',
             })
 
             _stage.css({
                 'top': stage_top_end + 'vw',
-                'willChange': 'auto',
             })
             console.log('droping end');
             _gift.hide();
@@ -346,36 +376,48 @@ function snowBoomAnimate() {
     var _block = $('.block');
     var _ground = $('.ground');
     var _model = $('#model');
-    createjs.Sound.play("boom");
+    //createjs.Sound.play("boom");
 
     setTimeout(function() {
-        $('#boom').show();
+
+        var _boom = $('.boom');
+        var _mask = $('.snow-mask');
+        var _alert = $('.res-window');
+        _mask.show();
+        _boom.show().one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            console.log('ani end');
+            _boom.remove();
+            _mask.remove();
+            $('.hand-1').addClass('gesture');
+            // boom消失，绑定擦除积雪效果
+            _ground.on('touchend', '.snow', function() {
+                createjs.Sound.play("wipe");
+                $(this).off('touchend').addClass('disappear');
+                if ($('.snow.disappear').length == 3) {
+                    $('.hand-1').remove();
+                    createjs.Sound.play("wind");
+                    ticketAnimateIn();
+                    setTimeout(function() {
+                        ticketAnimateOut();
+                    }, 3000);
+                }
+            }).on('touchend', '.touch', function() {
+                _ground.off('touchend');
+                _block.addClass('disappear');
+                _model.addClass('appear');
+                _alert.addClass('appear');
+                $('.snow.disappear').remove();
+                $('.hand-2').remove();
+                _model.css('zIndex', 999);
+                //createjs.Sound.play("combine");
+                _alert.on('touchend', '.btn',  function() {
+                    location.href = './html/findlast.html';
+                })
+            })
+        });
         _block.show();
     }, step);
 
-    setTimeout(function() {
-        $('#boom').remove();
-        $('.hand-1').addClass('gesture');
-        // boom消失，绑定擦除积雪效果
-        _ground.on('touchend', '.snow', function() {
-            createjs.Sound.play("wipe");
-            $(this).off('touchend').remove();
-            if ($('.snow').length == 0) {
-                $('.hand-1').remove();
-                ticketAnimate();
-            }
-        }).on('touchend', '.touch', function() {
-            _ground.off('touchend');
-            _block.addClass('disappear');
-            _model.addClass('appear');
-            $('.hand-2').remove();
-            _model.css('zIndex', 999);
-            createjs.Sound.play("combine");
-            _model.on('touchend', function() {
-                location.href = './html/findlast.html';
-            })
-        })
-    }, 5500);
 }
 
 // 场景缩小 镜头拉远
@@ -386,93 +428,32 @@ function furtherStageAnimate() {
     }, 2500);
 }
 
-// 机票飞过屏幕的动画
-function ticketAnimate() {
-    var _ticket = $('#ticket').css('willChange', 'top,left');
-    var t_t_step = 1.5;
-    var ticket_top_from = 180;
-    var ticket_top_end = 270;
-    var ticket_left_from = 104;
-    var ticket_left_end = 0;
-
-    var base_cross = Math.abs(ticket_top_end - ticket_top_from);
-    var base_step = Math.abs(t_t_step);
-
-    var t_l_step = (ticket_left_end - ticket_left_from) * base_step / base_cross;
-    createjs.Sound.play("wind");
-
-    var flyIn = function() {
-        ticket_top_from += t_t_step;
-        ticket_left_from += t_l_step;
-
-        _ticket.css({
-            'top': ticket_top_from + 'vw',
-            'left': ticket_left_from + 'vw'
-        })
-
-        if (Math.abs(ticket_top_end - ticket_top_from) < Math.abs(t_t_step)) {
-            _ticket.css({
-                'top': ticket_top_end + 'vw',
-                'left': ticket_left_end + 'vw'
-            })
-            t_t_step = 2;
-            ticket_top_from = ticket_top_end;
-            ticket_top_end = 360;
-            ticket_left_from = ticket_left_end;
-            ticket_left_end = -104;
-            base_cross = Math.abs(ticket_top_end - ticket_top_from);
-            base_step = Math.abs(t_t_step);
-
-            t_l_step = (ticket_left_end - ticket_left_from) * base_step / base_cross;
-            setTimeout(function() {
-                requestAnimationFrame(flyOut);
-            }, 2000);
-        } else {
-            requestAnimationFrame(flyIn);
-        }
-    }
-
-    var flyOut = function() {
-        ticket_top_from += t_t_step;
-        ticket_left_from += t_l_step;
-
-        _ticket.css({
-            'top': ticket_top_from + 'vw',
-            'left': ticket_left_from + 'vw'
-        })
-
-        if (Math.abs(ticket_top_end - ticket_top_from) < Math.abs(t_t_step)) {
-            _ticket.css({
-                'top': ticket_top_end + 'vw',
-                'left': ticket_left_end + 'vw',
-                'willChange': 'auto',
-            })
-            console.log('ticket fly done');
-            $('.hand-2').show();
-        } else {
-            requestAnimationFrame(flyOut);
-        }
-
-    }
-
-    requestAnimationFrame(flyIn);
-
-}
-
 // 动画执行函数 step是以最大的变化属性的step
 function animate(ele, attr, start, end, step, callback) {
     end > start ? (step = step) : (step = -step);
-    $(ele).css('willChange', attr);
     var ani = function() {
         start += step;
         $(ele).css(attr, start.toFixed(2) + 'vw');
         if (Math.abs(start - end) < Math.abs(step)) {
             $(ele).css(attr, end + 'vw');
-            $(ele).css('willChange', 'auto');
             callback ? callback() : null;
         } else {
             requestAnimationFrame(ani);
         }
     }
     requestAnimationFrame(ani);
+}
+
+
+function ticketAnimateIn() {
+    $('#ticket').addClass('zoomInRight animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+        $(this).removeClass('zoomInRight');
+    });
+}
+
+function ticketAnimateOut() {
+    console.log('out');
+    $('#ticket').addClass('zoomOutLeft').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+        $(this).removeClass('zoomOutLeft animated');
+    });
 }

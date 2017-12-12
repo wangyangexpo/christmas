@@ -39,6 +39,8 @@ template.helper('giftName', function(giftid) {
 
 $(function() {
 
+    $(".snow-canvas").snow();
+
     var master_uid = getQueryString('master_uid');
 
     $('.trigger').on('click', function() {
@@ -49,9 +51,9 @@ $(function() {
         if (res.error_code == 0) {
             var nickname = $.trim(res.master_info.nickname);
 
-            // setData({
-            //     nickname: res.master_info.nickname
-            // });
+            setData({
+                nickname: res.master_info.nickname
+            });
 
             var headimgurl = res.master_info.headimgurl;
             var html;
@@ -82,7 +84,7 @@ $(function() {
                 }
             } else {
                 // 主人中奖了
-                ptgame.gotoHatDown();
+                $('#santa_claus').addClass('done');
                 $('.box').addClass('find').show();
                 $('.content').find('.title').addClass('find');
                 if (headimgurl) {

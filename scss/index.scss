@@ -3,16 +3,27 @@
     height: 177vw;
     overflow: hidden;
     position: relative;
+    &>.snow-mask {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: #fff;
+        opacity: 1;
+        z-index: 9999;
+        animation: fade 1.5s ease-in;
+        animation-fill-mode: forwards;
+        display: none;
+    }
     &>.go-txt {
-        width: 65vw;
-        height: 55.9vw;
+        width: 75vw;
+        height: 77vw;
         background: url('../images/start_name.png') no-repeat;
         background-size: contain;
         background-position: center center;
         position: absolute;
         z-index: 1000;
-        top: 27vw;
-        left: 17.5vw;
+        top: 21vw;
+        left: 17vw;
         display: none;
         pointer-events: none;
     }
@@ -32,8 +43,8 @@
         display: none;
         width: 19vw;
         height: 19vw;
-        background: url('../images/start_btn.png') no-repeat;
-        background-size: cover;
+        background: url('../images/btn/start_btn.png') no-repeat;
+        background-size: contain;
         position: absolute;
         left: 42vw;
         top: 118vw;
@@ -43,6 +54,8 @@
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
 }
+
+
 
 #stage {
     display: none;
@@ -58,6 +71,44 @@
     transform-origin: center top;
     will-change: transform;
     transition: transform 2s;
+    &>.res-window {
+        width: 100vw;
+        height: 65.3vw;
+        background: url('../images/findlast/window.png') no-repeat;
+        background-size: 89vw auto;
+        background-position: left center;
+        position: absolute;
+        bottom: 0;
+        opacity: 0;
+        z-index: 999;
+        &.appear {
+            opacity: 1;
+            transition: opacity 1s linear;
+        }
+        &>.txt {
+            width: 61.3vw;
+            height: 17.6vw;
+            position: absolute;
+            top: 22.5vw;
+            left: 22vw;
+            &>p {
+                height: 7vw;
+                line-height: 7vw;
+                text-align: center;
+                font-size: 4.5vw;
+                color: #407C69;
+            }
+        }
+        &>.btn {
+            width: 12vw;
+            height: 12vw;
+            position: absolute;
+            left: 44vw;
+            bottom: 14vw;
+            background: url('../images/btn/btn_next.png') no-repeat;
+            background-size: contain;
+        }
+    }
     &>.hand-1 {
         width: 32vw;
         height: 32vw;
@@ -70,7 +121,7 @@
         top: 240vw;
         opacity: 0;
         &.gesture {
-            animation: gesture 10s linear infinite;
+            animation: gesture 6s linear infinite;
         }
     }
 
@@ -122,8 +173,9 @@
 }
 
 .disappear {
+    pointer-events: none;
     opacity: 0;
-    transition: opacity .6s ease-out;
+    transition: opacity 1s ease-out;
 }
 
 #moon.far {
@@ -222,6 +274,20 @@
     background: url('../images/santa_claus_normal.gif') no-repeat;
     background-size: cover;
     z-index: 101;
+    &>.pop {
+        width: 48.1vw;
+        height: 19.6vw;
+        position: absolute;
+        top: -12vw;
+        left: 5vw;
+        background: url('../images/pop_1.png') no-repeat;
+        background-size: contain;
+        opacity: 0;
+        transition: .5s;
+        &.show {
+            opacity: 1;
+        }
+    }
 }
 
 .santa-claus-4 {
@@ -234,6 +300,22 @@
     background: url('../images/santa_claus_gift.gif') no-repeat;
     background-size: cover;
     z-index: 101;
+    &>.pop {
+        width: 48.1vw;
+        height: 19.6vw;
+        position: absolute;
+        top: -8vw;
+        left: 26vw;
+        background: url('../images/pop_2.png') no-repeat;
+        background-size: contain;
+        opacity: 1;
+        transition: .5s;
+        opacity: 0;
+        transition: .5s;
+        &.show {
+            opacity: 1;
+        }
+    }
 }
 
 .santa-claus-5 {
@@ -245,6 +327,22 @@
     background: url('../images/santa_claus_done.png') no-repeat;
     background-size: cover;
     z-index: 101;
+    &>.pop {
+        width: 48.1vw;
+        height: 19.6vw;
+        position: absolute;
+        top: -8vw;
+        left: 26vw;
+        background: url('../images/pop_2.png') no-repeat;
+        background-size: contain;
+        opacity: 1;
+        transition: .5s;
+        opacity: 0;
+        transition: .5s;
+        &.show {
+            opacity: 1;
+        }
+    }
 }
 
 .gift {
@@ -372,7 +470,7 @@
     position: absolute;
     background: url('../images/boom/boom_04.png') no-repeat;
     background-size: contain;
-    animation: fade 5s linear;
+    animation: fadeDown 4.5s linear;
     animation-fill-mode: forwards;
 }
 
@@ -461,11 +559,27 @@
     0% {
         opacity: 1;
     }
-    50% {
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeDown {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    65% {
         opacity: 0.8;
+        transform: translateY(10vw);
     }
     100% {
         opacity: 0;
+        transform: translateY(20vw);
     }
 }
 
@@ -571,17 +685,24 @@
     background: url('../images/ticket.png') no-repeat;
     background-size: contain;
     position: absolute;
-    transform: rotateZ(-15deg);
-    left: 104vw;
-    /*-2*/
-    top: 180vw;
-    /*275*/
+    /* transform: rotateZ(-15deg); */
+    left: 0vw;
+    top: 275vw;
     z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    animation-fill-mode: forwards;
 }
 
-#ticket.fly {
-    animation: fly 5s linear;
+#ticket.animated {
+    opacity: 1;
 }
+
+
+
+/* #ticket.fly {
+    animation: fly 5s linear;
+} */
 
 #model {
     width: 37.6vw;
@@ -619,31 +740,31 @@
         opacity: 0;
         transform: translateX(0vw);
     }
-    10% {
+    15% {
         opacity: 1;
         transform: translateX(0vw);
     }
-    20% {
+    25% {
         opacity: 1;
         transform: translateX(20vw);
     }
-    21% {
+    26% {
         opacity: 1;
         transform: translateX(0vw);
     }
-    30% {
+    35% {
         opacity: 1;
         transform: translateX(20vw);
     }
-    31% {
+    36% {
         opacity: 1;
         transform: translateX(0vw);
     }
-    40% {
+    45% {
         opacity: 1;
         transform: translateX(20vw);
     }
-    41% {
+    50% {
         opacity: 0;
         transform: translateX(0vw);
     }

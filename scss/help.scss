@@ -16,7 +16,7 @@
 
         &>.desc {
             width: 100vw;
-            height: 117vw;
+            height: 130vw;
             position: relative;
             &>.detail {
                 width: 91.4vw;
@@ -27,7 +27,7 @@
                 left: 4.3vw;
                 border-radius: 1.5vw;
                 &>.step {
-                    height: 32vw;
+                    height: 38vw;
                     margin-top: 3vw;
                     position: relative;
                     &>.tit {
@@ -75,16 +75,17 @@
                 }
 
                 &>.join {
-                    width: 76.8vw;
-                    height: 13.4vw;
-                    border-radius: 6.7vw;
-                    background: #fff;
+                    width: 78vw;
+                    height: 13vw;
+                    border-radius: 6.5vw;
+                    background: url('../images/btn/btn_2_nomal.png') no-repeat;
+                    background-size: contain;
                     text-align: center;
-                    line-height: 13.4vw;
+                    line-height: 13vw;
                     font-size: 4.8vw;
                     color: #1F6A58;
                     margin: 0 auto 5vw;
-                    box-shadow: 0 2px 4px 0 rgba(42, 174, 126, 0.12), 0 6px 20px 0 rgba(42, 174, 126, 0.06), inset 0 -4px 14px 0 rgba(36, 152, 110, 0.58);
+                    /* box-shadow: 0 2px 4px 0 rgba(42, 174, 126, 0.12), 0 6px 20px 0 rgba(42, 174, 126, 0.06), inset 0 -4px 14px 0 rgba(36, 152, 110, 0.58); */
                 }
             }
 
@@ -201,16 +202,16 @@
                             border-radius: 16vw;
                             overflow: hidden;
                             &.avt-jingche {
-                            	background: url('../images/opened/icon_car.png') no-repeat;
-                            	background-size: contain;
+                                background: url('../images/opened/icon_car.png') no-repeat;
+                                background-size: contain;
                             }
                             &.avt-zhengshu {
-                            	background: url('../images/opened/icon_zhengshu.png') no-repeat;
-                            	background-size: contain;
+                                background: url('../images/opened/icon_zhengshu.png') no-repeat;
+                                background-size: contain;
                             }
                             &.avt-santa {
-                            	background: url('../images/opened/icon_santa.png') no-repeat;
-                            	background-size: contain;
+                                background: url('../images/opened/icon_santa.png') no-repeat;
+                                background-size: contain;
                             }
                             &.avt-ticket {
                                 background: url('../images/opened/icon_ticket.png') no-repeat;

@@ -1,12 +1,15 @@
+$bgcolor: #0B774E;
+
+
 body {
     overflow: scroll !important;
     min-height: 100vh;
-    background-color: #26eca9;
+    background-color: $bgcolor;
 
     &>.info {
         width: 88vw;
         border-radius: 20vw;
-        font-size: 4vw;
+        font-size: 4.5vw;
         line-height: 1.4;
         color: #fff;
         background: rgba(0, 0, 0, 0.12);
@@ -15,7 +18,7 @@ body {
         top: 2vw;
         left: 6vw;
         box-sizing: border-box;
-        padding: 1vw 2vw;
+        padding: 3vw 0;
         pointer-events: none;
         z-index: 999;
     }
@@ -28,8 +31,9 @@ body {
     &>.check-code {
         width: 100vw;
         height: 52vw;
-        background: #26eca9;
+        background: $bgcolor;
         position: relative;
+        top: -4vw;
         display: none;
         &>.phone {
             width: 76.8vw;
@@ -80,27 +84,29 @@ body {
             text-align: center;
         }
         &>.commit {
-            width: 74.6vw;
-            height: 12.8vw;
+            width: 80vw;
+            height: 13vw;
             border-radius: 6.4vw;
-            line-height: 12.8vw;
+            line-height: 13vw;
             font-size: 4.5vw;
-            background: #fff;
+            background: url('../images/btn/btn_1_nomal.png') no-repeat;
+            background-size: cover;
             color: #CD2D3A;
             box-sizing: border-box;
-            padding: 0 3vw;
+            /* padding: 0 3vw; */
             position: absolute;
-            left: 12.7vw;
+            left: 10vw;
             bottom: 7.2vw;
             text-align: center;
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 2px 6px 0 rgba(0, 0, 0, 0.06), inset 0 -2px 4px 0 rgba(0, 0, 0, 0.58);
+            /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 2px 6px 0 rgba(0, 0, 0, 0.06), inset 0 -2px 4px 0 rgba(0, 0, 0, 0.58); */
         }
     }
     &>.no-check {
         width: 100vw;
         height: 16.8vw;
-        background: #26eca9;
+        /* background: #26eca9; */
         position: relative;
+        top: -10vw;
         display: none;
         &>.commit {
             width: 74.6vw;
@@ -134,25 +140,23 @@ body {
             pointer-events: none;
             &>.txt {
                 width: 51.5vw;
-                height: 15.1vw;
-                font-size: 5.8vw;
-                line-height: 15vw;
+                font-size: 3.6vw;
+                line-height: 1.4;
                 text-align: center;
                 color: #368566;
                 position: absolute;
-                left: 52%;
-                top: 40%;
-                transform: translate(-50%, -50%) rotateZ(2deg);
+                top: 50%;
+                transform: translate(50%, -72%) rotateZ(2deg);
             }
         }
-        &>.title.find {
+        /* &>.title.find {
             background: url('../images/share/pic_huodongname_ex.png') no-repeat;
             background-size: cover;
             background-position: center bottom;
             &>.txt {
                 display: none;
             }
-        }
+        } */
         &>.gift {
             width: 100vw;
             margin-top: -4vw;
@@ -203,7 +207,7 @@ body {
             }
             &>.desc {
                 width: 100vw;
-                height: 95vw;
+                height: 118vw;
                 background: url('../images/share/pic_huodongxiangqing.png') no-repeat;
                 background-size: 91.5vw auto;
                 background-position: top center;
@@ -222,14 +226,14 @@ body {
                 }
                 &>.detail {
                     width: 91.4vw;
-                    height: 77.5vw;
+                    /* height: 77.5vw; */
                     background: #821B1E;
                     position: absolute;
                     top: 17.3vw;
                     left: 4.3vw;
                     border-radius: 0 0 1.5vw 1.5vw;
                     &>.step {
-                        height: 32vw;
+                        height: 38vw;
                         margin-top: 3vw;
                         position: relative;
                         &>.tit {
@@ -274,6 +278,14 @@ body {
                     }
                     &>.step-2 {
                         margin-top: 6vw;
+                    }
+                    &>.step-bot {
+                        height: 10vw;
+                        font-size: 4vw;
+                        text-align: center;
+                        color: #fff;
+                        margin-top: 0;
+                        margin-bottom: 3vw;
                     }
                 }
             }

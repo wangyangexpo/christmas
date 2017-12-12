@@ -1,1 +1,1 @@
-FastClick.attach(document.body),$(function(){var t=1;$(".btn").on("click",function(){2==t?location.href="./activity.html":(t++,$(".txt").html("<p>啊欧！少了一块哟～</p><p>邀请朋友一起找到它，</p><p>赢芬兰机票～</p>"),$(".btn").text("去找积木"))})});
+FastClick.attach(document.body),$(function(){$(".snow-canvas").snow(),$(".btn").on("click",function(){location.href="./activity.html"})});

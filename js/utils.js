@@ -153,6 +153,9 @@ function ajaxGet(url, data, callback) {
                 console.log('success');
                 callback ? callback(res) : null;
             } else {
+                if(res.error_code == '42702') {
+                    authorization();
+                }
                 console.log(res.error_code);
                 alert(config.error[res.error_code]);
             }
