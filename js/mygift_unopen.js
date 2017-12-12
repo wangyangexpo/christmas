@@ -6,6 +6,6 @@ $(function() {
             alert('非法进入！');
             return;
         }
-        location.href = './mygift_opened.html?giftid=' + giftid + '&nickname=' + nickname;
+        location.href = './mygift_opened.html?giftid=' + giftid + '&nickname=' + encodeURIComponent(nickname);
     });
 })

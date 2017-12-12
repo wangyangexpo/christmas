@@ -19,7 +19,7 @@
     <meta http-equiv='Cache-Control' content='no-siteapp' />
     <link rel="stylesheet" href="../css/public.css">
     <link rel="stylesheet" href="../css/share.css">
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 
 <body>
@@ -115,7 +115,7 @@
             <% for(var i=0; i< assistlist.length; i++) { 
                 var item = assistlist[i];
                 var headimgurl = item.headimgurl;
-                var nickname = item.nickname;
+                var nickname = trim(item.nickname);
                 var giftid = item.result;
                 var pretext = (giftid > 50 && giftid < 74) ? '祝你' : '获得';
                 if((giftid > 0 && giftid < 21) || giftid == 101 || giftid == 102) {

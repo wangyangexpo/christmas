@@ -46,9 +46,9 @@ var test_mygift = {
     "error_msg": "",
     "master_info": {
         "headimgurl": "xxx.jpg",
-        "nickname": "yyy",
+        "nickname": "王阳",
         "id": 14,
-        "status": 1 //1 已领奖 0未领奖
+        "status": 0 //1 已领奖 0未领奖
     },
     "prize_list": [{
             "result": 2,
@@ -66,18 +66,18 @@ var test_mygift = {
 function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg);
-    if (r != null) return decodeURI(r[2]);
+    if (r != null) return decodeURIComponent(r[2]);
     return null;
 }
 
 function setData(obj) {
     for (var i in obj) {
-        sessionStorage.setItem(i, JSON.stringify(obj[i]))
+        localStorage.setItem(i, JSON.stringify(obj[i]))
     }
 }
 
 function getData(key) {
-    return JSON.parse(sessionStorage.getItem(key))
+    return JSON.parse(localStorage.getItem(key))
 }
 
 function is_weixin() {
@@ -101,19 +101,28 @@ function is_mobike() {
 }
 
 function mobikeShare(url, sid) {
-
-    window.Mobike.menu('menu', {
-        title: '分享'
-    }, function() {
-        window.Mobike.share('share', {
-            title: config.sharetitle[sid],
-            content: config.sharesubtitle[sid],
-            url: url,
-            img: config.shareicon,
-            mask: '3',
-            type: '12'
+    if (is_mobike()) {
+        window.Mobike.menu('menu', {
+            title: '分享'
+        }, function() {
+            window.Mobike.share('share', {
+                title: config.sharetitle[sid],
+                content: config.sharesubtitle[sid],
+                url: url,
+                img: config.shareicon,
+                mask: '3',
+                type: '12'
+            })
         })
-    })
+    }
+}
+
+function add_auth(obj) {
+    var uid = getData('uid');
+    var token = getData('token');
+    obj.uid = uid;
+    obj.token = token;
+    return obj
 }
 
 function ajaxGet(url, data, callback) {
@@ -127,6 +136,10 @@ function ajaxGet(url, data, callback) {
         }
         return;
     }
+
+    data.t = new Date().getTime();
+    //add_auth(data);
+
     $.ajax({
         type: 'get',
         xhrFields: {
@@ -135,11 +148,13 @@ function ajaxGet(url, data, callback) {
         data: data,
         url: url,
         success: function(res) {
+
             if (res.error_code == 0) {
                 console.log('success');
                 callback ? callback(res) : null;
             } else {
-                alert(config.error[res.error_code] || '未知错误');
+                console.log(res.error_code);
+                alert(config.error[res.error_code]);
             }
         }
     });
@@ -151,12 +166,13 @@ function authorization() {
         console.log('not in wx!');
         return;
     }
-    location.href = config.authurl;
+    location.href = config.authurl + '?t=' + new Date().getTime();
 }
 
 //手机号码参加游戏发送验证码
 function joinGameByPhone(phone, callback) {
     var url = config.host + config.joinbyphone;
+    console.log(phone);
     ajaxGet(url, {
         mobile: phone
     }, callback);
@@ -176,8 +192,6 @@ function joinGameByWX(callback) {
     var url = config.host + config.joinbyweixin;
     if (config.is_auth) {
         ajaxGet(url, {}, callback);
-    } else {
-        authorization();
     }
 }
 
@@ -188,8 +202,6 @@ function getAssistList(master_uid, callback) {
         ajaxGet(url, {
             master_uid: master_uid
         }, callback);
-    } else {
-        authorization();
     }
 }
 
@@ -219,8 +231,6 @@ function checkMyGift(callback) {
     var url = config.host + config.giftlist;
     if (config.is_auth) {
         ajaxGet(url, {}, callback);
-    } else {
-        authorization();
     }
 }
 
@@ -232,8 +242,6 @@ function openGift(master_uid, position, callback) {
             master_uid: master_uid,
             position: position
         }, callback);
-    } else {
-        authorization();
     }
 
 }
@@ -276,12 +284,13 @@ function wxShare(url, sid, param) {
 
     $.ajax({
         data: {
-            data: JSON.stringify({ url: weixinUrl })
+            url: weixinUrl,
+            t: new Date().getTime()
         },
         type: "get",
         url: config.host + config.wxsdk,
         success: function(res) {
-
+            console.log(res);
             if (res.error_code == 0) {
                 wx.config({
                     debug: false,
@@ -293,7 +302,7 @@ function wxShare(url, sid, param) {
                 });
 
             } else {
-                alert('获取微信接口信息失败！');
+                alert(res.error_msg);
             }
         }
     });
@@ -333,12 +342,24 @@ function wxShare(url, sid, param) {
 }
 
 if (is_weixin()) {
-    if (!getCookie('uid') || !getCookie('token')) {
-        authorization();
-    } else {
+
+    var uid = getQueryString('uid');
+    var token = getQueryString('token');
+
+    if (uid && token) {
         config.is_auth = true;
+        setData({
+            uid: uid,
+            token: token
+        })
+        wxShare(config.defaultshareurl, 0);
+    } else if (getData('uid') && getData('token')) {
+        config.is_auth = true;
+        wxShare(config.defaultshareurl, 0);
+    } else {
+        authorization();
     }
-    wxShare(config.defaultshareurl, 0);
+
 } else if (is_mobike()) {
     mobikeShare(config.defaultshareurl, 0);
 }

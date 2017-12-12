@@ -31,6 +31,8 @@ $(function() {
     var mb_code = getData('mb_code') || '';
     var gift;
     $('.wx-name').text(nickname + '，');
+
+
     if(giftid >= 0 && giftid <= 20) {
     	gift = giftlist[0];
     	gift.el = gift.el[0] + giftid + gift.el[1];
@@ -47,13 +49,14 @@ $(function() {
     	}
     }
 
+    $('.gift-img').html(gift.el);
+    $('.gift-name').html(gift.name);
+
     if(is_weixin()) {
-        var url = config.shareorigin + 'html/mygift_opened.html?giftid=' + giftid + '&nickname=' + nickname + '&isshare=1';
+        var url = config.shareorigin + 'html/mygift_opened.html?giftid=' + giftid + '&nickname=' + encodeURIComponent(nickname) + '&isshare=1';
         wxShare(url, 2, gift.pre + gift.name);
     }
 
-    $('.gift-img').html(gift.el);
-    $('.gift-name').html(gift.name);
     _mgmask.on('click', '.icon-close', function() {
         _mgmask.find('.bg-rotate,.gift-img>img').addClass('disappear');
         setTimeout(function() {
@@ -98,7 +101,7 @@ $(function() {
 
         giftCheckCode(tel, code, function(res) {
             if(res.error_code == 0) {
-                location.href = './mygift_receive.html?giftid=' + giftid + '&mb_code=' + mb_code + '&phone=' + tel +'&nickname=' + nickname;
+                location.href = './mygift_receive.html?giftid=' + giftid + '&mb_code=' + mb_code + '&phone=' + tel +'&nickname=' + encodeURIComponent(nickname);
             }
         })
 
@@ -110,7 +113,7 @@ $(function() {
 function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg);
-    if (r != null) return decodeURI(r[2]);
+    if (r != null) return decodeURIComponent(r[2]);
     return null;
 }
 

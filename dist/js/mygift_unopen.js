@@ -1,1 +1,1 @@
-$(function(){var t=getData("custom_result"),n=getData("custom_nickname");$(".open-btn").on("click",function(){t?location.href="./mygift_opened.html?giftid="+t+"&nickname="+n:alert("非法进入！")})});
+$(function(){var n=getData("custom_result"),t=getData("custom_nickname");$(".open-btn").on("click",function(){n?location.href="./mygift_opened.html?giftid="+n+"&nickname="+encodeURIComponent(t):alert("非法进入！")})});

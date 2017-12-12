@@ -4,9 +4,9 @@ window.config = {
 
     is_test: false,
 
-    is_weixin: true,
+    is_weixin: false,
 
-    is_mobike: false,
+    is_mobike: true,
 
     // 下面是项目用到的固定参数，不需要改动
     is_auth: false,
@@ -45,7 +45,7 @@ window.config = {
 
     notfound: baseUrl + 'christmas/html/notfound.html',
 
-    authurl: baseUrl + 'authorization',
+    authurl: 'https://mobahuodong.putao.com/authorization',
 
     sharetitle: {
         0: '葡萄积木携手摩拜，送你去芬兰！',
@@ -115,7 +115,7 @@ window.config = {
         '42701': '签名错误',
         '42702': 'token错误',
         '42703': '用户名或密码错误',
-        '42704': '用户已存在',
+        '42704': '你已经分享过了',
         '42705': '操作失败',
         '42709': '用户不存在',
         '42712': '验证码错误',

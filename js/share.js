@@ -29,6 +29,10 @@ template.helper('dateFormat', function(date) {
     return format;
 })
 
+template.helper('trim', function(str) {
+    return $.trim(str);
+})
+
 template.helper('giftName', function(giftid) {
     return config.wish[giftid];
 })
@@ -43,14 +47,15 @@ $(function() {
 
     getAssistList(master_uid, function(res) {
         if (res.error_code == 0) {
-            var nickname = '（' + res.master_info.nickname + '）';
+            var nickname = $.trim(res.master_info.nickname);
+
             // setData({
             //     nickname: res.master_info.nickname
             // });
 
             var headimgurl = res.master_info.headimgurl;
             var html;
-            $('.nickname').text(nickname);
+            $('.nickname').text('（' + nickname + '）');
 
             var master = {
                 status: res.master_prize_status,
@@ -117,7 +122,7 @@ function bindOpenGift(master_uid) {
         openGift(master_uid, position, function(res) {
             var master_result = res.master_result;
             var custom_result = res.custom_result;
-            var custom_nickname = res.nickname;
+            var custom_nickname = $.trim(res.nickname);
             var mb_code = res.custom_code || '';
             setData({
                 custom_nickname: custom_nickname,

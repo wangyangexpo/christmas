@@ -39,9 +39,10 @@ $(function() {
             console.log(res.id);
             if (res.error_code == 0) {
                 var giftlist = res.prize_list;
-                var nickname = res.master_info.nickname;
+                var nickname = $.trim(res.master_info.nickname);
+                var giftstatus = res.master_info.status;
                 var master_uid = res.master_info.id;
-                render(giftlist, nickname, master_uid);
+                render(giftlist, nickname, master_uid, giftstatus);
             }
         })
     }
@@ -50,17 +51,20 @@ $(function() {
     })
 })
 
-function render(giftlist, nickname, master_uid) {
+function render(giftlist, nickname, master_uid, giftstatus) {
 	console.log(giftlist);
     if (!giftlist || giftlist.length == 0) {
         return;
     }
-    var html = template('assist_tpl', {giftlist: giftlist});
+    var html = template('assist_tpl', {
+        giftlist: giftlist,
+        giftstatus: giftstatus
+    });
     $('.help').html(html);
 
     $('.help').on('click', '.yes', function() {
     	var giftid = $(this).data('result');
-    	var url_1 = './mygift_opened.html?giftid=' + giftid + '&nickname=' + nickname;
+    	var url_1 = './mygift_opened.html?giftid=' + giftid + '&nickname=' + encodeURIComponent(nickname);
     	var url_2 = './share.html?master_uid=' + master_uid;
     	if(giftid == 101 || giftid == 102 || giftid == 104) {
     		var code = $(this).data('code');
