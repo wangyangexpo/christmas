@@ -8,7 +8,7 @@ window.config = {
 
     is_weixin: false,
 
-    is_mobike: false,
+    is_mobike: true,
 
     // 下面是项目用到的固定参数，不需要改动
     is_auth: false,
