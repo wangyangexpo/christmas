@@ -156,7 +156,7 @@
     }
     &>.content {
         width: 100vw;
-        height: 125vw;
+        height: 135vw;
         position: relative;
         &>.title {
             width: 100vw;
@@ -188,7 +188,7 @@
         }
         &>.detail {
             width: 91.4vw;
-            height: 77.5vw;
+            /* height: 77.5vw; */
             position: absolute;
             top: 17.3vw;
             left: 4.3vw;
@@ -239,6 +239,13 @@
             &>.step-2 {
                 margin-top: 6vw;
             }
+            &>.step-bot {
+                height: 10vw;
+                font-size: 4vw;
+                text-align: center;
+                color: #fff;
+                margin-top: 0;
+            }
         }
         &>.attend {
         	width: 80vw;
@@ -252,7 +259,7 @@
         	/* box-shadow: 0 2px 4px 0 rgba(175,34,45,0.60), 0 6px 20px 0 rgba(159,30,41,0.51), inset 0 -4px 14px 0 rgba(177,22,35,0.30); */
         	position: absolute;
         	left: 10vw;
-        	bottom: 10vw;
+        	bottom: 8vw;
         	text-align: center; 
         }
     }
