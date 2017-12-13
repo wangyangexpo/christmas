@@ -13,23 +13,27 @@ var mid_template = [
 var giftlist = {
     '103': {
         name: '葡萄积木芬兰圣诞老人',
-        up_el: ['<div class="quan quan-st"></div><div class="quan-txt"><span class="name">葡萄积木圣诞老人抵用券</span>已存入您<br/><span class="phone">', '</span>的手机账户中</div>'],
+        up_el: ['<div class="quan quan-st"></div><div class="quan-txt"><span class="name">葡萄积木全球限量版圣诞老人兑换券</span>已存入您<br/><span class="phone">', '</span>的手机账户中</div>'],
         down_el: 0,
+        pre: '1个',
     },
     '104': {
         name: '葡萄积木警车',
-        up_el: ['<div class="quan quan-jc"></div><div class="quan-txt"><span class="name">葡萄积木警车抵用券</span>已存入您<br/><span class="phone">', '</span>的手机账户中</div>'],
+        up_el: ['<div class="quan quan-jc"></div><div class="quan-txt"><span class="name">葡萄积木警车兑换券</span>已存入您<br/><span class="phone">', '</span>的手机账户中</div>'],
         down_el: 0,
+        pre: '1辆',
     },
     '101': {
         name: '摩拜单车月卡',
         up_el: ['<div class="code code-m">', '</div><div class="copy">长按复制本券码</div><div class="code-txt">恭喜你获得<br/>价值<span class="name">30元的葡萄科技联名月卡</span>1张</div><div class="code-date">（兑奖时间：2017/12/12～2017/12/31）</div>'],
         down_el: 1,
+        pre: '1张',
     },
     '102': {
         name: '摩拜单车年卡',
         up_el: ['<div class="code code-m">', '</div><div class="copy">长按复制本券码</div><div class="code-txt">恭喜你获得<br/>价值<span class="name">365元的葡萄科技联名年卡</span>1张</div><div class="code-date">（兑奖时间：2017/12/12～2017/12/31）</div>'],
         down_el: 1,
+        pre: '1张',
     }
 }
 

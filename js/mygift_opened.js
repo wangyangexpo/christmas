@@ -4,21 +4,25 @@ var giftlist = {
         name: '圣诞精灵证书',
         el: ['<img src="../images/zhengshu/zhengshu_','.png" alt="" class="zhengshu">'],
         pre: '1张',
+        desc: '',
     },
     '104': {
         name: '葡萄积木警车',
         el: '<img src="../images/opened/jingche.png" alt="" class="jingche">',
         pre: '1辆',
+        desc: '获得了葡萄积木《布布百变警车》',
     },
     '101': {
         name: '摩拜单车月卡',
         el: '<img src="../images/opened/yueka.png" alt="" class="yueka">',
         pre: '1张',
+        desc: '获得了价值30元摩拜&葡萄积木联名骑行卡1张',
     },
     '102': {
         name: '摩拜单车年卡',
         el: '<img src="../images/opened/nianka.png" alt="" class="nianka">',
         pre: '1张',
+        desc: '获得了价值365元摩拜&葡萄积木联名骑行卡1张',
     }
 }
 
@@ -40,17 +44,18 @@ $(function() {
     	gift = giftlist[giftid];
     	if(!gift) {
     		gift = giftlist[0];
-    		gift.el = gift.el[0] + '0' + gift.el[1];
+    		gift.el = gift.el[0] + '1' + gift.el[1];
     	} else {
     		if(isshare == 0) {
     			$('.receive').show();
     		}
-    		$('#lucky').addClass('find');
     	}
     }
 
-    $('.gift-img').html(gift.el);
-    $('.gift-name').html(gift.name);
+    var img = $(gift.el);
+    $('.gift-img').append(img);
+    $('.gift-name').text(gift.name);
+    $('.gift-desc').text(gift.desc);
 
     if(is_weixin()) {
         var url = config.shareorigin + 'html/mygift_opened.html?giftid=' + giftid + '&nickname=' + encodeURIComponent(nickname) + '&isshare=1';

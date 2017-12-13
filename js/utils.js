@@ -34,7 +34,7 @@ var test_res = {
         },
     ],
     "master_result": 51, //51-73 || 103
-    "custom_result": 102, //1-20 || 101,102,104
+    "custom_result": 1, //1-20 || 101,102,104
     "nickname": 'xixihaha',
     "custom_code": 'test-8888999966664321',
     "id": 'WMYLWYXNXYXRDYY',
@@ -155,9 +155,10 @@ function ajaxGet(url, data, callback) {
             } else {
                 if(res.error_code == '42702') {
                     authorization();
+                } else {
+                    console.log(res.error_code);
+                    alert(config.error[res.error_code]);
                 }
-                console.log(res.error_code);
-                alert(config.error[res.error_code]);
             }
         }
     });

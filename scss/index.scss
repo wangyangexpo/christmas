@@ -3,6 +3,17 @@
     height: 177vw;
     overflow: hidden;
     position: relative;
+    &>.help {
+        display: none;
+        width: 8vw;
+        height: 8vw;
+        position: absolute;
+        right: 5vw;
+        top: 5vw;
+        background: url('../images/icon_help.png') no-repeat;
+        background-size: contain;
+        z-index: 10000;
+    }
     &>.snow-mask {
         position: fixed;
         width: 100vw;
@@ -71,6 +82,7 @@
     transform-origin: center top;
     will-change: transform;
     transition: transform 2s;
+    
     &>.res-window {
         width: 100vw;
         height: 65.3vw;
@@ -80,10 +92,12 @@
         position: absolute;
         bottom: 0;
         opacity: 0;
-        z-index: 999;
         &.appear {
             opacity: 1;
             transition: opacity 1s linear;
+        }
+        &.animated {
+            opacity: 1;
         }
         &>.txt {
             width: 61.3vw;
@@ -136,6 +150,27 @@
         top: 282vw;
         z-index: 999;
         display: none;
+    }
+
+    &>.tip {
+        width: 60vw;
+        background: rgba(0, 0, 0, .25);
+        font-size: 4vw;
+        text-align: center;
+        color: #fff;
+        line-height: 1.6;
+        border-radius: 2vw;
+        padding: 2vw 0;
+        position: absolute;
+        top: 355vw;
+        left: 20vw;
+        z-index: 999;
+        pointer-events: none;
+        opacity: 0;
+        &.show {
+            opacity: 1;
+            transition: .6s;
+        }
     }
 }
 

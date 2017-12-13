@@ -3,6 +3,16 @@
   height: 177vw;
   overflow: hidden;
   position: relative; }
+  #wicket > .help {
+    display: none;
+    width: 8vw;
+    height: 8vw;
+    position: absolute;
+    right: 5vw;
+    top: 5vw;
+    background: url("../images/icon_help.png") no-repeat;
+    background-size: contain;
+    z-index: 10000; }
   #wicket > .snow-mask {
     position: fixed;
     width: 100vw;
@@ -80,12 +90,13 @@
     background-position: left center;
     position: absolute;
     bottom: 0;
-    opacity: 0;
-    z-index: 999; }
+    opacity: 0; }
     #stage > .res-window.appear {
       opacity: 1;
       -webkit-transition: opacity 1s linear;
       transition: opacity 1s linear; }
+    #stage > .res-window.animated {
+      opacity: 1; }
     #stage > .res-window > .txt {
       width: 61.3vw;
       height: 17.6vw;
@@ -131,6 +142,25 @@
     top: 282vw;
     z-index: 999;
     display: none; }
+  #stage > .tip {
+    width: 60vw;
+    background: rgba(0, 0, 0, 0.25);
+    font-size: 4vw;
+    text-align: center;
+    color: #fff;
+    line-height: 1.6;
+    border-radius: 2vw;
+    padding: 2vw 0;
+    position: absolute;
+    top: 355vw;
+    left: 20vw;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0; }
+    #stage > .tip.show {
+      opacity: 1;
+      -webkit-transition: .6s;
+      transition: .6s; }
 
 #stage.far {
   -webkit-transform: scale(1) translateY(-80vw);

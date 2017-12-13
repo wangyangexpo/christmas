@@ -125,15 +125,19 @@
                 color: rgba(255, 255, 255, 0.8); }
         .container > .content > .gift > .desc > .copyright {
           width: 100vw;
-          height: 8vw;
           color: rgba(255, 255, 255, 0.7);
           text-align: center;
           font-size: 2.4vw;
           position: relative;
-          margin: 4vw 0 0;
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden; }
+          .container > .content > .gift > .desc > .copyright.mt-4 {
+            margin-top: 4vw; }
+          .container > .content > .gift > .desc > .copyright.mt-2 {
+            margin-top: 2vw; }
+          .container > .content > .gift > .desc > .copyright.pb-4 {
+            padding-bottom: 4vw; }
       .container > .content > .gift > .help {
         width: 100vw;
         position: relative; }

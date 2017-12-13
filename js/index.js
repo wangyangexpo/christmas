@@ -25,6 +25,7 @@ FastClick.attach(document.body);
 
 // 需要预加载的图片资源列表
 var cacheImage = [
+    './images/icon_help.png',
     './images/dark.png',
     './images/moon.png',
     './images/santa_claus_shadow.gif',
@@ -168,7 +169,7 @@ function loadHandler(event) {
     if (audioDone >= c_audio_length) {
         clearInterval(loadingani);
         $('#loading').remove();
-        $('#stage,#gotext,#logo,#go').show();
+        $('#stage,.before').show();
         $('#go').on('touchstart', function() {
             $('#go').off('touchstart');
             $('.before').addClass('disappear');
@@ -190,7 +191,7 @@ function preloadAudio(list) {
     } else {
         clearInterval(loadingani);
         $('#loading').remove();
-        $('#stage,#gotext,#logo,#go').show();
+        $('#stage,.before').show();
         $('#go').on('touchstart', function() {
             $('#go').off('touchstart');
             $('.before').addClass('disappear');
@@ -224,7 +225,7 @@ function santaClausAnimate2() {
 
 // 圣诞老人二次入场动画 100 ————》 -75
 function santaClausAnimate3() {
-
+    $('.before').remove();
     $santaClaus.addClass('santa-claus-3');
     animate('#santa-claus', 'left', 100, 90, 1.2, function() {
         $santaClaus.find('.pop').addClass('show');
@@ -311,6 +312,7 @@ function giftAnimate() {
 function giftDroping() {
     var _stage = $('#stage');
     var _gift = $('#gift');
+    var _noseen = $('#sky,#moon');
 
     var s_t_step = -3;
     var stage_top_from = 0;
@@ -362,8 +364,8 @@ function giftDroping() {
                 'top': stage_top_end + 'vw',
             })
             console.log('droping end');
-            _gift.hide();
-
+            _gift.remove();
+            _noseen.remove();
             snowBoomAnimate();
         } else {
             requestAnimationFrame(droping);
@@ -391,12 +393,14 @@ function snowBoomAnimate() {
             _boom.remove();
             _mask.remove();
             $('.hand-1').addClass('gesture');
+            $('.tip-1').addClass('show');
             // boom消失，绑定擦除积雪效果
             _ground.on('touchend', '.snow', function() {
                 createjs.Sound.play("wipe");
                 $(this).off('touchend').addClass('disappear');
                 if ($('.snow.disappear').length == 3) {
                     $('.hand-1').remove();
+                    $('.tip-1').remove();
                     createjs.Sound.play("wind");
                     ticketAnimateIn();
                     setTimeout(function() {
@@ -406,12 +410,11 @@ function snowBoomAnimate() {
             }).on('touchend', '.touch', function() {
                 _ground.off('touchend');
                 _block.addClass('disappear');
-                _model.addClass('appear');
-                _alert.addClass('appear');
-                $('.snow.disappear').remove();
+                _model.css('zIndex', 999).addClass('appear');
+                // _alert.css('zIndex', 999).addClass('appear');
+                alertAnimate(_alert, 'fadeInLeft');
                 $('.hand-2').remove();
-                _model.css('zIndex', 999);
-                //createjs.Sound.play("combine");
+                $('.tip-2').remove();
                 _alert.on('touchend', '.btn',  function() {
                     location.href = './html/findlast.html';
                 })
@@ -446,17 +449,25 @@ function animate(ele, attr, start, end, step, callback) {
     requestAnimationFrame(ani);
 }
 
+function alertAnimate(_alert, css) {
+    _alert.css('zIndex', 999).addClass(css + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+        $(this).removeClass(css);
+    });
+}
+
 
 function ticketAnimateIn() {
     $('#ticket').addClass('zoomInRight animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
         $(this).removeClass('zoomInRight');
+        $('.snow').remove();
     });
 }
 
 function ticketAnimateOut() {
     console.log('out');
     $('#ticket').addClass('zoomOutLeft').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-        $(this).removeClass('zoomOutLeft animated');
+        $(this).removeClass('zoomOutLeft animated').remove();
         $('.hand-2').show();
+        $('.tip-2').addClass('show');
     });
 }

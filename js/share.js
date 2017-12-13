@@ -43,10 +43,6 @@ $(function() {
 
     var master_uid = getQueryString('master_uid');
 
-    $('.trigger').on('click', function() {
-        $('.desc').toggleClass('close');
-    })
-
     getAssistList(master_uid, function(res) {
         if (res.error_code == 0) {
             var nickname = $.trim(res.master_info.nickname);
