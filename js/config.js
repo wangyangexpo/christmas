@@ -2,6 +2,8 @@ var baseUrl = 'https://web-huodong.putaocdn.com/';
 
 window.config = {
 
+    version: 'v201712130942',
+
     is_test: false,
 
     is_weixin: false,

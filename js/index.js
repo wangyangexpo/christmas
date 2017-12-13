@@ -68,6 +68,8 @@ var cacheImage = [
     './images/snow/santa_claus_with_hat.png',
     './images/unopen/pic_liwu.png',
     './images/unopen/santa.png',
+    './images/share/dialog_pic_jimu.png',
+    './images/share/dialog_pic_note.png',
 
 ];
 // 需要预加载的音频资源列表 id是音频的id 调用soundjs的时候使用的对应id
@@ -455,5 +457,6 @@ function ticketAnimateOut() {
     console.log('out');
     $('#ticket').addClass('zoomOutLeft').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
         $(this).removeClass('zoomOutLeft animated');
+        $('.hand-2').show();
     });
 }
