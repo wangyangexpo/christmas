@@ -312,32 +312,34 @@ function wxShare(url, sid, param) {
     });
 
     wx.ready(function() {
+        DS.ready(function () {
+            wx.onMenuShareTimeline({
+                title: title, // 分享标题
+                link: DS.linkChange(shareLink), // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: icon, // 分享图标
+                success: function() {
+                    // 用户确认分享后执行的回调函数
+                    DS.sendRepost("timeline");
+                },
+                cancel: function() {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
 
-        wx.onMenuShareTimeline({
-            title: title, // 分享标题
-            link: shareLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-            imgUrl: icon, // 分享图标
-            success: function() {
-                // 用户确认分享后执行的回调函数
-            },
-            cancel: function() {
-                // 用户取消分享后执行的回调函数
-            }
+            wx.onMenuShareAppMessage({
+                title: title, // 分享标题
+                desc: sec, // 分享描述
+                link: DS.linkChange(shareLink), // 分享链接
+                imgUrl: icon, // 分享图标
+                success: function() {
+                    // 用户确认分享后执行的回调函数
+                    DS.sendRepost("appMessage");
+                },
+                cancel: function() {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
         });
-
-        wx.onMenuShareAppMessage({
-            title: title, // 分享标题
-            desc: sec, // 分享描述
-            link: shareLink, // 分享链接
-            imgUrl: icon, // 分享图标
-            success: function() {
-                // 用户确认分享后执行的回调函数
-            },
-            cancel: function() {
-                // 用户取消分享后执行的回调函数
-            }
-        });
-
     });
 
     wx.error(function(res) {
