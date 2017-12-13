@@ -95,13 +95,13 @@ a:focus {
     background-size: cover;
     position: absolute;
     &>.santa-claus {
-        width: 34vw;
-        height: 72vw;
+        width: 37vw;
+        height: 80vw;
         background: url('../images/snow/santa_claus_no_hat.png') no-repeat;
         background-size: contain;
         position: absolute;
-        left: 36vw;
-        top: 18vw;
+        left: 27vw;
+        top: 22vw;
         &.done {
             background: url('../images/snow/santa_claus_with_hat.png') no-repeat;
             background-size: contain;
