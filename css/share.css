@@ -27,7 +27,7 @@ body {
   .container > .check-code {
     width: 100vw;
     height: 52vw;
-    background: #0B774E;
+    /* background: $bgcolor; */
     position: relative;
     top: -4vw;
     display: none; }
@@ -104,22 +104,21 @@ body {
     top: -10vw;
     display: none; }
     .container > .no-check > .commit {
-      width: 74.6vw;
-      height: 12.8vw;
-      border-radius: 6.4vw;
-      line-height: 12.8vw;
+      width: 78vw;
+      height: 13vw;
+      border-radius: 6.5vw;
+      line-height: 13vw;
       font-size: 4.5vw;
-      background: #fff;
+      background: url("../images/btn/btn_1_nomal.png") no-repeat;
+      background-size: cover;
       color: #CD2D3A;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
-      padding: 0 3vw;
       position: absolute;
-      left: 12.7vw;
+      left: 11vw;
       bottom: 2vw;
       text-align: center;
-      -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 2px 6px 0 rgba(0, 0, 0, 0.06), inset 0 -2px 4px 0 rgba(0, 0, 0, 0.58);
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 2px 6px 0 rgba(0, 0, 0, 0.06), inset 0 -2px 4px 0 rgba(0, 0, 0, 0.58); }
+      /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 2px 6px 0 rgba(0, 0, 0, 0.06), inset 0 -2px 4px 0 rgba(0, 0, 0, 0.58); */ }
   .container > .content {
     width: 100vw;
     position: relative;

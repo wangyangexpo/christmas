@@ -33,7 +33,7 @@ var test_res = {
             "time": 151863124,
         },
     ],
-    "master_result": 51, //51-73 || 103
+    "master_result": 52, //51-73 || 103
     "custom_result": 1, //1-20 || 101,102,104
     "nickname": 'xixihaha',
     "custom_code": 'test-8888999966664321',
