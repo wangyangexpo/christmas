@@ -97,6 +97,7 @@
             position: absolute;
             left: 11vw;
             text-align: center;
+            animation: begin 1s ease-in-out infinite;
             /* box-shadow: 0 2px 4px 0 rgba(175, 34, 45, 0.60), 0 2px 6px 0 rgba(159, 30, 41, 0.51), inset 0 -2px 4px 0 rgba(177, 22, 35, 0.30); */
         }
     }
@@ -196,5 +197,17 @@
                 padding-top: 8vw;
             }
         }
+    }
+}
+
+@keyframes begin {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.04);
+    }
+    100% {
+        transform: scale(1);
     }
 }

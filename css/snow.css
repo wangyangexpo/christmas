@@ -81,7 +81,7 @@ a:focus {
     background: url("../images/snow/santa_claus_no_hat.png") no-repeat;
     background-size: contain;
     position: absolute;
-    left: 27vw;
+    left: 32vw;
     top: 22vw; }
     .htmleaf-container > .santa-claus:before {
       content: '';
@@ -92,8 +92,8 @@ a:focus {
       left: 13vw;
       background: url("../images/snow/santa_claus_hat.png") no-repeat;
       background-size: contain;
-      -webkit-animation: hat 2s ease-in-out infinite;
-      animation: hat 2s ease-in-out infinite; }
+      -webkit-animation: hat 1s ease-in-out infinite;
+      animation: hat 1s ease-in-out infinite; }
     .htmleaf-container > .santa-claus.done {
       background: url("../images/snow/santa_claus_with_hat.png") no-repeat;
       background-size: contain; }
