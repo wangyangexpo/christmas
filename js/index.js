@@ -78,10 +78,6 @@ var cacheAudio = [{
         src: './sound/gift.mp3',
         id: 'gift'
     },
-    // {
-    //     src: './sound/boom.wav',
-    //     id: 'boom'
-    // },
     {
         src: './sound/wipe.mp3',
         id: 'wipe'
@@ -94,18 +90,6 @@ var cacheAudio = [{
         src: './sound/laugh.mp3',
         id: 'laugh'
     },
-    // {
-    //     src: './sound/bell.mp3',
-    //     id: 'bell'
-    // },
-    // {
-    //     src: './sound/wind.mp3',
-    //     id: 'wind'
-    // },
-    // {
-    //     src: './sound/combine.mp3',
-    //     id: 'combine'
-    // }
 ];
 
 var c_image_length = cacheImage.length;
@@ -203,16 +187,6 @@ function preloadAudio(list) {
 }
 
 var $santaClaus = $('#santa-claus');
-
-// 圣诞老人剪影动画
-// function santaClausAnimate1() {
-//     $santaClaus.addClass('santa-claus-1');
-//     animate('#santa-claus', 'left', 100, -15, 0.8, function() {
-//         $santaClaus.removeClass('santa-claus-1');
-//         $('#gotext,#logo,#go').remove();
-//         santaClausAnimate2();
-//     });
-// }
 
 // 圣诞老人剪影动画
 function santaClausAnimate2() {
@@ -450,22 +424,5 @@ function alertAnimate(_alert, css, callback) {
     _alert.css('zIndex', 999).addClass(css + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
         $(this).removeClass(css);
         callback();
-    });
-}
-
-
-function ticketAnimateIn() {
-    $('#ticket').addClass('zoomInRight animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-        $(this).removeClass('zoomInRight');
-        $('.snow').remove();
-    });
-}
-
-function ticketAnimateOut() {
-    console.log('out');
-    $('#ticket').addClass('zoomOutLeft').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-        $(this).removeClass('zoomOutLeft animated').remove();
-        $('.hand-2').show();
-        $('.tip-2').addClass('show');
     });
 }

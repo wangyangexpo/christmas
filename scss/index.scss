@@ -745,12 +745,6 @@
     opacity: 1;
 }
 
-
-
-/* #ticket.fly {
-    animation: fly 5s linear;
-} */
-
 #model {
     width: 50.6vw;
     height: 90.9vw;
@@ -765,21 +759,6 @@
 #model.appear {
     opacity: 1;
     transition: opacity 1s ease-out;
-}
-
-@keyframes fly {
-    0% {
-        transform: rotateZ(-15deg) translate(0vw, 0vw);
-    }
-    20% {
-        transform: rotateZ(-15deg) translate(-120vw, 50vw);
-    }
-    75% {
-        transform: rotateZ(-15deg) translate(-120vw, 50vw);
-    }
-    100% {
-        transform: rotateZ(-15deg) translate(-250vw, 100vw);
-    }
 }
 
 @keyframes gesture {

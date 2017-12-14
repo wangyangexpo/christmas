@@ -849,9 +849,6 @@
 #ticket.animated {
   opacity: 1; }
 
-/* #ticket.fly {
-    animation: fly 5s linear;
-} */
 #model {
   width: 50.6vw;
   height: 90.9vw;
@@ -866,34 +863,6 @@
   opacity: 1;
   -webkit-transition: opacity 1s ease-out;
   transition: opacity 1s ease-out; }
-
-@-webkit-keyframes fly {
-  0% {
-    -webkit-transform: rotateZ(-15deg) translate(0vw, 0vw);
-    transform: rotateZ(-15deg) translate(0vw, 0vw); }
-  20% {
-    -webkit-transform: rotateZ(-15deg) translate(-120vw, 50vw);
-    transform: rotateZ(-15deg) translate(-120vw, 50vw); }
-  75% {
-    -webkit-transform: rotateZ(-15deg) translate(-120vw, 50vw);
-    transform: rotateZ(-15deg) translate(-120vw, 50vw); }
-  100% {
-    -webkit-transform: rotateZ(-15deg) translate(-250vw, 100vw);
-    transform: rotateZ(-15deg) translate(-250vw, 100vw); } }
-
-@keyframes fly {
-  0% {
-    -webkit-transform: rotateZ(-15deg) translate(0vw, 0vw);
-    transform: rotateZ(-15deg) translate(0vw, 0vw); }
-  20% {
-    -webkit-transform: rotateZ(-15deg) translate(-120vw, 50vw);
-    transform: rotateZ(-15deg) translate(-120vw, 50vw); }
-  75% {
-    -webkit-transform: rotateZ(-15deg) translate(-120vw, 50vw);
-    transform: rotateZ(-15deg) translate(-120vw, 50vw); }
-  100% {
-    -webkit-transform: rotateZ(-15deg) translate(-250vw, 100vw);
-    transform: rotateZ(-15deg) translate(-250vw, 100vw); } }
 
 @-webkit-keyframes gesture {
   0% {
