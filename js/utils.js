@@ -150,10 +150,10 @@ function ajaxGet(url, data, callback) {
     data.t = new Date().getTime();
     add_auth(data);
 
-    if (!config.is_auth) {
+    if (!config.is_auth && is_weixin()) {
         init(function() {
             $.ajax({
-                type: 'get',
+                type: 'post',
                 xhrFields: {
                     withCredentials: true
                 },
@@ -177,7 +177,7 @@ function ajaxGet(url, data, callback) {
         })
     } else {
         $.ajax({
-            type: 'get',
+            type: 'post',
             xhrFields: {
                 withCredentials: true
             },
@@ -328,7 +328,7 @@ function wxShare(url, sid, param) {
             url: weixinUrl,
             t: new Date().getTime()
         },
-        type: "get",
+        type: "post",
         url: config.host + config.wxsdk,
         success: function(res) {
             console.log(res);

@@ -2,7 +2,7 @@ var baseUrl = 'https://web-huodong.putaocdn.com/';
 
 window.config = {
 
-    version: 'v201712141800',
+    version: 'v201712142034',
 
     is_test: false,
 
@@ -47,7 +47,7 @@ window.config = {
 
     notfound: baseUrl + 'christmas/html/notfound.html',
 
-    authurl: 'https://mobahuodong.putao.com/authorization',
+    authurl: 'https://mobahuodong.putao.com/index/authorization',
 
     sharetitle: {
         0: '葡萄积木携手摩拜单车，送你去芬兰！',
@@ -55,8 +55,8 @@ window.config = {
         1: '邀请你一起为xxx助力，赢取芬兰机票！',
         2: '我刚刚通过助力，瓜分了xxx',
         // 不带主人信息的分享
-        4: '【瓜分圣诞大礼】葡萄积木携手摩拜单车，任性送大礼！',
-        5: '【芬兰机票躺着赢】葡萄积木携手摩拜单车，送你去芬兰！',
+        4: '【瓜分圣诞大礼】摩拜单车携手葡萄积木，任性送大礼！',
+        5: '【芬兰机票躺着赢】摩拜单车携手葡萄积木，送你去芬兰！',
         6: '【抢到就是赚到】葡萄积木圣诞老人、摩拜骑行卡免费送！',
         7: '【足足7000份奖品】葡萄积木圣诞老人免费送，摩拜单车任性骑！',
         // 带主人信息的分享
