@@ -102,9 +102,23 @@ a:focus {
         position: absolute;
         left: 27vw;
         top: 22vw;
+        &:before {
+            content: '';
+            display: block;
+            width: 11vw;
+            height: 15vw;
+            position: absolute;
+            left: 13vw;
+            background: url('../images/snow/santa_claus_hat.png') no-repeat;
+            background-size: contain;
+            animation: hat 2s ease-in-out infinite;
+        }
         &.done {
             background: url('../images/snow/santa_claus_with_hat.png') no-repeat;
             background-size: contain;
+            &:before {
+                display: none;
+            }
         }
     }
 }
@@ -112,4 +126,16 @@ a:focus {
 .htmleaf-content {
     height: 100vw;
     overflow: hidden;
+}
+
+@keyframes hat {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
 }

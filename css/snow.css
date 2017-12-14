@@ -83,10 +83,39 @@ a:focus {
     position: absolute;
     left: 27vw;
     top: 22vw; }
+    .htmleaf-container > .santa-claus:before {
+      content: '';
+      display: block;
+      width: 11vw;
+      height: 15vw;
+      position: absolute;
+      left: 13vw;
+      background: url("../images/snow/santa_claus_hat.png") no-repeat;
+      background-size: contain;
+      -webkit-animation: hat 2s ease-in-out infinite;
+      animation: hat 2s ease-in-out infinite; }
     .htmleaf-container > .santa-claus.done {
       background: url("../images/snow/santa_claus_with_hat.png") no-repeat;
       background-size: contain; }
+      .htmleaf-container > .santa-claus.done:before {
+        display: none; }
 
 .htmleaf-content {
   height: 100vw;
   overflow: hidden; }
+
+@-webkit-keyframes hat {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0.3; }
+  100% {
+    opacity: 1; } }
+
+@keyframes hat {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0.3; }
+  100% {
+    opacity: 1; } }
