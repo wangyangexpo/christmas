@@ -121,15 +121,7 @@ body {
       /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 2px 6px 0 rgba(0, 0, 0, 0.06), inset 0 -2px 4px 0 rgba(0, 0, 0, 0.58); */ }
   .container > .content {
     width: 100vw;
-    position: relative;
-    /* &>.title.find {
-            background: url('../images/share/pic_huodongname_ex.png') no-repeat;
-            background-size: cover;
-            background-position: center bottom;
-            &>.txt {
-                display: none;
-            }
-        } */ }
+    position: relative; }
     .container > .content > .title {
       width: 100vw;
       height: 26.4vw;
@@ -210,7 +202,7 @@ body {
           /* height: 77.5vw; */
           background: #821B1E;
           position: absolute;
-          top: 17.3vw;
+          top: 15.3vw;
           left: 4.3vw;
           border-radius: 0 0 1.5vw 1.5vw; }
           .container > .content > .gift > .desc > .detail > .step {
@@ -464,7 +456,7 @@ body {
   background-size: 50vw 47.2vw;
   background-position: 42vw 0; }
   #tmask:before {
-    content: '点击此处，转发链接给TA';
+    content: '转发链接，送上祝福';
     display: block;
     position: absolute;
     width: 26vw;

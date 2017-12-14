@@ -2,13 +2,13 @@ var baseUrl = 'https://web-huodong.putaocdn.com/';
 
 window.config = {
 
-    version: 'v201712131857',
+    version: 'v201712141238',
 
     is_test: false,
 
-    is_weixin: false,
+    is_weixin: true,
 
-    is_mobike: true,
+    is_mobike: false,
 
     // 下面是项目用到的固定参数，不需要改动
     is_auth: false,
@@ -50,7 +50,7 @@ window.config = {
     authurl: 'https://mobahuodong.putao.com/authorization',
 
     sharetitle: {
-        0: '葡萄积木携手摩拜，送你去芬兰！',
+        0: '葡萄积木携手摩拜单车，送你去芬兰！',
         1: '邀请你一起为xxx助力，赢取芬兰机票！',
         2: '我刚刚通过助力，瓜分了xxx',
     },
@@ -58,7 +58,7 @@ window.config = {
     sharesubtitle: {
         0: '还有全球限量版葡萄积木，积木警车，摩拜年卡等你来拿~',
         1: '还有全球限量版葡萄积木，积木警车，摩拜年卡等你来拿~',
-        2: '葡萄积木携手摩拜，送芬兰机票，等你赢取~',
+        2: '葡萄积木携手摩拜单车，送芬兰机票，等你赢取~',
     },
 
     wish: {
@@ -105,8 +105,8 @@ window.config = {
         '71': '撩妹技能满点，桃花遍地都是',
         '72': '终有一天，睡到爱豆',
         '73': '永远十八，貌美如花',
-        '101': '摩拜葡萄联名月卡',
-        '102': '摩拜葡萄联名年卡',
+        '101': '价值30元<br/>葡萄积木联名摩拜骑行卡',
+        '102': '价值365元<br/>葡萄积木联名摩拜骑行卡',
         '103': '最后一块葡萄积木',
         '104': '葡萄积木警车',
         '105': '芬兰来回机票',

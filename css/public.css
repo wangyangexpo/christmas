@@ -89,6 +89,9 @@ html {
     position: absolute;
     top: 28vw; }
 
+span.orange {
+  color: #ff4612; }
+
 .ontouch {
   -webkit-tap-highlight-color: transparent !important; }
 

@@ -8,7 +8,7 @@
     padding-top: 2vw; }
     .container > .show-wrap > .title {
       width: 90vw;
-      font-size: 6.4vw;
+      font-size: 5.6vw;
       line-height: 1.6;
       text-align: center;
       color: #fff;
@@ -111,7 +111,8 @@
           /* top: -20vw; */ }
           .container > .content > .gift > .desc > .detail > .rule-content {
             background: #821B1E;
-            padding-bottom: 6vw; }
+            padding-bottom: 6vw;
+            border-radius: 0 0 2vw 2vw; }
             .container > .content > .gift > .desc > .detail > .rule-content > .rule-item {
               width: 78vw;
               margin: 5vw auto 0; }
@@ -205,7 +206,7 @@
                 float: right;
                 margin: 2vw 0 0; }
               .container > .content > .gift > .help > ul > li > .wrap > .gift {
-                width: 48vw;
+                width: 50vw;
                 font-size: 4.5vw;
                 color: #fff;
                 text-align: right; }

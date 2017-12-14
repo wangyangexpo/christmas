@@ -98,10 +98,10 @@ var cacheAudio = [{
     //     src: './sound/bell.mp3',
     //     id: 'bell'
     // },
-    {
-        src: './sound/wind.mp3',
-        id: 'wind'
-    },
+    // {
+    //     src: './sound/wind.mp3',
+    //     id: 'wind'
+    // },
     // {
     //     src: './sound/combine.mp3',
     //     id: 'combine'
@@ -397,22 +397,19 @@ function snowBoomAnimate() {
             // boom消失，绑定擦除积雪效果
             _ground.on('touchend', '.snow', function() {
                 createjs.Sound.play("wipe");
-                $(this).off('touchend').addClass('disappear');
-                if ($('.snow.disappear').length == 3) {
-                    $('.hand-1').remove();
-                    $('.tip-1').remove();
-                    createjs.Sound.play("wind");
-                    ticketAnimateIn();
-                    setTimeout(function() {
-                        ticketAnimateOut();
-                    }, 3000);
-                }
+                $('.snow').addClass('disappear');
+                $('.hand-1').remove();
+                $('.tip-1').remove();
+                $('.hand-2').show();
+                $('.tip-2').addClass('show');
             }).on('touchend', '.touch', function() {
                 _ground.off('touchend');
                 _block.addClass('disappear');
                 _model.css('zIndex', 999).addClass('appear');
                 // _alert.css('zIndex', 999).addClass('appear');
-                alertAnimate(_alert, 'fadeInLeft');
+                alertAnimate(_alert, 'fadeInLeft', function() {
+                    _ground.remove();
+                });
                 $('.hand-2').remove();
                 $('.tip-2').remove();
                 _alert.on('touchend', '.btn',  function() {
@@ -449,9 +446,10 @@ function animate(ele, attr, start, end, step, callback) {
     requestAnimationFrame(ani);
 }
 
-function alertAnimate(_alert, css) {
+function alertAnimate(_alert, css, callback) {
     _alert.css('zIndex', 999).addClass(css + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
         $(this).removeClass(css);
+        callback();
     });
 }
 

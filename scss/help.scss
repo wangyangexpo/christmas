@@ -7,7 +7,7 @@
         padding-top: 2vw;
         &>.title {
             width: 90vw;
-            font-size: 6.4vw;
+            font-size: 5.6vw;
             line-height: 1.6;
             text-align: center;
             color: #fff;
@@ -131,6 +131,7 @@
                     &>.rule-content {
                         background: #821B1E;
                         padding-bottom: 6vw;
+                        border-radius: 0 0 2vw 2vw;
                         &>.rule-item {
                             width: 78vw;
                             margin: 5vw auto 0;
@@ -246,7 +247,7 @@
                                 margin: 2vw 0 0;
                             }
                             &>.gift {
-                                width: 48vw;
+                                width: 50vw;
                                 font-size: 4.5vw;
                                 color: #fff;
                                 text-align: right;

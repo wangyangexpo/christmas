@@ -1,26 +1,3 @@
-var imgList = [
-    './images/zhengshu/zhengshu_1.png',
-    './images/zhengshu/zhengshu_2.png',
-    './images/zhengshu/zhengshu_3.png',
-    './images/zhengshu/zhengshu_4.png',
-    './images/zhengshu/zhengshu_5.png',
-    './images/zhengshu/zhengshu_6.png',
-    './images/zhengshu/zhengshu_7.png',
-    './images/zhengshu/zhengshu_8.png',
-    './images/zhengshu/zhengshu_9.png',
-    './images/zhengshu/zhengshu_10.png',
-    './images/zhengshu/zhengshu_11.png',
-    './images/zhengshu/zhengshu_12.png',
-    './images/zhengshu/zhengshu_13.png',
-    './images/zhengshu/zhengshu_14.png',
-    './images/zhengshu/zhengshu_15.png',
-    './images/zhengshu/zhengshu_16.png',
-    './images/zhengshu/zhengshu_17.png',
-    './images/zhengshu/zhengshu_18.png',
-    './images/zhengshu/zhengshu_19.png',
-    './images/zhengshu/zhengshu_20.png',
-]
-
 $(function() {
     var giftid = getData('custom_result');
     var nickname = getData('custom_nickname');

@@ -160,12 +160,11 @@
       width: 51.5vw;
       height: 15.1vw;
       font-size: 5.8vw;
-      line-height: 15vw;
       text-align: center;
       color: #368566;
       position: absolute;
       left: 52%;
-      top: 40%;
+      top: 42%;
       -webkit-transform: translate(-50%, -50%) rotateZ(2deg);
       transform: translate(-50%, -50%) rotateZ(2deg); }
   .container > .content > .logo {

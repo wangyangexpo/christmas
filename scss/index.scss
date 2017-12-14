@@ -103,13 +103,13 @@
             width: 61.3vw;
             height: 17.6vw;
             position: absolute;
-            top: 22.5vw;
+            top: 18.5vw;
             left: 22vw;
             &>p {
                 height: 7vw;
                 line-height: 7vw;
                 text-align: center;
-                font-size: 4.5vw;
+                font-size: 4vw;
                 color: #407C69;
             }
         }
@@ -118,7 +118,7 @@
             height: 12vw;
             position: absolute;
             left: 44vw;
-            bottom: 14vw;
+            bottom: 13vw;
             background: url('../images/btn/btn_next.png') no-repeat;
             background-size: contain;
         }
@@ -486,6 +486,18 @@
     z-index: 112;
 }
 
+.block-ticket {
+    width: 41vw;
+    height: 24vw;
+    position: absolute;
+    left: 17vw;
+    top: 57vw;
+    background: url('../images/ticket.png') no-repeat;
+    background-size: contain;
+    z-index: 112;
+    transform: rotateZ(15deg);
+}
+
 .block-4 {
     width: 14vw;
     height: 7vw;
@@ -740,8 +752,8 @@
 } */
 
 #model {
-    width: 37.6vw;
-    height: 104.9vw;
+    width: 50.6vw;
+    height: 90.9vw;
     background: url('../images/santa_claus_finish.png') no-repeat;
     background-size: contain;
     position: absolute;

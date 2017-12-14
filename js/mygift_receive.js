@@ -2,36 +2,36 @@ FastClick.attach(document.body);
 
 var down_template = [
     '<div class="item left ptly"><div class="name">葡萄乐园<br/>扫码下载APP</div><div class="code code-ptly"><img src="../images/erweima/ptly.png" alt=""></div><div class="txt">在<span>葡萄乐园</span>app，使用抵用券，即可免费领取哦！</div></div>',
-    '<div class="item left mb"><div class="name">摩拜<br/>微信公众号</div><div class="code code-mb"><img src="../images/erweima/mb.png" alt=""></div><div class="txt">长按扫描二维码，下载摩拜APP</div></div>'
+    '<div class="item left mb"><div class="name">摩拜单车<br/>APP</div><div class="code code-mb"><img src="../images/erweima/mb.png" alt=""></div><div class="txt">长按扫描二维码，下载摩拜单车APP</div></div>'
 ]
 
 var mid_template = [
-    '<div class="txt-1">下载葡萄乐园APP<br/>下单即可0元获取</div>',
-    '<div class="txt-2">进入摩拜APP-我的卡券-<br/>优惠码兑换-粘贴兑换码，<br/>即可成功兑换</div>'
+    '<div class="txt-2">下载葡萄乐园app-找到奖品-<br/>加入购物车-使用兑换券-<br/>0元获得奖品</div>',
+    '<div class="txt-2">进入摩拜单车APP-我的卡券-<br/>优惠码兑换-粘贴兑换码，<br/>即可成功兑换</div>'
 ]
 
 var giftlist = {
     '103': {
         name: '葡萄积木芬兰圣诞老人',
-        up_el: ['<div class="quan quan-st"></div><div class="quan-txt"><span class="name">葡萄积木全球限量版圣诞老人兑换券</span>已存入您<br/><span class="phone">', '</span>的手机账户中</div>'],
+        up_el: ['<div class="quan quan-st"></div><div class="quan-txt"><span class="name">葡萄积木全球限量版圣诞老人兑换券</span>已存入您<span class="phone">', '</span>的手机账户中</div>'],
         down_el: 0,
         pre: '1个',
     },
     '104': {
-        name: '葡萄积木警车',
-        up_el: ['<div class="quan quan-jc"></div><div class="quan-txt"><span class="name">葡萄积木警车兑换券</span>已存入您<br/><span class="phone">', '</span>的手机账户中</div>'],
+        name: '葡萄积木《布布百变警车》',
+        up_el: ['<div class="quan quan-jc"></div><div class="quan-txt"><span class="name">葡萄积木警车兑换券</span>已存入您<span class="phone">', '</span>的手机账户中</div>'],
         down_el: 0,
         pre: '1辆',
     },
     '101': {
-        name: '摩拜单车月卡',
-        up_el: ['<div class="code code-m">', '</div><div class="copy">长按复制本券码</div><div class="code-txt">恭喜你获得<br/>价值<span class="name">30元的葡萄科技联名月卡</span>1张</div><div class="code-date">（兑奖时间：2017/12/12～2017/12/31）</div>'],
+        name: '价值30元葡萄积木联名摩拜骑行卡1张',
+        up_el: ['<div class="code code-m">', '</div><div class="copy">长按复制本券码</div><div class="code-txt">恭喜你获得<br/>价值<span class="name">30元葡萄积木联名摩拜骑行卡</span>1张</div><div class="code-date">（兑奖时间：2017/12/12～2017/12/31）</div>'],
         down_el: 1,
         pre: '1张',
     },
     '102': {
-        name: '摩拜单车年卡',
-        up_el: ['<div class="code code-m">', '</div><div class="copy">长按复制本券码</div><div class="code-txt">恭喜你获得<br/>价值<span class="name">365元的葡萄科技联名年卡</span>1张</div><div class="code-date">（兑奖时间：2017/12/12～2017/12/31）</div>'],
+        name: '价值365元葡萄积木联名摩拜骑行卡1张',
+        up_el: ['<div class="code code-m">', '</div><div class="copy">长按复制本券码</div><div class="code-txt">恭喜你获得<br/>价值<span class="name">365元葡萄积木联名摩拜骑行卡</span>1张</div><div class="code-date">（兑奖时间：2017/12/12～2017/12/31）</div>'],
         down_el: 1,
         pre: '1张',
     }

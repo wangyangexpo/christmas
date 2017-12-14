@@ -34,7 +34,7 @@ var test_res = {
         },
     ],
     "master_result": 52, //51-73 || 103
-    "custom_result": 1, //1-20 || 101,102,104
+    "custom_result": 104, //1-20 || 101,102,104
     "nickname": 'xixihaha',
     "custom_code": 'test-8888999966664321',
     "id": 'WMYLWYXNXYXRDYY',
@@ -56,7 +56,7 @@ var test_mygift = {
             "code": ""
         },
         {
-            "result": 101,
+            "result": 102,
             "time": 15812341234,
             "code": "test-8888999966664321"
         },

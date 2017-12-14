@@ -7,22 +7,22 @@ var giftlist = {
         desc: '',
     },
     '104': {
-        name: '葡萄积木警车',
+        name: '葡萄积木《布布百变警车》',
         el: '<img src="../images/opened/jingche.png" alt="" class="jingche">',
         pre: '1辆',
         desc: '获得了葡萄积木《布布百变警车》',
     },
     '101': {
-        name: '摩拜单车月卡',
+        name: '价值30元葡萄积木联名摩拜骑行卡1张',
         el: '<img src="../images/opened/yueka.png" alt="" class="yueka">',
         pre: '1张',
-        desc: '获得了价值30元摩拜&葡萄积木联名骑行卡1张',
+        desc: '获得了价值30元<br/>葡萄积木联名摩拜骑行卡1张',
     },
     '102': {
-        name: '摩拜单车年卡',
+        name: '价值365元葡萄积木联名摩拜骑行卡1张',
         el: '<img src="../images/opened/nianka.png" alt="" class="nianka">',
         pre: '1张',
-        desc: '获得了价值365元摩拜&葡萄积木联名骑行卡1张',
+        desc: '获得了价值365元<br/>葡萄积木联名摩拜骑行卡1张',
     }
 }
 
@@ -55,7 +55,7 @@ $(function() {
     var img = $(gift.el);
     $('.gift-img').append(img);
     $('.gift-name').text(gift.name);
-    $('.gift-desc').text(gift.desc);
+    $('.gift-desc').html(gift.desc);
 
     if(is_weixin()) {
         var url = config.shareorigin + 'html/mygift_opened.html?giftid=' + giftid + '&nickname=' + encodeURIComponent(nickname) + '&isshare=1';
