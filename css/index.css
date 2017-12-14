@@ -484,7 +484,7 @@
   display: none;
   width: 100vw;
   height: 146.9vw;
-  z-index: 115;
+  z-index: 120;
   position: absolute;
   background: url("../images/boom/boom_04.png") no-repeat;
   background-size: contain;
