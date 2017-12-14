@@ -148,7 +148,7 @@ function ajaxGet(url, data, callback) {
     }
 
     data.t = new Date().getTime();
-    //add_auth(data);
+    add_auth(data);
 
     if (!config.is_auth) {
         init(function() {
