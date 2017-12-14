@@ -128,3 +128,13 @@ span.orange {
     background-size: contain;
     z-index: 10000;
 }
+
+
+input.phone,input.code {
+    color: #fff !important;
+}
+
+.getcode.disable {
+    background: rgba(255, 255, 255, .7) !important;
+    border: none !important;
+}

@@ -1,7 +1,7 @@
 FastClick.attach(document.body);
 
 var down_template = [
-    '<div class="item left ptly"><div class="name">葡萄乐园<br/>扫码下载APP</div><div class="code code-ptly"><img src="../images/erweima/ptly.png" alt=""></div><div class="txt">在<span>葡萄乐园</span>app，使用抵用券，即可免费领取哦！</div></div>',
+    '<div class="item left ptly"><div class="name">葡萄乐园<br/>扫码下载APP</div><div class="code code-ptly"><img src="../images/erweima/ptly.png" alt=""></div><div class="txt">在<span>葡萄乐园</span>app，使用兑换券，即可免费领取哦！</div></div>',
     '<div class="item left mb"><div class="name">摩拜单车<br/>APP</div><div class="code code-mb"><img src="../images/erweima/mb.png" alt=""></div><div class="txt">长按扫描二维码，下载摩拜单车APP</div></div>'
 ]
 

@@ -4,14 +4,14 @@ window.config = {
 
     version: 'v201712141415',
 
-    is_test: true,
+    is_test: false,
 
-    is_weixin: false,
+    is_weixin: true,
 
-    is_mobike: true,
+    is_mobike: false,
 
     // 下面是项目用到的固定参数，不需要改动
-    is_auth: true,
+    is_auth: false,
 
     jsbridge: 'https://static.mobike.com/cdn/jsbridge/1.1.1/jsbridge.js',
 

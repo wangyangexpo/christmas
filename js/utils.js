@@ -18,7 +18,7 @@ var test_res = {
     },
     "master_prize_status": 1, // 1 表示主人已经中奖了, 0 表示主人没有中奖
     "master_prize_info": {
-        "result": 101, //抽奖结果
+        "result": 103, //抽奖结果
     },
     "prize_list": [{
             "headimgurl": "../images/test_avatar.jpeg",

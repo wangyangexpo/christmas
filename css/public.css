@@ -108,3 +108,10 @@ span.orange {
   background: url("../images/icon_help.png") no-repeat;
   background-size: contain;
   z-index: 10000; }
+
+input.phone, input.code {
+  color: #fff !important; }
+
+.getcode.disable {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border: none !important; }

@@ -62,7 +62,7 @@ $(function() {
         wxShare(url, 2, gift.pre + gift.name);
     }
 
-    _mgmask.on('click', '.icon-close', function() {
+    _mgmask.on('click', function() {
         _mgmask.find('.bg-rotate,.gift-img>img').addClass('disappear');
         setTimeout(function() {
             _mgmask.hide();
@@ -123,12 +123,12 @@ function getQueryString(name) {
 }
 
 function countDown(sec) {
-	var _count = $('.getcode');
+	var _count = $('.getcode').addClass('disable');
 	var c = setInterval(function(){
 		if(sec) {
 			_count.text((sec - 1) + '秒');
 		} else {
-			_count.text('获取验证码');
+			_count.text('获取验证码').removeClass('disable');
 			clearInterval(c);
 		}
 		sec--;

@@ -265,12 +265,12 @@ function bindGiftCheck() {
 
 
 function countDown(sec) {
-    var _count = $('.getcode');
+    var _count = $('.getcode').addClass('disable');
     var c = setInterval(function() {
         if (sec) {
             _count.text((sec - 1) + '秒');
         } else {
-            _count.text('获取验证码');
+            _count.text('获取验证码').removeClass('disable');
             clearInterval(c);
         }
         sec--;
