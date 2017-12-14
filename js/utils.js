@@ -150,28 +150,55 @@ function ajaxGet(url, data, callback) {
     data.t = new Date().getTime();
     //add_auth(data);
 
-    $.ajax({
-        type: 'get',
-        xhrFields: {
-            withCredentials: true
-        },
-        data: data,
-        url: url,
-        success: function(res) {
+    if (!config.is_auth) {
+        init(function() {
+            $.ajax({
+                type: 'get',
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: data,
+                url: url,
+                success: function(res) {
 
-            if (res.error_code == 0) {
-                console.log('success');
-                callback ? callback(res) : null;
-            } else {
-                if (res.error_code == '42702') {
-                    authorization();
+                    if (res.error_code == 0) {
+                        console.log('success');
+                        callback ? callback(res) : null;
+                    } else {
+                        if (res.error_code == '42702') {
+                            authorization();
+                        } else {
+                            console.log(res.error_code);
+                            alert(config.error[res.error_code]);
+                        }
+                    }
+                }
+            });
+        })
+    } else {
+        $.ajax({
+            type: 'get',
+            xhrFields: {
+                withCredentials: true
+            },
+            data: data,
+            url: url,
+            success: function(res) {
+
+                if (res.error_code == 0) {
+                    console.log('success');
+                    callback ? callback(res) : null;
                 } else {
-                    console.log(res.error_code);
-                    alert(config.error[res.error_code]);
+                    if (res.error_code == '42702') {
+                        authorization();
+                    } else {
+                        console.log(res.error_code);
+                        alert(config.error[res.error_code]);
+                    }
                 }
             }
-        }
-    });
+        });
+    }
 }
 
 //微信授权
@@ -364,25 +391,31 @@ function RandomBetween(Min, Max) {
     return num;
 }
 
-if (is_weixin()) {
+function init(callback) {
+    if (is_weixin()) {
 
-    var uid = getQueryString('uid');
-    var token = getQueryString('token');
+        var uid = getQueryString('uid');
+        var token = getQueryString('token');
 
-    if (uid && token) {
-        config.is_auth = true;
-        setData({
-            uid: uid,
-            token: token
-        })
-        wxShare(config.defaultshareurl, RandomBetween(4, 7));
-    } else if (getData('uid') && getData('token')) {
-        config.is_auth = true;
-        wxShare(config.defaultshareurl, RandomBetween(4, 7));
-    } else {
-        authorization();
+        if (uid && token) {
+            config.is_auth = true;
+            setData({
+                uid: uid,
+                token: token
+            })
+            wxShare(config.defaultshareurl, RandomBetween(4, 7));
+            callback ? callback() : null;
+        } else if (getData('uid') && getData('token')) {
+            config.is_auth = true;
+            wxShare(config.defaultshareurl, RandomBetween(4, 7));
+            callback ? callback() : null;
+        } else {
+            authorization();
+        }
+
+    } else if (is_mobike()) {
+        mobikeShare(config.defaultshareurl, RandomBetween(4, 7));
     }
-
-} else if (is_mobike()) {
-    mobikeShare(config.defaultshareurl, RandomBetween(4, 7));
 }
+
+init();
