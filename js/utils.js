@@ -47,7 +47,7 @@ var test_mygift = {
     "master_info": {
         "headimgurl": "xxx.jpg",
         "nickname": "王阳",
-        "id": 14,
+        "id": 'WMYLWYXNXYXRDYY',
         "status": 0 //1 已领奖 0未领奖
     },
     "prize_list": [{
@@ -56,7 +56,7 @@ var test_mygift = {
             "code": ""
         },
         {
-            "result": 102,
+            "result": 103,
             "time": 15812341234,
             "code": "test-8888999966664321"
         },
@@ -101,7 +101,17 @@ function is_mobike() {
 }
 
 function mobikeShare(url, sid) {
+
+    if (config.is_test) {
+        console.log(config.sharetitle[sid]);
+        console.log(config.sharesubtitle[sid]);
+        console.log(config.shareicon);
+        console.log(url);
+        return;
+    }
+
     if (is_mobike()) {
+
         window.Mobike.menu('menu', {
             title: '分享'
         }, function() {
@@ -153,7 +163,7 @@ function ajaxGet(url, data, callback) {
                 console.log('success');
                 callback ? callback(res) : null;
             } else {
-                if(res.error_code == '42702') {
+                if (res.error_code == '42702') {
                     authorization();
                 } else {
                     console.log(res.error_code);
@@ -312,7 +322,7 @@ function wxShare(url, sid, param) {
     });
 
     wx.ready(function() {
-        DS.ready(function () {
+        DS.ready(function() {
             wx.onMenuShareTimeline({
                 title: title, // 分享标题
                 link: DS.linkChange(shareLink), // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
@@ -347,6 +357,13 @@ function wxShare(url, sid, param) {
     });
 }
 
+function RandomBetween(Min, Max) {
+    var Range = Max - Min;
+    var Rand = Math.random();
+    var num = Min + Math.round(Rand * Range);
+    return num;
+}
+
 if (is_weixin()) {
 
     var uid = getQueryString('uid');
@@ -358,14 +375,14 @@ if (is_weixin()) {
             uid: uid,
             token: token
         })
-        wxShare(config.defaultshareurl, 0);
+        wxShare(config.defaultshareurl, RandomBetween(4, 7));
     } else if (getData('uid') && getData('token')) {
         config.is_auth = true;
-        wxShare(config.defaultshareurl, 0);
+        wxShare(config.defaultshareurl, RandomBetween(4, 7));
     } else {
         authorization();
     }
 
 } else if (is_mobike()) {
-    mobikeShare(config.defaultshareurl, 0);
+    mobikeShare(config.defaultshareurl, RandomBetween(4, 7));
 }

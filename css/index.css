@@ -488,8 +488,8 @@
   position: absolute;
   background: url("../images/boom/boom_04.png") no-repeat;
   background-size: contain;
-  -webkit-animation: fadeDown 4.5s linear;
-  animation: fadeDown 4.5s linear;
+  -webkit-animation: fadeDown 2s linear;
+  animation: fadeDown 2s linear;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards; }
 

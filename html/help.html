@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <p class="copyright mt-4">*所有奖品均不可兑换成现金。</p>
-                    <p class="copyright mt-2 pb-4">*活动最终解释权归摩拜单车&葡萄科技&芬兰国家旅游局所有。</p>
+                    <p class="copyright mt-2 pb-4">*活动最终解释权归葡萄科技所有。</p>
                 </div>
                 <div class="help">
                 </div>
@@ -88,6 +88,7 @@
         <ul class="friends">
             <% 
                 var exist = false;
+                var btncl = giftstatus == 0 ? 'yes' : 'no';
                 for(var i=0; i< giftlist.length; i++) { 
                 var item = giftlist[i];
                 var giftid = item.result;
@@ -104,7 +105,7 @@
                     imgcl = 'jingche';
                 } else if (giftid == 103){
                     imgcl = 'santa';
-                    gift_name = '全球限量版圣诞老人';
+                    gift_name = '葡萄积木全球限量版圣诞老人';
                 } else if (giftid == 105){
                     imgcl = 'ticket';
                 } else if (giftid == 101) {
@@ -114,7 +115,6 @@
                     imgcl = 'nianka';
                     code = item.code;
                 }
-                var btncl = giftstatus == 0 ? 'yes' : 'no';
                 if(imgcl) {
             %>
                 <li>

@@ -361,13 +361,13 @@ function snowBoomAnimate() {
         var _boom = $('.boom');
         var _mask = $('.snow-mask');
         var _alert = $('.res-window');
+        $('.tip-1').addClass('show');
         _mask.show();
         _boom.show().one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
             console.log('ani end');
             _boom.remove();
             _mask.remove();
             $('.hand-1').addClass('gesture');
-            $('.tip-1').addClass('show');
             // boom消失，绑定擦除积雪效果
             _ground.on('touchend', '.snow', function() {
                 createjs.Sound.play("wipe");
