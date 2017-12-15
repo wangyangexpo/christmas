@@ -110,11 +110,13 @@ function render(res) {
         data: res.master_prize_info,
     };
 
+    // 帮助人分享，邀请助力
+    var url = config.shareurl + '?master_uid=' + master_uid;
+    wxShare(url, 1, nickname);
+
     if (master.status == 0 || master.data.result != 103) {
 
-        // 帮助人分享，邀请助力
-        var url = config.shareurl + '?master_uid=' + master_uid;
-        wxShare(url, 1, nickname);
+        
 
         //主人没中奖，或者中的不是圣诞老人
         var custom = {
@@ -139,6 +141,7 @@ function render(res) {
                 if (response.error_code == 0) {
                     //主人中奖自己进领奖页
                     var master_info = response.master_info;
+                    console.log(master_uid);
                     if(master_info.id == master_uid) {
                         // 进来的是主人
                         if(master_info.status == 0) {

@@ -40,9 +40,10 @@ $(function() {
             if (res.error_code == 0) {
                 var giftlist = res.prize_list;
                 var nickname = $.trim(res.master_info.nickname);
+                var mobile = res.master_info.mobile;
                 var giftstatus = res.master_info.status;
                 var master_uid = res.master_info.id;
-                render(giftlist, nickname, master_uid, giftstatus);
+                render(giftlist, nickname, master_uid, giftstatus, mobile);
             }
         })
     }
@@ -51,7 +52,7 @@ $(function() {
     })
 })
 
-function render(giftlist, nickname, master_uid, giftstatus) {
+function render(giftlist, nickname, master_uid, giftstatus, mobile) {
 	console.log(giftlist);
     if (!giftlist || giftlist.length == 0) {
         return;
@@ -73,6 +74,17 @@ function render(giftlist, nickname, master_uid, giftstatus) {
     	} else if (giftid == 103) {
     		location.href = url_2 + '&t=' + new Date().getTime();
     	}
-    	
+    })
+
+    $('.help').on('click', '.no', function() {
+        var giftid = $(this).data('result');
+        var mb_code = $(this).data('code');
+        var url_1 = './mygift_receive.html?giftid=' + giftid + '&phone=' + mobile + '&mb_code=' + mb_code + '&nickname=' + nickname;
+        var url_2 = './share.html?master_uid=' + master_uid;
+        if(giftid == 101 || giftid == 102 || giftid == 104) {
+            location.href = url_1 + '&t=' + new Date().getTime();
+        } else if (giftid == 103) {
+            location.href = url_2 + '&t=' + new Date().getTime();
+        }
     })
 }

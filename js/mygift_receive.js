@@ -67,8 +67,16 @@ $(function() {
             $('.mid_tpl').prepend(midhtml);
 
             if (is_weixin()) {
-                var url = config.shareorigin + 'html/mygift_opened.html?giftid=' + giftid + '&nickname=' + encodeURIComponent(nickname) + '&isshare=1';
-                wxShare(url, 2, gift.pre + gift.name);
+                if(giftid != 103) {
+                    // 非圣诞老人
+                    var url = config.shareorigin + 'html/mygift_opened.html?giftid=' + giftid + '&nickname=' + encodeURIComponent(nickname) + '&isshare=1';
+                    wxShare(url, 2, gift.pre + gift.name);
+                } else if(getData('uid')){
+                    // 中了圣诞老人
+                    var url = config.shareurl + '?master_uid=' + getData('uid');
+                    wxShare(url, 2, gift.pre + gift.name);
+                }
+                
             }
 
         }

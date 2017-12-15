@@ -48,7 +48,7 @@ var test_mygift = {
         "headimgurl": "xxx.jpg",
         "nickname": "王阳",
         "id": 'WMYLWYXNXYXRDYY1',
-        "mobile": '1222222222',
+        "mobile": '12222233333',
         "status": 1 //1 已领奖 0未领奖
     },
     "prize_list": [{
@@ -57,9 +57,9 @@ var test_mygift = {
             "code": ""
         },
         {
-            "result": 103,
+            "result": 104,
             "time": 15812341234,
-            "code": "test-8888999966664321"
+            "code": "test-8888999932611hah"
         },
     ]
 }
@@ -401,7 +401,6 @@ function init(callback) {
 
         var uid = getQueryString('uid');
         var token = getQueryString('token');
-
         if (uid && token) {
             config.is_auth = true;
             setData({
