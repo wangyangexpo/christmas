@@ -229,7 +229,7 @@ function bindGiftCheck() {
             alert('请输入正确的手机号');
             return;
         }
-        if (text == '获取验证码') {
+        if (!_getcode.hasClass('disable')) {
             countDown(60);
             giftGetCode(tel);
         } else {

@@ -12,6 +12,14 @@
 			top: 5.3vw;
 			background: url('../images/opened/card_bg.png') no-repeat;
 			background-size: contain;
+            &>.savetext {
+                position: absolute;
+                bottom: 12vw;
+                right: 8vw;
+                font-size: 3.6vw;
+                color: rgba(255, 255, 255, 0.7);
+                text-align: right;
+            }
 			&>.gift-img {
 				width: 40vw;
 				height: 58.4vw;

@@ -1,7 +1,7 @@
 FastClick.attach(document.body);
 var giftlist = {
     '0': {
-        name: '圣诞精灵证书',
+        name: '圣诞老人送的圣诞精灵证书',
         el: ['<img src="../images/zhengshu/zhengshu_','.png" alt="" class="zhengshu">'],
         pre: '1张',
         desc: '',
@@ -83,7 +83,7 @@ $(function() {
     		alert('请输入正确的手机号');
     		return;
     	}
-    	if(text == '获取验证码') {
+    	if(!_getcode.hasClass('disable')) {
     		countDown(60);
             giftGetCode(tel);
     	} else {

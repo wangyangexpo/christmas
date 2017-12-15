@@ -126,7 +126,7 @@
     &>.hand-1 {
         width: 32vw;
         height: 32vw;
-        background: url('../images/gesture/gesture.png') no-repeat;
+        background: url('../images/gesture/gesture.gif') no-repeat;
         background-size: contain;
         position: absolute;
         pointer-events: none;
@@ -135,7 +135,8 @@
         top: 240vw;
         opacity: 0;
         &.gesture {
-            animation: gesture 6s linear infinite;
+            opacity: 1;
+            transition: 1s;
         }
     }
 

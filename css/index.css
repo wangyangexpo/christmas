@@ -120,7 +120,7 @@
   #stage > .hand-1 {
     width: 32vw;
     height: 32vw;
-    background: url("../images/gesture/gesture.png") no-repeat;
+    background: url("../images/gesture/gesture.gif") no-repeat;
     background-size: contain;
     position: absolute;
     pointer-events: none;
@@ -129,8 +129,9 @@
     top: 240vw;
     opacity: 0; }
     #stage > .hand-1.gesture {
-      -webkit-animation: gesture 6s linear infinite;
-      animation: gesture 6s linear infinite; }
+      opacity: 1;
+      -webkit-transition: 1s;
+      transition: 1s; }
   #stage > .hand-2 {
     width: 32vw;
     height: 32vw;

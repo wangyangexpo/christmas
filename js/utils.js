@@ -167,7 +167,11 @@ function ajaxGet(url, data, callback) {
                     } else {
                         if (res.error_code == '42702') {
                             authorization();
-                        } else {
+                        } else if(res.error_code == '42716') {
+                            console.log(res.error_code);
+                            alert(res.error_msg);
+                        }
+                        else {
                             console.log(res.error_code);
                             alert(config.error[res.error_code]);
                         }

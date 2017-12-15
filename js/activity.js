@@ -41,7 +41,8 @@ $(function() {
             alert('请输入正确的手机号');
             return;
         }
-        if (text == '获取验证码') {
+        if (!_getcode.hasClass('disable')) {
+            console.log('send')
             countDown(60);
             joinGameByPhone(tel);
         } else {
