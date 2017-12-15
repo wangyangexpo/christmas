@@ -135,9 +135,29 @@ function render(res) {
         $('#findtext').text('已经得到最后一块积木，获得一份葡萄积木全球限量版圣诞老人');
         if (headimgurl) {
             // 主人是微信用户获取当前访问的微信uid
-            joinGameByWX(function(response) {
-                if (response.error_code == 0 && response.id == master_uid) {
-                    $('.check-code').show();
+            checkMyGift(function(response) {
+                if (response.error_code == 0) {
+                    //主人中奖自己进领奖页
+                    var master_info = response.master_info;
+                    if(master_info.id == master_uid) {
+                        // 进来的是主人
+                        if(master_info.status == 0) {
+                            // 主人未领奖
+                            $('.check-code').show();
+                        } else {
+                            // 主人领过了
+                            var mobile = master_info.mobile;
+                            $('.no-check').show();
+                            setData({
+                                nickname: mobile
+                            })
+                            // location.href = './mygift_receive.html?t=' + new Date().getTime();
+                            //location.href = './mygift_receive.html?giftid=103&phone=' + mobile + '&t=' + new Date().getTime();
+                        }
+                        
+                    } else {
+                        // 进来的是客人
+                    }
                 }
             })
 
@@ -205,7 +225,7 @@ function bindOpenGift(master_uid) {
         // 离开页面
         $('#ogmask').hide();
         setTimeout(function() {
-            location.href = './mygift_unopen.html';
+            location.href = './mygift_unopen.html?t=' + new Date().getTime();
         }, 500);
     })
 
@@ -252,14 +272,14 @@ function bindGiftCheck() {
 
         giftCheckCode(tel, code, function(res) {
             if (res.error_code == 0) {
-                location.href = './mygift_receive.html?giftid=103&phone=' + tel;
+                location.href = './mygift_receive.html?giftid=103&phone=' + tel + '&t=' + new Date().getTime();
             }
         })
 
     });
 
     $('.no-check').on('click', '.commit', function() {
-        location.href = './mygift_receive.html?giftid=103&phone=' + getData('nickname');
+        location.href = './mygift_receive.html?giftid=103&phone=' + getData('nickname') + '&t=' + new Date().getTime();
     })
 }
 

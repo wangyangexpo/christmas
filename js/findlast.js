@@ -5,7 +5,7 @@ $(function() {
 	$(".snow-canvas").snow();
 
     $('.btn').on('click', function() {
-        location.href = './activity.html';
+        location.href = './activity.html?t=' + new Date().getTime();
     })
     createjs.Sound.on("fileload", function() {
     	createjs.Sound.play('bgm');

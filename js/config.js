@@ -2,13 +2,13 @@ var baseUrl = 'https://web-huodong.putaocdn.com/';
 
 window.config = {
 
-    version: 'v201712150012',
+    version: 'v201712151535',
 
     is_test: false,
 
-    is_weixin: false,
+    is_weixin: true,
 
-    is_mobike: true,
+    is_mobike: false,
 
     // 下面是项目用到的固定参数，不需要改动
     is_auth: false,

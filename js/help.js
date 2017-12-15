@@ -47,7 +47,7 @@ $(function() {
         })
     }
     $('.join').on('click', function() {
-        location.href = './activity.html';
+        location.href = './activity.html?t=' + new Date().getTime();
     })
 })
 
@@ -69,9 +69,9 @@ function render(giftlist, nickname, master_uid, giftstatus) {
     	if(giftid == 101 || giftid == 102 || giftid == 104) {
     		var code = $(this).data('code');
     		setData({'mb_code': code});
-    		location.href = url_1;
+    		location.href = url_1 + '&t=' + new Date().getTime();
     	} else if (giftid == 103) {
-    		location.href = url_2;
+    		location.href = url_2 + '&t=' + new Date().getTime();
     	}
     	
     })

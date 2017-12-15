@@ -47,8 +47,9 @@ var test_mygift = {
     "master_info": {
         "headimgurl": "xxx.jpg",
         "nickname": "王阳",
-        "id": 'WMYLWYXNXYXRDYY',
-        "status": 0 //1 已领奖 0未领奖
+        "id": 'WMYLWYXNXYXRDYY1',
+        "mobile": '1222222222',
+        "status": 1 //1 已领奖 0未领奖
     },
     "prize_list": [{
             "result": 2,

@@ -106,7 +106,7 @@ $(function() {
 
         giftCheckCode(tel, code, function(res) {
             if(res.error_code == 0) {
-                location.href = './mygift_receive.html?giftid=' + giftid + '&mb_code=' + mb_code + '&phone=' + tel +'&nickname=' + encodeURIComponent(nickname);
+                location.href = './mygift_receive.html?giftid=' + giftid + '&mb_code=' + mb_code + '&phone=' + tel +'&nickname=' + encodeURIComponent(nickname) + '&t=' + new Date().getTime();
             }
         })
 

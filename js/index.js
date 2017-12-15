@@ -387,7 +387,7 @@ function snowBoomAnimate() {
                 $('.hand-2').remove();
                 $('.tip-2').remove();
                 _alert.on('touchend', '.btn',  function() {
-                    location.href = './html/findlast.html';
+                    location.href = './html/findlast.html?t=' + new Date().getTime();
                 })
             })
         });
