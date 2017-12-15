@@ -113,7 +113,7 @@ function render(res) {
     if (master.status == 0 || master.data.result != 103) {
 
         // 帮助人分享，邀请助力
-        var url = window.location.href;
+        var url = config.shareurl + '?master_uid=' + master_uid;
         wxShare(url, 1, nickname);
 
         //主人没中奖，或者中的不是圣诞老人
