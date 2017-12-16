@@ -79,7 +79,7 @@ function render(giftlist, nickname, master_uid, giftstatus, mobile) {
     $('.help').on('click', '.no', function() {
         var giftid = $(this).data('result');
         var mb_code = $(this).data('code');
-        var url_1 = './mygift_receive.html?giftid=' + giftid + '&phone=' + mobile + '&mb_code=' + mb_code + '&nickname=' + nickname;
+        var url_1 = './mygift_receive.html?giftid=' + giftid + '&phone=' + mobile + '&mb_code=' + mb_code + '&nickname=' + encodeURIComponent(nickname);
         var url_2 = './share.html?master_uid=' + master_uid;
         if(giftid == 101 || giftid == 102 || giftid == 104) {
             location.href = url_1 + '&t=' + new Date().getTime();
