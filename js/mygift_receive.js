@@ -13,13 +13,13 @@ var mid_template = [
 var giftlist = {
     '103': {
         name: '葡萄积木芬兰圣诞老人',
-        up_el: ['<div class="quan quan-st"></div><div class="quan-txt"><span class="name">葡萄积木全球限量版圣诞老人兑换券</span>已存入您<span class="phone">', '</span>的手机账户中</div>'],
+        up_el: ['<div class="quan quan-st"></div><div class="quan-txt"><span class="name">您的兑换券在审核完成后</span>将存入您<span class="phone">', '</span>的手机账户中</div>'],
         down_el: 0,
         pre: '1个',
     },
     '104': {
         name: '葡萄积木《布布百变警车》',
-        up_el: ['<div class="quan quan-jc"></div><div class="quan-txt"><span class="name">葡萄积木警车兑换券</span>已存入您<span class="phone">', '</span>的手机账户中</div>'],
+        up_el: ['<div class="quan quan-jc"></div><div class="quan-txt"><span class="name">您的兑换券在审核完成后</span>将存入您<span class="phone">', '</span>的手机账户中</div>'],
         down_el: 0,
         pre: '1辆',
     },

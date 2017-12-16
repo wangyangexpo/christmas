@@ -168,11 +168,10 @@ function ajaxGet(url, data, callback) {
                     } else {
                         if (res.error_code == '42702') {
                             authorization();
-                        } else if(res.error_code == '42716') {
+                        } else if (res.error_code == '42716') {
                             console.log(res.error_code);
                             alert(res.error_msg);
-                        }
-                        else {
+                        } else {
                             console.log(res.error_code);
                             alert(config.error[res.error_code]);
                         }
@@ -401,15 +400,24 @@ function init(callback) {
 
         var uid = getQueryString('uid');
         var token = getQueryString('token');
+        var fromshare = getQueryString('from');
         if (uid && token) {
-            config.is_auth = true;
-            setData({
-                uid: uid,
-                token: token
-            })
-            wxShare(config.defaultshareurl, RandomBetween(4, 7));
-            callback ? callback() : null;
+            if (fromshare == 'timeline' || fromshare == 'singlemessage') {
+                // 用户错进了别人的分享信息页
+                authorization();
+            } else {
+                // 授权返回的页面
+                config.is_auth = true;
+                setData({
+                    uid: uid,
+                    token: token
+                })
+                wxShare(config.defaultshareurl, RandomBetween(4, 7));
+                callback ? callback() : null;
+            }
+
         } else if (getData('uid') && getData('token')) {
+            // 已经授权过的页面
             config.is_auth = true;
             wxShare(config.defaultshareurl, RandomBetween(4, 7));
             callback ? callback() : null;
