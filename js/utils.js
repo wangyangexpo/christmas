@@ -343,7 +343,7 @@ function wxShare(url, sid, param) {
                     timestamp: res.timestamp,
                     nonceStr: res.noncestr,
                     signature: res.signature,
-                    jsApiList: res.jsApiList
+                    jsApiList: jsApiList
                 });
 
             } else {
