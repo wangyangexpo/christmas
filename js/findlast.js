@@ -2,7 +2,8 @@ FastClick.attach(document.body);
 
 $(function() {
 
-	$(".snow-canvas").snow();
+	// $(".snow-canvas").snow();
+	$(".snow-canvas").websnowjq({ snowFlakes: 16 });
 
     $('.btn').on('click', function() {
         location.href = './activity.html?t=' + new Date().getTime();

@@ -80,7 +80,8 @@ preloadImages(imgList, function() {
 
 $(function() {
 
-    $(".snow-canvas").snow();
+    // $(".snow-canvas").snow();
+    $(".snow-canvas").websnowjq({ snowFlakes: 20 });
 
     getAssistList(master_uid, function(res) {
         if (res.error_code == 0) {

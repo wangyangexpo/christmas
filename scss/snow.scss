@@ -12,11 +12,47 @@
 .snow-canvas {
     display: block;
     width: 100vw;
-    height: 160vw;
-    top: 0;
-    left: 0;
+    height: 100vw;
     position: absolute;
     pointer-events: none;
+}
+
+.snow-wrap {
+    display: block;
+    width: 100vw;
+    height: 100vw;
+    position: absolute;
+    pointer-events: none;
+    background: url('../images/share/bg_xmas.png') no-repeat;
+    background-size: 100vw 100vw;
+    background-size: cover;
+    &>.santa-claus {
+        width: 37vw;
+        height: 80vw;
+        background: url('../images/snow/santa_claus_no_hat.png') no-repeat;
+        background-size: contain;
+        position: absolute;
+        left: 32vw;
+        top: 22vw;
+        &:before {
+            content: '';
+            display: block;
+            width: 11vw;
+            height: 15vw;
+            position: absolute;
+            left: 13vw;
+            background: url('../images/snow/santa_claus_hat.png') no-repeat;
+            background-size: contain;
+            animation: hat 1s ease-in-out infinite;
+        }
+        &.done {
+            background: url('../images/snow/santa_claus_with_hat.png') no-repeat;
+            background-size: contain;
+            &:before {
+                display: none;
+            }
+        }
+    }
 }
 
 [class^="icon-"],
@@ -42,6 +78,8 @@ html {
 }
 
 
+
+
 /* Reset */
 
 *,
@@ -51,6 +89,8 @@ html {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+
 
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
@@ -84,14 +124,13 @@ a:focus {
     color: #74777b;
 }
 
-.htmleaf-container {
+/* .htmleaf-container {
     width: 100vw;
     height: 100vw;
     margin: 0 auto;
     text-align: center;
-    /* overflow: hidden; */
     background: url('../images/share/bg_xmas.png') no-repeat;
-    background-size:  100vw 100vw;
+    background-size: 100vw 100vw;
     background-size: cover;
     position: absolute;
     &>.santa-claus {
@@ -126,7 +165,7 @@ a:focus {
 .htmleaf-content {
     height: 100vw;
     overflow: hidden;
-}
+} */
 
 @keyframes hat {
     0% {

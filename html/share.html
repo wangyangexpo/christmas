@@ -21,13 +21,17 @@
 
 <body>
     <div class="info">点礼盒找葡萄积木，瓜分大礼！</div>
-    <div class="htmleaf-container">
+    <div class="snow-wrap">
+        <canvas class="snow-canvas"></canvas>
+        <div class="santa-claus" id="santa_claus"></div>
+    </div>
+    <!-- <div class="htmleaf-container">
         <div class="santa-claus" id="santa_claus"></div>
         <div class="htmleaf-content">
             <canvas class="snow-canvas" speed="1" interaction="false" size="3" count="100" opacity="0.00001" start-color="rgba(253,252,251,1)" end-color="rgba(251,252,253,0.3)" wind-power="-2" image="false" width="1366" height="667"></canvas>
             <canvas class="snow-canvas" speed="3" interaction="true" size="8" count="30" start-color="rgba(253,252,251,1)" end-color="rgba(251,252,253,0.3)" opacity="0.00001" wind-power="-1" image="false" width="1366" height="667"></canvas>
         </div>
-    </div>
+    </div> -->
     <div class="container">
         <div class="check-code">
             <input type="text" class="phone" placeholder="请输入手机号用于后续兑奖" maxlength="11">
@@ -146,7 +150,8 @@
     <script src='../js/zepto.min.js'></script>
     <script src='../js/fastclick.js'></script>
     <script src='../js/template.native.js'></script>
-    <script src='../js/snow_plugin.js'></script>
+    <!-- <script src='../js/snow_plugin.js'></script> -->
+    <script src='../js/websnow.js'></script>
     <script src='../js/config.js'></script>
     <script src='../js/utils.js'></script>
     <script src='../js/share.js'></script>
