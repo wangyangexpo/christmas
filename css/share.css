@@ -3,6 +3,8 @@ body {
   overflow: scroll !important;
   min-height: 100vh;
   background-color: #0B774E; }
+  body > .before {
+    display: none; }
   body > .info {
     width: 88vw;
     border-radius: 20vw;
@@ -19,6 +21,28 @@ body {
     padding: 3vw 0;
     pointer-events: none;
     z-index: 999; }
+  body > #loading {
+    width: 100vw;
+    height: 177.8vw;
+    background-color: #091e39;
+    position: relative; }
+    body > #loading > #loading_pic {
+      position: absolute;
+      left: 30vw;
+      top: 60vw;
+      width: 40vw;
+      height: 49.5vw;
+      display: block;
+      background: url("../images/loading/6lian1.jpg") no-repeat;
+      background-size: auto 49.5vw;
+      background-position: 0vw; }
+    body > #loading > #loading_text {
+      width: 100vw;
+      text-align: center;
+      color: #fff;
+      font-size: 3.6vw;
+      position: absolute;
+      top: 120vw; }
 
 .container {
   position: absolute;

@@ -63,8 +63,26 @@ var imgList = [
     '../images/unopen/pic_liwu.png',
     '../images/unopen/pic_qipao.png',
     '../images/unopen/santa.png',
+    '../images/snow/santa_claus_hat.png',
+    '../images/snow/santa_claus_with_hat.png',
+    '../images/snow/santa_claus_no_hat.png',
 
 ];
+
+var loadingani = loading();
+var loadindret = setTimeout(function() {
+    if(!ajaxReturn) {
+        console.log('ajax again!!!');
+        getAssistList(master_uid, function(res) {
+            if (res.error_code == 0) {
+                ajaxReturn = res;
+                if(imgLoaded) {
+                    render(res);
+                }
+            }
+        })
+    }
+}, 10000);
 
 var ajaxReturn;
 var imgLoaded = false;
@@ -81,7 +99,7 @@ preloadImages(imgList, function() {
 $(function() {
 
     // $(".snow-canvas").snow();
-    $(".snow-canvas").websnowjq({ snowFlakes: 20 });
+    // $(".snow-canvas").websnowjq({ snowFlakes: 20 });
 
     getAssistList(master_uid, function(res) {
         if (res.error_code == 0) {
@@ -96,6 +114,16 @@ $(function() {
 
 
 function render(res) {
+    if(!loadindret) {
+        return;
+    }
+    clearInterval(loadingani);
+    clearTimeout(loadindret);
+    loadingani = null;
+    loadindret = null;
+    $('#loading').remove();
+    $('.before').show();
+    $(".snow-canvas").websnowjq({ snowFlakes: 20 });
     var nickname = $.trim(res.master_info.nickname);
 
     setData({
@@ -317,4 +345,14 @@ function preloadImages(list, callback) {
         };
 
     }
+}
+
+function loading() {
+    var bgp = 0;
+    var _loading = $('#loading_pic');
+    return setInterval(function() {
+        bgp %= 6;
+        _loading.css('backgroundPosition', -bgp * 40 + 'vw');
+        bgp++;
+    }, 100)
 }

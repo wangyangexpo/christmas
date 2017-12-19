@@ -6,6 +6,10 @@ body {
     min-height: 100vh;
     background-color: $bgcolor;
 
+    &>.before {
+        display: none;
+    }
+
     &>.info {
         width: 88vw;
         border-radius: 20vw;
@@ -21,6 +25,33 @@ body {
         padding: 3vw 0;
         pointer-events: none;
         z-index: 999;
+    }
+
+    &>#loading {
+        width: 100vw;
+        height: 177.8vw;
+        background-color: #091e39;
+        position: relative;
+        &>#loading_pic {
+            position: absolute;
+            left: 30vw;
+            top: 60vw;
+            width: 40vw;
+            height: 49.5vw;
+            display: block;
+            background: url('../images/loading/6lian1.jpg') no-repeat;
+            background-size: auto 49.5vw;
+            background-position: 0vw;
+        }
+
+        &>#loading_text {
+            width: 100vw;
+            text-align: center;
+            color: #fff;
+            font-size: 3.6vw;
+            position: absolute;
+            top: 120vw;
+        }
     }
 }
 
@@ -349,7 +380,7 @@ body {
                             left: 24vw;
                             top: 11.2vw;
                             &.gift-103 {
-                            	color: yellow;
+                                color: yellow;
                             }
                         }
                         &>.date {
@@ -500,28 +531,28 @@ body {
 }
 
 #tmask {
-	display: none;
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100vw;
-	height: 100vh;
-	background: rgba(0, 0, 0, .7);
-	z-index: 9999;
-	background-image: url('../images/receive/pic_tellhim.png');
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .7);
+    z-index: 9999;
+    background-image: url('../images/receive/pic_tellhim.png');
     background-repeat: no-repeat;
     background-size: 50vw 47.2vw;
     background-position: 42vw 0;
     &:before {
-    	content: '转发链接，送上祝福';
-    	display: block;
-    	position: absolute;
-    	width: 26vw;
-    	line-height: 1.4;
-    	font-size: 4vw;
-    	color: #fff;
-    	text-align: center;
-    	top: 50vw;
-    	left: 37vw;
+        content: '转发链接，送上祝福';
+        display: block;
+        position: absolute;
+        width: 26vw;
+        line-height: 1.4;
+        font-size: 4vw;
+        color: #fff;
+        text-align: center;
+        top: 50vw;
+        left: 37vw;
     }
 }

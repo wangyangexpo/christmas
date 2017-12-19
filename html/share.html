@@ -10,29 +10,29 @@
     <link rel="stylesheet" href="../css/public.css">
     <link rel="stylesheet" href="../css/snow.css">
     <link rel="stylesheet" href="../css/share.css">
+    <link rel="preload" href="../images/loading/6lian1.jpg" as="image">
     <script id="DS_PRE_JS" type="text/javascript" src="https://cdn.datastory.com.cn/js/pre-ds-min.js?dsTid=cc899438-655c-468f-b033-efe0d8fc367c"></script>
     <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <style>
-        body {
-            background-color: #0B774E;
-        }
+    body {
+        background-color: #0B774E;
+    }
     </style>
 </head>
 
 <body>
-    <div class="info">点礼盒找葡萄积木，瓜分大礼！</div>
-    <div class="snow-wrap">
+    <div class="loading" id="loading">
+        <div id="loading_pic"></div>
+        <div class="loading_text" id="loading_text">
+            你的礼物正在打包中…
+        </div>
+    </div>
+    <div class="info before">点礼盒找葡萄积木，瓜分大礼！</div>
+    <div class="snow-wrap before">
         <canvas class="snow-canvas"></canvas>
         <div class="santa-claus" id="santa_claus"></div>
     </div>
-    <!-- <div class="htmleaf-container">
-        <div class="santa-claus" id="santa_claus"></div>
-        <div class="htmleaf-content">
-            <canvas class="snow-canvas" speed="1" interaction="false" size="3" count="100" opacity="0.00001" start-color="rgba(253,252,251,1)" end-color="rgba(251,252,253,0.3)" wind-power="-2" image="false" width="1366" height="667"></canvas>
-            <canvas class="snow-canvas" speed="3" interaction="true" size="8" count="30" start-color="rgba(253,252,251,1)" end-color="rgba(251,252,253,0.3)" opacity="0.00001" wind-power="-1" image="false" width="1366" height="667"></canvas>
-        </div>
-    </div> -->
-    <div class="container">
+    <div class="container before">
         <div class="check-code">
             <input type="text" class="phone" placeholder="请输入手机号用于后续兑奖" maxlength="11">
             <input type="text" class="code" placeholder="请输入验证码" maxlength="6">
@@ -48,7 +48,6 @@
             </div>
             <div class="gift bg-wenli">
                 <div class="box">
-                    
                 </div>
                 <div class="desc">
                     <a class="trigger" href="./help.html">我的奖励</a>
@@ -69,18 +68,15 @@
                     </div>
                 </div>
                 <div class="help assist-wrap">
-                    
                 </div>
             </div>
         </div>
     </div>
     <div class="open-gift-mask mask" id="ogmask">
         <div class="card bg-wenli gift-wrap">
-           
         </div>
     </div>
     <div class="tellmask mask" id="tmask">
-        
     </div>
     <script id="box_tpl" type="text/html">
         <% for(var i=1; i< 4; i++) { 
@@ -138,13 +134,19 @@
                 }
                 var afttext = (giftid > 50 && giftid < 74) ? '!' : '“';
             %>
-            <li>
-                <img src="<%=headimgurl%>" alt="" class="avatar">
-                <div class="name"><%=nickname%></div>
-                <div class="gift gift-<%=giftid%>"><%=pretext + giftName(giftid) + afttext%></div>
-                <div class="date"><%=dateFormat(item.time)%></div>
-            </li>
-            <% } %>
+                <li>
+                    <img src="<%=headimgurl%>" alt="" class="avatar">
+                    <div class="name">
+                        <%=nickname%>
+                    </div>
+                    <div class="gift gift-<%=giftid%>">
+                        <%=pretext + giftName(giftid) + afttext%>
+                    </div>
+                    <div class="date">
+                        <%=dateFormat(item.time)%>
+                    </div>
+                </li>
+                <% } %>
         </ul>
     </script>
     <script src='../js/zepto.min.js'></script>
