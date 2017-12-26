@@ -1,6 +1,7 @@
 .container {
     background: #027F6E;
     &>.show-wrap {
+        display: none;
         width: 100vw;
         min-height: 60vw;
         position: relative;
@@ -98,6 +99,14 @@
                 position: absolute;
                 bottom: 10vw;
             }
+        }
+    }
+    &>.end-wrap {
+        width: 100vw;
+        &>img {
+            display: block;
+            width: 100vw;
+            height: auto;
         }
     }
     &>.content {

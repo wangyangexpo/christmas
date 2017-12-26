@@ -2,6 +2,7 @@
 .container {
   background: #027F6E; }
   .container > .show-wrap {
+    display: none;
     width: 100vw;
     min-height: 60vw;
     position: relative;
@@ -83,6 +84,12 @@
         background-position: bottom center;
         position: absolute;
         bottom: 10vw; }
+  .container > .end-wrap {
+    width: 100vw; }
+    .container > .end-wrap > img {
+      display: block;
+      width: 100vw;
+      height: auto; }
   .container > .content {
     width: 100vw;
     position: relative; }

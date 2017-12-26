@@ -174,6 +174,9 @@ function ajaxGet(url, data, callback) {
                         } else {
                             console.log(res.error_code);
                             alert(config.error[res.error_code]);
+                            if(res.error_code == '42720') {
+                                location.href = './help.html?t=' + new Date().getTime();
+                            }
                         }
                     }
                 }
@@ -198,6 +201,9 @@ function ajaxGet(url, data, callback) {
                     } else {
                         console.log(res.error_code);
                         alert(config.error[res.error_code]);
+                        if(res.error_code == '42720') {
+                            location.href = './help.html?t=' + new Date().getTime();
+                        }
                     }
                 }
             }
