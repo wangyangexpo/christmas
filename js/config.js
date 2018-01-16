@@ -2,16 +2,16 @@ var baseUrl = 'https://web-huodong.putaocdn.com/';
 
 window.config = {
 
-    version: 'v201712161443',
+    version: 'v201712261025',
 
-    is_test: false,
+    is_test: true,
 
     is_weixin: true,
 
     is_mobike: false,
 
     // 下面是项目用到的固定参数，不需要改动
-    is_auth: false,
+    is_auth: true,
 
     jsbridge: 'https://static.mobike.com/cdn/jsbridge/1.1.1/jsbridge.js',
 

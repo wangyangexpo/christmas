@@ -57,7 +57,7 @@ var test_mygift = {
             "code": ""
         },
         {
-            "result": 104,
+            "result": 103,
             "time": 15812341234,
             "code": "test-8888999932611hah"
         },
